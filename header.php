@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'k2k' ); ?></a>
-
+        
 	<header id="masthead" class="site-header" role="banner">
 
 		<?php get_template_part( 'components/header/site', 'branding' ); ?>
@@ -35,4 +35,13 @@
 		<?php k2k_social_menu(); ?>
 
 	</header>
+        
+        <?php if ( get_header_image() ) : ?>
+        <figure class="header-image">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                        <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+                </a>
+        </figure>
+	<?php endif; // End header image check. ?>
+        
 	<div id="content" class="site-content">

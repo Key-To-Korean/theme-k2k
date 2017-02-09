@@ -22,9 +22,9 @@
 function k2k_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'k2k_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
+		'default-text-color'     => 'ffffff',
 		'width'                  => 2000,
-		'height'                 => 250,
+		'height'                 => 850,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'k2k_header_style',
 	) ) );
