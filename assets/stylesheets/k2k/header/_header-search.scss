@@ -1,0 +1,27 @@
+.search-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgba(255,255,255,0.8);
+    width: 2em;
+    height: 2em;
+    z-index: 1;
+}
+
+.search-box-wrapper {
+    position: fixed;
+    top: 0;
+    height: 3em;
+    background: white;
+    z-index: 1;
+    width: 100%;
+    padding: 0.25em 1em;
+    
+    .search-field {
+        width: calc(100% - 2em);
+    }
+    
+    .search-submit {
+        display: none;
+    }
+}

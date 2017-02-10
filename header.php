@@ -23,25 +23,32 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'k2k' ); ?></a>
+
+            <!-- Site Search over EVERYTHING else - pushes site down if opened -->
+            <div id="site-search-container" class="search-box-wrapper clear">
+                <div class="site-search clear small-12 columns">
+                    <?php get_search_form(); ?>
+                </div><!-- .site-search -->
+            </div><!-- #site-search-container -->
+            <div class="search-toggle">
+                <i class="fa fa-search">O</i>
+                <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>
+            </div>
         
-	<header id="masthead" class="site-header" role="banner">
-
+            <header role="banner" id="masthead" class="site-header <?php 
+                if ( get_header_image() && is_front_page() ) : ?>
+                    header-image" style="background-image: url('<?php header_image(); ?>')
+                <?php endif; ?>">
+                
+                <div class="gradient-overlay"></div>
+                
 		<?php get_template_part( 'components/header/site', 'branding' ); ?>
-
-		<?php k2k_the_custom_logo(); ?>
 
 		<?php get_template_part( 'components/navigation/navigation', 'top' ); ?>
 
 		<?php k2k_social_menu(); ?>
 
-	</header>
+            </header>
         
-        <?php if ( get_header_image() ) : ?>
-        <figure class="header-image">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-                </a>
-        </figure>
-	<?php endif; // End header image check. ?>
         
 	<div id="content" class="site-content">

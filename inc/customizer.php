@@ -14,8 +14,33 @@ function k2k_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+        
+        /**
+         * Extended Blog Description
+         */
+        $wp_customize->add_setting( 'blogdescription_xl',
+                array(
+                    'default'           => '',
+                    'sanitize_callback' => 'k2k_sanitize_html',
+                    'priority'          => 20
+                ));
+        
+        $wp_customize->add_control( 'blogdescription_xl',
+                array(
+                    'type'              => 'text',
+                    'section'           => 'title_tagline',
+                    'label'             => __( 'Extended Blog Description', 'k2k' ),
+                    'description'       => __( 'You can put a descriptive paragraph here, including HTML links.', 'k2k' )
+                ));
 }
 add_action( 'customize_register', 'k2k_customize_register' );
+
+/**
+ * Sanitize HTML
+ */
+function k2k_sanitize_html( $input ) {
+        return wp_kses_post( force_balance_tags( $input ), array( 'a' => array( 'href' => array() ) ) );
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

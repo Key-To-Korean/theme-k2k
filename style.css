@@ -343,8 +343,6 @@ th {
 .entry-content:after,
 .comment-content:before,
 .comment-content:after,
-.site-header:before,
-.site-header:after,
 .site-content:before,
 .site-content:after,
 .site-footer:before,
@@ -357,7 +355,6 @@ th {
 .clear:after,
 .entry-content:after,
 .comment-content:after,
-.site-header:after,
 .site-content:after,
 .site-footer:after {
 	clear: both;
@@ -373,8 +370,8 @@ select,
 textarea {
 	color: #1d1f21;
 	font-family: "Noto Sans KR", "Noto Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
-	font-size: 18px;
-	font-size: 1.125rem;
+	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.8;
 }
 
@@ -553,30 +550,21 @@ input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, 0.8);
+	background: transparent;
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1;
 	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-button:hover,
+button:hover, button:active, button:focus,
 input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-
-button:active, button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
+input[type="reset"]:hover,
 input[type="reset"]:active,
 input[type="reset"]:focus,
+input[type="submit"]:hover,
 input[type="submit"]:active,
 input[type="submit"]:focus {
 	border-color: #aaa #bbb #bbb;
@@ -633,79 +621,6 @@ table {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-}
-
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: -999em;
-	z-index: 99999;
-}
-
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	left: 100%;
-}
-
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	float: left;
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-.menu-toggle:before {
-	content: "\2630";
-	display: inline-block;
-	margin-right: 5px;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
-
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
@@ -985,11 +900,8 @@ object {
 .header-image {
 	margin: 0;
 	max-height: 60vh;
-	overflow: hidden;
-}
-
-.header-image img {
-	width: 100vw;
+	background-size: cover;
+	background-position-x: center;
 }
 
 .site-header {
@@ -1004,11 +916,56 @@ object {
 	}
 }
 
+.gradient-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #86af49;
+	/* Old browsers */
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(134, 175, 73, 0.8) 0%, rgba(0, 98, 163, 0.8) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(134, 175, 73, 0.8) 0%, rgba(0, 98, 163, 0.8) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86af49', endColorstr='#0062a3',GradientType=1 );
+	/* IE6-9 */
+}
+
 .site-branding {
+	/*display: flex;*/
 	min-height: 65px;
 }
 
+.custom-logo-link {
+	margin-right: 1em;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 auto;
+	        flex: 1 0 auto;
+}
+
+.custom-logo-link img {
+	display: inline;
+	height: 65px;
+	width: auto;
+}
+
+.site-branding-text {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+
 .site-title {
+	font-family: "Noto Sans KR", "Noto Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	font-size: 1.6em;
@@ -1028,11 +985,14 @@ object {
 .site-description {
 	margin: 0;
 	font-size: 0.9em;
-	font-style: italic;
-	font-weight: 100;
+	font-weight: 300;
 }
 
-@media screen and (min-width: 62.5em) {
+.site-description a {
+	color: #fff;
+}
+
+@media screen and (min-width: 37.5em) {
 	.site-header {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -1040,12 +1000,140 @@ object {
 		-webkit-box-pack: justify;
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
 	}
 	.site-branding {
 		width: 35%;
+		-webkit-box-flex: 0;
+		    -ms-flex: 0 0 auto;
+		        flex: 0 0 auto;
 	}
-	.site-navigation {
+	.main-navigation {
 		width: 55%;
+		-webkit-box-flex: 0;
+		    -ms-flex: 0 0 auto;
+		        flex: 0 0 auto;
+	}
+}
+
+/*--------------------------------------------------------------
+# Header Search
+--------------------------------------------------------------*/
+.search-toggle {
+	position: fixed;
+	top: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.8);
+	width: 2em;
+	height: 2em;
+	z-index: 1;
+}
+
+.search-box-wrapper {
+	position: fixed;
+	top: 0;
+	height: 3em;
+	background: white;
+	z-index: 1;
+	width: 100%;
+	padding: 0.25em 1em;
+}
+
+.search-box-wrapper .search-field {
+	width: calc(100% - 2em);
+}
+
+.search-box-wrapper .search-submit {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+# Header Menu
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 1.5em;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	left: 100%;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation li {
+	/*float: left;*/
+	text-align: right;
+	border-bottom: 1px dotted white;
+	position: relative;
+	font-weight: 100;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+	color: white;
+}
+
+.main-navigation .dropdown-toggle {
+	position: absolute;
+	top: 0;
+	right: -2em;
+	padding: 0;
+	border: none;
+	color: white;
+	width: 2em;
+	height: 2em;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+.menu-toggle:before {
+	content: "\2630";
+	display: inline-block;
+	margin-right: 5px;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
 	}
 }
 
@@ -1073,5 +1161,13 @@ and open the template in the editor.
     Created on : Feb 9, 2017, 11:16:56 AM
     Author     : jekkilekki
 */
+/*--------------------------------------------------------------
+# WPAdminBar Fix
+--------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+	#wpadminbar {
+		top: -46px;
+	}
+}
 
 /*# sourceMappingURL=../k2k/assets/stylesheets/maps/style.css.map */

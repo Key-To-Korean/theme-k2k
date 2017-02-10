@@ -1,11 +1,8 @@
 .header-image {
     margin: 0;
     max-height: 60vh;
-    overflow: hidden;
-    
-    img {
-        width: 100vw;
-    }
+    background-size: cover;
+    background-position-x: center;
 }
 
 .site-header {
@@ -18,11 +15,43 @@
     }
 }
 
+.gradient-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(134,175,73); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(134,175,73,0.8) 0%, rgba(0,98,163,0.8) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(134,175,73,0.8) 0%,rgba(0,98,163,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(134,175,73,0.8) 0%,rgba(0,98,163,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86af49', endColorstr='#0062a3',GradientType=1 ); /* IE6-9 */
+}
+
 .site-branding {
+    /*display: flex;*/
     min-height: 65px;
 }
 
+.custom-logo-link {
+    margin-right: 1em;
+    flex: 1 0 auto;
+    
+    img {
+        display: inline;
+        height: 65px;
+        width: auto;
+    }
+}
+
+.site-branding-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .site-title {
+    font-family: $font__sans;
     margin: 0;
     padding: 0;
     font-size: 1.6em;
@@ -43,21 +72,37 @@
 .site-description {
     margin: 0;
     font-size: 0.9em;
-    font-style: italic;
-    font-weight: 100;
+    font-weight: 300;
+    
+    a {
+        color: #fff;
+    }
 }
 
-@media screen and (min-width: $query__medium) {
+@media screen and (min-width: $query__small) {
     .site-header {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
     
     .site-branding {
         width: 35%;
+        flex: 0 0 auto;
     }
     
-    .site-navigation {
+    .main-navigation {
         width: 55%;
+        flex: 0 0 auto;
     }
 }
+
+/*--------------------------------------------------------------
+# Header Search
+--------------------------------------------------------------*/
+@import "header-search";
+
+/*--------------------------------------------------------------
+# Header Menu
+--------------------------------------------------------------*/
+@import "header-menu";
