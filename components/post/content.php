@@ -10,7 +10,11 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    
+        <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
+    
 	<?php if ( '' != get_the_post_thumbnail() ) : ?>
+        <div class="entry-header-container">
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
 				<?php the_post_thumbnail( 'k2k-featured-image' ); ?>
@@ -31,6 +35,9 @@
 		<?php
 		endif; ?>
 	</header>
+            
+        <?php if ( '' != get_the_post_thumbnail() ) { echo '</div><!-- .entry-header-container -->'; } ?>
+            
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(

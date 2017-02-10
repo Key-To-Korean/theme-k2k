@@ -1,6 +1,7 @@
 .main-navigation {
 	clear: both;
 	display: block;
+        font-size: 0.9em;
 
 	ul {
 		display: none;
@@ -53,6 +54,8 @@
                 border-bottom: 1px dotted white;
 		position: relative;
                 font-weight: 100;
+                line-height: 2;
+                /*padding-right: 0.25em;*/
 
 		&:hover > a,
 		&.focus > a {
@@ -79,7 +82,8 @@
             border: none;
             color: white;
             width: 2em;
-            height: 2em;
+            height: auto;
+            line-height: 2;
         }
 }
 
