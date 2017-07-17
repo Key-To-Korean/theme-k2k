@@ -11,16 +11,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-        <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
-    
 	<?php if ( '' != get_the_post_thumbnail() ) : ?>
-        <div class="entry-header-container">
-		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'k2k-featured-image' ); ?>
-			</a>
+        <div class="entry-header-container row">
+		<div class="post-thumbnail" style="background: url(' <?php the_post_thumbnail_url(); ?> ');">
+			<!--<a href="<?php //the_permalink(); ?>">-->
+				<?php //the_post_thumbnail( 'k2k-featured-image' ); ?>
+			<!--</a>-->
 		</div>
 	<?php endif; ?>
+            
+        <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
 
 	<header class="entry-header">
 		<?php
@@ -38,7 +38,7 @@
             
         <?php if ( '' != get_the_post_thumbnail() ) { echo '</div><!-- .entry-header-container -->'; } ?>
             
-	<div class="entry-content">
+	<div class="entry-content row">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

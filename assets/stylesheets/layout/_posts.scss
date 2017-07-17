@@ -6,6 +6,30 @@
 	margin: 0 0 1.5em;
 }
 
+.entry-title,
+.page-title {
+    font-family: $font__cursive;
+    text-align: center;
+}
+
+.entry-meta {
+    
+    display: block;
+    text-align: center;
+    margin: 0 0 5em -0.25em;
+    color: $color__gray;
+    @include font-size(0.75);
+    font-weight: 300;
+    
+    a {
+        color: $color__gray;
+        text-decoration: none;
+        border-bottom: 1px dotted $color__light_gray;
+        //padding: 0 0.25em;
+    }
+    
+}
+
 .byline,
 .updated:not(.published){
 	display: none;
@@ -20,4 +44,24 @@
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+}
+
+.entry-content {
+    p {
+        &:first-child {
+            &:first-letter {
+                font-size: 3.5em;
+                line-height: 0.6;
+                float: left;
+                float: left;
+                padding-top: 0.2em;
+                padding-right: 0.05em;
+            }
+            &:first-line {
+                font-family: $font__serif;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+        }
+    }
 }

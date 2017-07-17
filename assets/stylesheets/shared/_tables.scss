@@ -1,4 +1,12 @@
 table {
-	margin: 0 0 1.5em;
-	width: 100%;
+	margin: 0 auto 1.5em;
+	width: 90%;
+        background: $color__body;
+        color: $color__white;
+        @include font-size(0.9);
+        font-weight: 300;
+        padding: 2em;
+        th, td {
+            padding: 0.2em 1.2em;
+        }
 }

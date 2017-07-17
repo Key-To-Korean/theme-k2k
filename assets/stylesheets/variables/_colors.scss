@@ -8,11 +8,19 @@ $color__gold_dark: #8A7560;
 $color__gold_light: #C7BBA5;
 /*$color__gray: #838488;*/
 $color__gray_dark: #4A494E;
-$color__black: #1d1f21; // Old CSS-Tricks footer black, JKL Theme <pre> black
 $color__beige: #E7E3D8;
 $color__red: #BC525C;
 //$color__red_dark:
 //$color__red_light:
+$color__blue: #0062A3;
+$color__blue_light: #4c91be;
+$color__blue_alpha: rgba(0,98,163,0.8);
+// BRIGHT colors
+$color__bright_blue: #329AF0; //#17ACFE;
+$color__bright_blue_alpha: rgba(50, 154, 240, 0.8); //rgba(23,172,254,0.8);
+$color__bright_green: #51CF66; //#66F485;
+//$color__bright_green_alpha: rgba(102,244,133,0.8);
+$color__bright_green_alpha: rgba(81, 207, 102, 0.8); //rgba(91,219,119,0.8);
 
 // Theme Colors = "Fathomless" @ 
 $color__green_dark: #44883D;
@@ -22,8 +30,8 @@ $color__aqua: #009498;
 $color__aqua_light: #59C9D5;
 $color__gray_blue: #5F7278;
 $color__gray_blue_light: #8A9A9A;
-$color__gray: #777;
-$color__gray_light: #ccc;
+//$color__gray: #777;
+//$color__gray_light: #ccc;
 
 
 // Original Underscores Components colors
@@ -37,10 +45,22 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: $color__green;
-$color__link-visited: $color__gold_dark;
-$color__link-hover: $color__gold_light;
-$color__text-main: $color__black;
+
+$color__link_a: #58cf90;
+$color__link_b: rgba(88, 207, 144, 1);
+
+$color__link: $color__bright_green;
+$color__link-visited: $color__bright_green_alpha;
+$color__link-hover: white;
+
+// Gray and Black colors
+$color__black: #1d1f21; // Old CSS-Tricks footer black, JKL Theme <pre> black
+$color__text-main: #363a3c; //$color__black;
+$color__body: #363a3c;
+$color__gray: #878d91;
+$color__light_gray: gainsboro;
+$color__very_light_gray: #f8fafb;
+$color__white: #ffffff;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;

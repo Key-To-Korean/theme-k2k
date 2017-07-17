@@ -10,6 +10,17 @@
 	margin-left: 1.5em;
 }
 
+@media screen and (min-width: $query__large) {
+    .alignleft,
+    .wp-caption.alignleft {
+        margin-left: -6.25rem;
+    }
+    .alignright, 
+    .wp-caption.alignright {
+        margin-right: -6.25rem;
+    }
+}
+
 .aligncenter {
 	clear: both;
 	@include center-block;

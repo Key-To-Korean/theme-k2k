@@ -224,7 +224,10 @@ function k2k_scripts() {
         wp_enqueue_style( 'k2k-fonts', k2k_fonts_url(), array(), null );
         
         // Enqueue Early Access Font Noto Sans Korean
-        wp_enqueue_style( 'k2k-ea-font', 'http://fonts.googleapis.com/earlyaccess/notosanskr.css' );
+        // wp_enqueue_style( 'k2k-ea-font', 'http://fonts.googleapis.com/earlyaccess/notosanskr.css' );
+        wp_enqueue_style( 'k2k-fa', get_template_directory_uri() . '/assets/fonts/font-awesome.min.css' );
+        wp_enqueue_style( 'k2k-spoqa', get_template_directory_uri() . '/assets/fonts/k2k-fonts.css' );
+        wp_enqueue_style( 'k2k-satisfy', 'https://fonts.googleapis.com/css?family=Satisfy' );
         
         // Enqueue Noto Sans Mono
         

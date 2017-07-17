@@ -8,6 +8,7 @@ a {
 	&:focus,
 	&:active {
 		color: $color__link-hover;
+                background-color: $color__link;
 	}
 	&:focus {
 		outline: thin dotted;

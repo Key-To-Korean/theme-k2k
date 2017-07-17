@@ -1,0 +1,25 @@
+.header-flash {
+    max-width: $query__large;
+    margin: 0 auto;
+    background: $color__white;
+    @include font-size(0.7);
+    font-weight: 300;
+    color: $color__gray;
+    ul {
+        margin: 10px 0;
+        list-style: none;
+        li {
+            display: inline;
+            &:after {
+                content: "";
+                border-right: 1px solid $color__gray;
+                margin: 0 10px;
+                height: 100%;
+            }
+            &:last-child:after {
+                border: none;
+            }
+        }
+    }
+}
+

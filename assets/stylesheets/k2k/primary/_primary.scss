@@ -1,19 +1,36 @@
 .breadcrumbs {
     
     display: block;
-    margin: 0 0 1em -0.25em;
+/*    margin: 0 0 1em -0.25em;*/
     color: $color__gray;
-    font-size: 0.7em;
+    @include font-size(0.75);
     font-weight: 300;
     
     a {
-        color: $color__gray_light;
+        color: $color__gray;
         text-decoration: none;
-        padding: 0 0.25em;
+        &:not(:first-child) {
+            padding: 0 0 0 0.2em;
+        }
     }
     
 }
 
 .entry-header-container {
-    display: flex;
+    .post-thumbnail {
+            position: absolute;
+            top: 0;
+            right: 50%;
+            width: 200px;
+            height: 200px;
+            background-size: cover!important;
+            border-radius: 50%;
+            margin-right: -50%;
+    }
+}
+
+.entry-header,
+.entry-content {
+    max-width: $query__medium!important;
+    margin: 0 auto;
 }

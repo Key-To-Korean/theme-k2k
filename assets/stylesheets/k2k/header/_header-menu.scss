@@ -1,7 +1,7 @@
 .main-navigation {
 	clear: both;
 	display: block;
-        font-size: 0.9em;
+        @include font-size(0.9);
 
 	ul {
 		display: none;
@@ -51,9 +51,9 @@
 	li {
 		/*float: left;*/
                 text-align: right;
-                border-bottom: 1px dotted white;
+                border-bottom: 1px dotted $color__white;
 		position: relative;
-                font-weight: 100;
+                font-weight: 300;
                 line-height: 2;
                 /*padding-right: 0.25em;*/
 
@@ -65,7 +65,7 @@
 	a {
 		display: block;
 		text-decoration: none;
-                color: white;
+                color: $color__white;
 	}
 
 	.current_page_item > a,
@@ -80,10 +80,36 @@
             right: -2em;
             padding: 0;
             border: none;
-            color: white;
+            color: $color__white;
             width: 2em;
             height: auto;
             line-height: 2;
+        }
+}
+
+.not-front.main-navigation {
+        width: 100%;
+        border-bottom: 1px solid $color__light_gray;
+        font-size: 0.8em;
+        height: 76px;
+        .menu-main-menu-container {
+            max-width: $query__large;
+            margin: 0 auto;
+        }
+        ul {
+            list-style: none;
+            float: right;
+            position: relative;
+            ul {
+                display: none;
+            }
+        }
+        li {
+            display: inline-block;
+            padding: 20px 10px;
+        }
+        a {
+            color: $color__gray;
         }
 }
 

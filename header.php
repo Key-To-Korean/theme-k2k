@@ -25,30 +25,52 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'k2k' ); ?></a>
 
             <!-- Site Search over EVERYTHING else - pushes site down if opened -->
-            <div id="site-search-container" class="search-box-wrapper clear">
+            <div id="site-search-container" class="search-box-wrapper clear" style="display: none;">
                 <div class="site-search clear small-12 columns">
                     <?php get_search_form(); ?>
                 </div><!-- .site-search -->
             </div><!-- #site-search-container -->
-            <div class="search-toggle">
-                <i class="fa fa-search">O</i>
-                <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>
+            
+            <div class="header-flash row">
+                <div class="header-contact">
+                     <ul>
+                         <li>Brooklyn, NY 10036, United States</li>
+                         <li>1-800-123-1234</li>
+                         <li>info@eco-nature.com</li>
+                     </ul>
+                </div>
+                <?php k2k_social_menu(); ?>
+                <div class="search-toggle">
+                    <i class="fa fa-search"></i>
+                    <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>
+                </div>
             </div>
         
             <header role="banner" id="masthead" class="site-header <?php 
                 if ( get_header_image() && is_front_page() ) : ?>
                     header-image" style="background-image: url('<?php header_image(); ?>')
+                <?php elseif( ! is_front_page() ) : ?>
+                    not-front
+                    <?php if( has_post_thumbnail() ) : ?>
+                    " style="background-image: url('<?php the_post_thumbnail_url(); ?>')
+                    <?php endif; ?>
                 <?php endif; ?>">
                 
                 <div class="gradient-overlay"></div>
                 
 		<?php get_template_part( 'components/header/site', 'branding' ); ?>
 
-		<?php get_template_part( 'components/navigation/navigation', 'top' ); ?>
-
-		<?php k2k_social_menu(); ?>
+		<?php if ( is_front_page() ) {
+                    get_template_part( 'components/navigation/navigation', 'top' ); 
+                }
+                ?>
 
             </header>
+            
+            <?php if ( ! is_front_page() ) {
+                get_template_part( 'components/navigation/navigation', 'top' ); 
+            }
+            ?>
         
         
 	<div id="content" class="site-content">

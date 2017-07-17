@@ -328,6 +328,17 @@ th {
 	margin-left: 1.5em;
 }
 
+@media screen and (min-width: 75rem) {
+	.alignleft,
+	.wp-caption.alignleft {
+		margin-left: -6.25rem;
+	}
+	.alignright,
+	.wp-caption.alignright {
+		margin-right: -6.25rem;
+	}
+}
+
 .aligncenter {
 	clear: both;
 	display: block;
@@ -369,11 +380,11 @@ button,
 input,
 select,
 textarea {
-	color: #1d1f21;
-	font-family: "Noto Sans KR", "Noto Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	color: #4d5256;
+	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
-	line-height: 1.8;
+	line-height: 1.6;
 }
 
 @media all and (min-width: 700px) {
@@ -388,32 +399,43 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Noto Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	color: #363a3c;
+	font-weight: 300;
 	clear: both;
 }
 
 h1 {
 	font-size: 3em;
+	font-weight: 100;
 }
 
 h2 {
-	font-size: 2.6em;
+	font-size: 2em;
+	font-weight: 300;
 }
 
 h3 {
-	font-size: 2.2em;
+	font-size: 1.8em;
+	font-weight: 400;
 }
 
 h4 {
-	font-size: 1.8em;
+	font-size: 1.6em;
+	font-weight: 700;
 }
 
 h5 {
 	font-size: 1.4em;
+	font-family: "Satisfy", cursive;
 }
 
 h6 {
 	font-size: 1em;
+	color: #878d91;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
 p {
@@ -422,22 +444,53 @@ p {
 
 dfn, cite, em, i {
 	font-style: italic;
+	font-weight: 300;
+}
+
+cite, q {
+	font-family: "Satisfy", cursive;
+}
+
+strong, dt {
+	color: #363a3c;
 }
 
 blockquote {
-	margin: 0 1.5em;
+	margin: 1em 1.5em;
+	font-weight: 100;
+	font-size: 24px;
+	font-size: 1.5rem;
+	background: #f8fafb;
+	padding: 2.5em 2em 1.5em;
+}
+
+blockquote:before, blockquote:after {
+	content: "";
+	position: absolute;
+	width: 160px;
+	border-top: 2px solid gainsboro;
+}
+
+blockquote:before {
+	margin-top: -1em;
+}
+
+blockquote p {
+	margin-bottom: 1em;
 }
 
 address {
 	margin: 0 0 1.5em;
+	font-weight: 300;
 }
 
 pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 18.75px;
-	font-size: 1.17188rem;
-	line-height: 1.6;
+	background: #363a3c;
+	font-family: "Noto Mono", Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	color: #a9afb3;
+	line-height: 1.5;
 	margin-bottom: 1.6em;
 	max-width: 100%;
 	overflow: auto;
@@ -448,11 +501,21 @@ code, kbd, tt, var {
 	font-family: "Noto Mono", Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 18.75px;
 	font-size: 1.17188rem;
+	background: #f8fafb;
+	padding: 0.3em 0.5em;
+}
+
+var {
+	font-weight: 300;
 }
 
 abbr, acronym {
-	border-bottom: 1px dotted #666;
+	color: #878d91;
+	border-bottom: 1px dotted #878d91;
+	text-decoration: none;
 	cursor: help;
+	font-style: italic;
+	font-weight: 300;
 }
 
 mark, ins {
@@ -461,7 +524,8 @@ mark, ins {
 }
 
 big {
-	font-size: 125%;
+	font-size: 26px;
+	font-size: 1.625rem;
 }
 
 blockquote, q {
@@ -470,6 +534,12 @@ blockquote, q {
 
 blockquote:before, blockquote:after, q:before, q:after {
 	content: "";
+}
+
+.cursive {
+	font-family: "Satisfy", cursive;
+	font-size: 26px;
+	font-size: 1.625rem;
 }
 
 /*--------------------------------------------------------------
@@ -615,8 +685,18 @@ dd {
 # Tables
 --------------------------------------------------------------*/
 table {
-	margin: 0 0 1.5em;
-	width: 100%;
+	margin: 0 auto 1.5em;
+	width: 90%;
+	background: #363a3c;
+	color: #ffffff;
+	font-size: 18px;
+	font-size: 1.125rem;
+	font-weight: 300;
+	padding: 2em;
+}
+
+table th, table td {
+	padding: 0.2em 1.2em;
 }
 
 /*--------------------------------------------------------------
@@ -648,15 +728,16 @@ table {
 # Links
 --------------------------------------------------------------*/
 a {
-	color: #86AF49;
+	color: #51CF66;
 }
 
 a:visited {
-	color: #8A7560;
+	color: rgba(81, 207, 102, 0.8);
 }
 
 a:hover, a:focus, a:active {
-	color: #C7BBA5;
+	color: white;
+	background-color: #51CF66;
 }
 
 a:focus {
@@ -686,11 +767,59 @@ body {
 	/* Fallback for when there is no custom background color defined. */
 }
 
+.row {
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.row::before, .row::after {
+	content: ' ';
+	display: table;
+}
+
+.row::after {
+	clear: both;
+}
+
+.row.collapse > .column, .row.collapse > .columns {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.row .row {
+	max-width: none;
+	margin-left: -0.625rem;
+	margin-right: -0.625rem;
+	max-width: none;
+}
+
+@media screen and (min-width: 40em) {
+	.row .row {
+		margin-left: -0.9375rem;
+		margin-right: -0.9375rem;
+	}
+}
+
+.row .row.collapse {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.row.expanded {
+	max-width: none;
+}
+
+.row.expanded .row {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .site-content {
 	padding: 1em;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5rem) {
 	.site-content {
 		padding: 2em;
 	}
@@ -720,6 +849,28 @@ body {
 	margin: 0 0 1.5em;
 }
 
+.entry-title,
+.page-title {
+	font-family: "Satisfy", cursive;
+	text-align: center;
+}
+
+.entry-meta {
+	display: block;
+	text-align: center;
+	margin: 0 0 5em -0.25em;
+	color: #878d91;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	font-weight: 300;
+}
+
+.entry-meta a {
+	color: #878d91;
+	text-decoration: none;
+	border-bottom: 1px dotted gainsboro;
+}
+
 .byline,
 .updated:not(.published) {
 	display: none;
@@ -734,6 +885,21 @@ body {
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+}
+
+.entry-content p:first-child:first-letter {
+	font-size: 3.5em;
+	line-height: 0.6;
+	float: left;
+	float: left;
+	padding-top: 0.2em;
+	padding-right: 0.05em;
+}
+
+.entry-content p:first-child:first-line {
+	font-family: "Noto Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
 /*--------------------------------------------------------------
@@ -820,7 +986,31 @@ object {
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	padding: 0.8075em 0;
+	background: #f8fafb;
+	display: block;
+	text-align: center;
+	margin: 0;
+	color: #878d91;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	font-weight: 300;
+}
+
+.wp-caption .wp-caption-text a {
+	color: #878d91;
+	text-decoration: none;
+	border-bottom: 1px dotted gainsboro;
+}
+
+.wp-caption .wp-caption-text:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 160px;
+	max-width: 50%;
+	border-bottom: 2px solid gainsboro;
 }
 
 /* Ensure center-aligned captions center-align properly. */
@@ -907,14 +1097,29 @@ object {
 
 .site-header {
 	padding: 1em;
-	font-family: "Noto Sans KR", "Noto Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	background-color: #86AF49;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5rem) {
 	.site-header {
 		padding: 2em 2em;
 	}
+}
+
+.site-header.not-front {
+	max-height: 140px;
+}
+
+.site-header.not-front .site-branding {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+
+.site-header.not-front .site-branding-text {
+	display: none;
 }
 
 .gradient-overlay {
@@ -931,6 +1136,16 @@ object {
 	background: linear-gradient(to right, rgba(134, 175, 73, 0.8) 0%, rgba(0, 98, 163, 0.8) 100%);
 	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86af49', endColorstr='#0062a3',GradientType=1 );
+	/* IE6-9 */
+	/* Vivid colors */
+	background: #51CF66;
+	/* Old browsers */
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(81, 207, 102, 0.8) 0%, rgba(50, 154, 240, 0.8) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(81, 207, 102, 0.8) 0%, rgba(50, 154, 240, 0.8) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66F485', endColorstr='#17ACFE',GradientType=1 );
 	/* IE6-9 */
 }
 
@@ -967,11 +1182,12 @@ object {
 }
 
 .site-title {
-	font-family: "Noto Sans KR", "Noto Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	margin: 0;
 	padding: 0;
-	font-size: 1.6em;
-	font-weight: 900;
+	font-size: 32px;
+	font-size: 2rem;
+	font-weight: 700;
 	line-height: 1em;
 }
 
@@ -986,7 +1202,8 @@ object {
 
 .site-description {
 	margin: 0;
-	font-size: 0.9em;
+	font-size: 18px;
+	font-size: 1.125rem;
 	font-weight: 300;
 }
 
@@ -994,7 +1211,7 @@ object {
 	color: #fff;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5rem) {
 	.site-header {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -1020,10 +1237,43 @@ object {
 }
 
 /*--------------------------------------------------------------
+# Header Flash
+--------------------------------------------------------------*/
+.header-flash {
+	max-width: 75rem;
+	margin: 0 auto;
+	background: #ffffff;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: #878d91;
+}
+
+.header-flash ul {
+	margin: 10px 0;
+	list-style: none;
+}
+
+.header-flash ul li {
+	display: inline;
+}
+
+.header-flash ul li:after {
+	content: "";
+	border-right: 1px solid #878d91;
+	margin: 0 10px;
+	height: 100%;
+}
+
+.header-flash ul li:last-child:after {
+	border: none;
+}
+
+/*--------------------------------------------------------------
 # Header Search
 --------------------------------------------------------------*/
 .search-toggle {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	right: 0;
 	background: rgba(255, 255, 255, 0.8);
@@ -1056,7 +1306,8 @@ object {
 .main-navigation {
 	clear: both;
 	display: block;
-	font-size: 0.9em;
+	font-size: 18px;
+	font-size: 1.125rem;
 }
 
 .main-navigation ul {
@@ -1097,9 +1348,9 @@ object {
 .main-navigation li {
 	/*float: left;*/
 	text-align: right;
-	border-bottom: 1px dotted white;
+	border-bottom: 1px dotted #ffffff;
 	position: relative;
-	font-weight: 100;
+	font-weight: 300;
 	line-height: 2;
 	/*padding-right: 0.25em;*/
 }
@@ -1107,7 +1358,7 @@ object {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
-	color: white;
+	color: #ffffff;
 }
 
 .main-navigation .dropdown-toggle {
@@ -1116,10 +1367,41 @@ object {
 	right: -2em;
 	padding: 0;
 	border: none;
-	color: white;
+	color: #ffffff;
 	width: 2em;
 	height: auto;
 	line-height: 2;
+}
+
+.not-front.main-navigation {
+	width: 100%;
+	border-bottom: 1px solid gainsboro;
+	font-size: 0.8em;
+	height: 76px;
+}
+
+.not-front.main-navigation .menu-main-menu-container {
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
+.not-front.main-navigation ul {
+	list-style: none;
+	float: right;
+	position: relative;
+}
+
+.not-front.main-navigation ul ul {
+	display: none;
+}
+
+.not-front.main-navigation li {
+	display: inline-block;
+	padding: 20px 10px;
+}
+
+.not-front.main-navigation a {
+	color: #878d91;
 }
 
 /* Small menu. */
@@ -1134,7 +1416,7 @@ object {
 	margin-right: 5px;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5rem) {
 	.menu-toggle {
 		display: none;
 	}
@@ -1148,22 +1430,37 @@ object {
 --------------------------------------------------------------*/
 .breadcrumbs {
 	display: block;
-	margin: 0 0 1em -0.25em;
-	color: #777;
-	font-size: 0.7em;
+	/*    margin: 0 0 1em -0.25em;*/
+	color: #878d91;
+	font-size: 15px;
+	font-size: 0.9375rem;
 	font-weight: 300;
 }
 
 .breadcrumbs a {
-	color: #ccc;
+	color: #878d91;
 	text-decoration: none;
-	padding: 0 0.25em;
 }
 
-.entry-header-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+.breadcrumbs a:not(:first-child) {
+	padding: 0 0 0 0.2em;
+}
+
+.entry-header-container .post-thumbnail {
+	position: absolute;
+	top: 0;
+	right: 50%;
+	width: 200px;
+	height: 200px;
+	background-size: cover !important;
+	border-radius: 50%;
+	margin-right: -50%;
+}
+
+.entry-header,
+.entry-content {
+	max-width: 62.5rem !important;
+	margin: 0 auto;
 }
 
 /*--------------------------------------------------------------

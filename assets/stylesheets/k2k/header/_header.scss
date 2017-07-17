@@ -15,6 +15,19 @@
     }
 }
 
+.site-header.not-front {
+    max-height: 140px;
+    .site-branding {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+    .site-branding-text {
+        display: none;
+    }
+}
+
 .gradient-overlay {
     position: absolute;
     left: 0;
@@ -26,6 +39,12 @@
     background: -webkit-linear-gradient(left, rgba(134,175,73,0.8) 0%,rgba(0,98,163,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, rgba(134,175,73,0.8) 0%,rgba(0,98,163,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86af49', endColorstr='#0062a3',GradientType=1 ); /* IE6-9 */
+    /* Vivid colors */
+    background: $color__bright_green; /* Old browsers */
+    background: -moz-linear-gradient(left, $color__bright_green_alpha 0%, $color__bright_blue_alpha 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $color__bright_green_alpha 0%,$color__bright_blue_alpha 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $color__bright_green_alpha 0%,$color__bright_blue_alpha 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66F485', endColorstr='#17ACFE',GradientType=1 ); /* IE6-9 */
 }
 
 .site-branding {
@@ -55,8 +74,8 @@
     font-family: $font__sans;
     margin: 0;
     padding: 0;
-    font-size: 1.6em;
-    font-weight: 900;
+    @include font-size(1.6);
+    font-weight: 700;
     line-height: 1em;
     
     a {
@@ -72,7 +91,7 @@
 
 .site-description {
     margin: 0;
-    font-size: 0.9em;
+    @include font-size(0.9);
     font-weight: 300;
     
     a {
@@ -97,6 +116,11 @@
         flex: 0 0 auto;
     }
 }
+
+/*--------------------------------------------------------------
+# Header Flash
+--------------------------------------------------------------*/
+@import "header-flash";
 
 /*--------------------------------------------------------------
 # Header Search
