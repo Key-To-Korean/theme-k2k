@@ -11,16 +11,17 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
+        <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
+    
 	<?php if ( '' != get_the_post_thumbnail() ) : ?>
         <div class="entry-header-container row">
-		<div class="post-thumbnail" style="background: url(' <?php the_post_thumbnail_url(); ?> ');">
-			<!--<a href="<?php //the_permalink(); ?>">-->
-				<?php //the_post_thumbnail( 'k2k-featured-image' ); ?>
-			<!--</a>-->
+		<div class="post-thumbnail-container">
+			<a href="<?php the_permalink(); ?>">
+				<div class="post-thumbnail" style="background: url(' <?php the_post_thumbnail_url(); ?> ');">
+                                </div>
+			</a>
 		</div>
-	<?php endif; ?>
-            
-        <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
+	<?php endif; ?> 
 
 	<header class="entry-header">
 		<?php

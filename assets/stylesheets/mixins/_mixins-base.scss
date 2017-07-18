@@ -22,3 +22,30 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+// Breadcrumbs Style
+@mixin breadcrumbs() {
+        display: block;
+/*    margin: 0 0 1em -0.25em;*/
+        color: $color__gray;
+        @include font-size(0.75);
+        font-weight: 300;
+
+        a {
+            color: $color__gray;
+            text-decoration: none;
+            &:not(:first-child) {
+                padding: 0 0 0 0.2em;
+            }
+        }
+}
+
+// Gradient Background
+@mixin gradient() {
+        /* Vivid colors */
+        background: $color__bright_green; /* Old browsers */
+        background: -moz-linear-gradient(left, $color__bright_green_alpha 0%, $color__bright_blue_alpha 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, $color__bright_green_alpha 0%,$color__bright_blue_alpha 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, $color__bright_green_alpha 0%,$color__bright_blue_alpha 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66F485', endColorstr='#17ACFE',GradientType=1 ); /* IE6-9 */
+}

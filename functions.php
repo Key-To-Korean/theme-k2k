@@ -238,6 +238,8 @@ function k2k_scripts() {
             'expand'    => __( 'Expand child menu', 'k2k' ),
             'collapse'  => __( 'Collapse child menu', 'k2k' )
         ));
+        
+        wp_enqueue_script( 'k2k-functions', get_template_directory_uri() . '/assets/js/functions.js', array( 'jquery' ), '20170718', true );
 
 	wp_enqueue_script( 'k2k-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 

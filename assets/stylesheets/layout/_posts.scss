@@ -64,4 +64,20 @@
             }
         }
     }
+    
+    &:after {
+        content: "끝";
+        font-family: $font__cursive;
+        content: "End";
+        @include font-size(4);
+        text-align: center;
+        display: block;
+        margin: 1.5em auto;
+    }
+}
+
+.tags-links {
+    max-width: $query__large;
+    margin: 1em auto;
+    @include breadcrumbs();
 }

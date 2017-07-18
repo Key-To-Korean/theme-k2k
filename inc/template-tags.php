@@ -73,6 +73,21 @@ function k2k_entry_footer() {
 endif;
 
 /**
+ * Post navigation (previous / next post) for single posts.
+ */
+function k2k_post_navigation() {
+    the_post_navigation( array(
+            'next_text'         => '<span class="meta-nav" aria-hidden="true">' . __( 'Next post:', 'k2k' ) . '</span>' .
+                                        '<span class="screen-reader-text">' . __( 'Next post:', 'k2k' ) . '</span>' .
+                                        '<span class="post-title">%title</span>',
+            'prev_text'         => '<span class="meta-nav" aria-hidden="true">' . __( 'Previously:', 'k2k' ) . '</span>' .
+                                        '<span class="screen-reader-text">' . __( 'Previously:', 'k2k' ) . '</span>' .
+                                        '<span class="post-title">%title</span>',
+            'in_same_term'      => true,
+    ) );
+}
+
+/**
  * Returns true if a blog has more than 1 category.
  *
  * @return bool
@@ -115,6 +130,9 @@ function k2k_category_transient_flusher() {
 add_action( 'edit_category', 'k2k_category_transient_flusher' );
 add_action( 'save_post',     'k2k_category_transient_flusher' );
 
+/**
+ * Breadcrumbs function
+ */
 function k2k_breadcrumbs() {
     
     /* translators: used between list items, there is a space after the comma */
