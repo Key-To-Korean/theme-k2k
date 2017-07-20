@@ -9,8 +9,7 @@
         max-width: $query__large;
         margin: 0 auto;
 	
-	a,
-        a:visited {
+	a {
 		display: block;
 		width: 100%;
 		text-decoration: none;
@@ -20,6 +19,7 @@
 		
 		&:hover,
 		&:focus {
+                        @include hover-shape();
 			color: $color__white;
 			border-color: $color__link;
 			@include gradient();

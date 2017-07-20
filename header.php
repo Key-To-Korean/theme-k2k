@@ -26,7 +26,7 @@
 
             <!-- Site Search over EVERYTHING else - pushes site down if opened -->
             <div id="site-search-container" class="search-box-wrapper clear" style="display: none;">
-                <div class="site-search clear small-12 columns">
+                <div class="site-search clear">
                     <?php get_search_form(); ?>
                 </div><!-- .site-search -->
             </div><!-- #site-search-container -->
@@ -71,6 +71,17 @@
                 get_template_part( 'components/navigation/navigation', 'top' ); 
             }
             ?>
+            
+            <div class="site-search-button site-side-button">
+                <i id="site-search-button" class="fa fa-search"></i>
+            </div>
+            <div class="site-search-overlay">
+                <?php get_search_form(); ?>
+            </div>
+            
+            <div class="site-sidebar-button site-side-button">
+                <i id="site-sidebar-button" class="fa fa-backward"></i>
+            </div>
         
         
 	<div id="content" class="site-content">

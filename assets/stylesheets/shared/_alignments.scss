@@ -37,7 +37,8 @@
 }
 
 blockquote.alignleft, 
-blockquote.alignright {
+blockquote.alignright,
+blockquote.aligncenter {
     width: 50%;
     padding: 1em;
     margin: 0 1.5em 1.5em 0;
@@ -53,32 +54,58 @@ blockquote.alignright {
         font-style: italic;
         font-weight: 400;
     }
+    strong {
+        color: inherit;
+    }
 }
 
 blockquote.alignleft {
     &:after{
-        border-right: 2px solid $color__light_gray;
-        border-top: 2px solid $color__light_gray;
+        border-right: 2px solid $color__bright_green;
+        border-top: 2px solid $color__bright_green;
         padding-bottom: 0;
         position: absolute;
         top: 0;
         right: 0;
         height: 50%;
         width: 100%;
-        transform: skewX(14deg);
     }
 }
 
 blockquote.alignright {
     &:after{
-        border-left: 2px solid $color__light_gray;
-        border-bottom: 2px solid $color__light_gray;
+        border-left: 2px solid $color__bright_green;
+        border-bottom: 2px solid $color__bright_green;
         padding-top: 0;
         position: absolute;
         bottom: 0;
         left: 0;
         height: 50%;
         width: 100%;
-        transform: skewX(14deg);
+    }
+}
+
+blockquote.aligncenter {
+    width: 100%;
+    padding: 1.5em;
+    &:before{
+        border-right: 2px solid $color__bright_green;
+        border-top: 2px solid $color__bright_green;
+        padding-bottom: 0;
+        position: absolute;
+        top: 1.25em;
+        right: 0;
+        height: 50%;
+        width: 50%;
+    }
+    &:after{
+        border-left: 2px solid $color__bright_green;
+        border-bottom: 2px solid $color__bright_green;
+        padding-top: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50%;
+        width: 50%;
     }
 }

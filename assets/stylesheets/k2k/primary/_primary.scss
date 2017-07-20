@@ -1,0 +1,54 @@
+.site-search-overlay {
+    
+        transition: all 0.5s;
+        width: 0%;
+        height: 6em;
+        top: calc( 50% - 2em );
+        left: 0;
+        z-index: 9;
+        background: darken( $color__bright_blue_alpha, 30% );
+        position: fixed;
+        padding-top: 20px;
+        
+        .search-form {
+            
+                padding: 1em 0;
+
+                .search-field {
+                    
+                        transition: all 0.5s;
+                        @include font-size(2);
+                        font-weight: 300;
+                        font-family: "Oswald";
+                        text-align: center;
+                        background: darken( $color__bright_blue_alpha, 30% );
+                        color: $color__white;
+                        border: none;
+                        width: 0%;
+                        margin-top: -15px;
+                        margin-left: -10px;
+                        
+                        &:focus,
+                        &:active {
+                            outline: none;
+                        }
+                        
+                }
+                
+                .search-submit {
+                    
+                        display: none;
+                        
+                }
+        }
+        
+        &.active {
+            width: 100%;
+            padding-left: 60px;
+            
+            .search-field {
+                width: calc(100vw - 125px);
+                border: 1px solid;
+            }
+        }
+}

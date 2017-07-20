@@ -71,6 +71,13 @@ blockquote {
         }
         p {
             margin-bottom: 1em;
+            quotes: "“" "”" "‘" "’";
+            &:before {
+                content: open-quote;
+            }
+            &:after {
+                content: close-quote;
+            }
         }
         dfn, em, i {
             font-style: normal;

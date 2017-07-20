@@ -350,7 +350,8 @@ th {
 }
 
 blockquote.alignleft,
-blockquote.alignright {
+blockquote.alignright,
+blockquote.aligncenter {
 	width: 50%;
 	padding: 1em;
 	margin: 0 1.5em 1.5em 0;
@@ -359,46 +360,80 @@ blockquote.alignright {
 
 blockquote.alignleft:before, blockquote.alignleft:after,
 blockquote.alignright:before,
-blockquote.alignright:after {
+blockquote.alignright:after,
+blockquote.aligncenter:before,
+blockquote.aligncenter:after {
 	border: none;
 }
 
 blockquote.alignleft p,
-blockquote.alignright p {
+blockquote.alignright p,
+blockquote.aligncenter p {
 	margin-bottom: 0;
 }
 
 blockquote.alignleft em, blockquote.alignleft i,
 blockquote.alignright em,
-blockquote.alignright i {
+blockquote.alignright i,
+blockquote.aligncenter em,
+blockquote.aligncenter i {
 	font-style: italic;
 	font-weight: 400;
 }
 
+blockquote.alignleft strong,
+blockquote.alignright strong,
+blockquote.aligncenter strong {
+	color: inherit;
+}
+
 blockquote.alignleft:after {
-	border-right: 2px solid gainsboro;
-	border-top: 2px solid gainsboro;
+	border-right: 2px solid #51CF66;
+	border-top: 2px solid #51CF66;
 	padding-bottom: 0;
 	position: absolute;
 	top: 0;
 	right: 0;
 	height: 50%;
 	width: 100%;
-	-webkit-transform: skewX(14deg);
-	        transform: skewX(14deg);
 }
 
 blockquote.alignright:after {
-	border-left: 2px solid gainsboro;
-	border-bottom: 2px solid gainsboro;
+	border-left: 2px solid #51CF66;
+	border-bottom: 2px solid #51CF66;
 	padding-top: 0;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	height: 50%;
 	width: 100%;
-	-webkit-transform: skewX(14deg);
-	        transform: skewX(14deg);
+}
+
+blockquote.aligncenter {
+	width: 100%;
+	padding: 1.5em;
+}
+
+blockquote.aligncenter:before {
+	border-right: 2px solid #51CF66;
+	border-top: 2px solid #51CF66;
+	padding-bottom: 0;
+	position: absolute;
+	top: 1.25em;
+	right: 0;
+	height: 50%;
+	width: 50%;
+}
+
+blockquote.aligncenter:after {
+	border-left: 2px solid #51CF66;
+	border-bottom: 2px solid #51CF66;
+	padding-top: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 50%;
+	width: 50%;
 }
 
 /*--------------------------------------------------------------
@@ -538,6 +573,15 @@ blockquote:before {
 
 blockquote p {
 	margin-bottom: 1em;
+	quotes: "“" "”" "‘" "’";
+}
+
+blockquote p:before {
+	content: open-quote;
+}
+
+blockquote p:after {
+	content: close-quote;
 }
 
 blockquote dfn, blockquote em, blockquote i {
@@ -783,13 +827,9 @@ table th, table td {
 }
 
 .comment-navigation a,
-.comment-navigation a:visited,
 .posts-navigation a,
-.posts-navigation a:visited,
 .post-navigation a,
-.post-navigation a:visited,
-.paging-navigation a,
-.paging-navigation a:visited {
+.paging-navigation a {
 	display: block;
 	width: 100%;
 	text-decoration: none;
@@ -799,20 +839,14 @@ table th, table td {
 }
 
 .comment-navigation a:hover, .comment-navigation a:focus,
-.comment-navigation a:visited:hover,
-.comment-navigation a:visited:focus,
 .posts-navigation a:hover,
 .posts-navigation a:focus,
-.posts-navigation a:visited:hover,
-.posts-navigation a:visited:focus,
 .post-navigation a:hover,
 .post-navigation a:focus,
-.post-navigation a:visited:hover,
-.post-navigation a:visited:focus,
 .paging-navigation a:hover,
-.paging-navigation a:focus,
-.paging-navigation a:visited:hover,
-.paging-navigation a:visited:focus {
+.paging-navigation a:focus {
+	box-shadow: 0px 0px 15px #878d91;
+	border: 1px solid gainsboro;
 	color: #ffffff;
 	border-color: #51CF66;
 	/* Vivid colors */
@@ -1168,8 +1202,8 @@ body {
 
 .entry-header-container .post-thumbnail-container:hover {
 	box-shadow: 0px 0px 15px #878d91;
-	border-radius: 50%;
 	border: 1px solid gainsboro;
+	border-radius: 50%;
 }
 
 .entry-header-container .post-thumbnail {
@@ -1769,6 +1803,57 @@ object {
 /*--------------------------------------------------------------
 # Primary (Main Content)
 --------------------------------------------------------------*/
+.site-search-overlay {
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	width: 0%;
+	height: 6em;
+	top: calc( 50% - 2em);
+	left: 0;
+	z-index: 9;
+	background: rgba(9, 74, 128, 0.8);
+	position: fixed;
+	padding-top: 20px;
+}
+
+.site-search-overlay .search-form {
+	padding: 1em 0;
+}
+
+.site-search-overlay .search-form .search-field {
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	font-size: 40px;
+	font-size: 2.5rem;
+	font-weight: 300;
+	font-family: "Oswald";
+	text-align: center;
+	background: rgba(9, 74, 128, 0.8);
+	color: #ffffff;
+	border: none;
+	width: 0%;
+	margin-top: -15px;
+	margin-left: -10px;
+}
+
+.site-search-overlay .search-form .search-field:focus, .site-search-overlay .search-form .search-field:active {
+	outline: none;
+}
+
+.site-search-overlay .search-form .search-submit {
+	display: none;
+}
+
+.site-search-overlay.active {
+	width: 100%;
+	padding-left: 60px;
+}
+
+.site-search-overlay.active .search-field {
+	width: calc(100vw - 125px);
+	border: 1px solid;
+}
+
 /*--------------------------------------------------------------
 # Secondary (Sidebar)
 --------------------------------------------------------------*/
@@ -1786,11 +1871,33 @@ aside#secondary {
 	color: white;
 	background: rgba(9, 74, 128, 0.8);
 	overflow-y: scroll;
+	/*    &:before {
+        font-family: "FontAwesome";
+        content: "\f04a";
+        display: block;
+        position: fixed;
+        top: 50%;
+        right: 0;
+        height: 40px;
+        width: 40px;
+        //background: $color__dark_green_alpha;
+        background: darken( $color__bright_blue_alpha, 30% );
+        padding: 8px;
+        text-align: center;
+    }*/
 }
 
-aside#secondary:before {
-	font-family: "FontAwesome";
-	content: "\f04a";
+aside#secondary:hover, aside#secondary:active, aside#secondary:focus, aside#secondary.active {
+	right: 0%;
+	height: 100%;
+}
+
+aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:focus:before, aside#secondary.active:before {
+	display: none;
+}
+
+.site-side-button {
+	color: white;
 	display: block;
 	position: fixed;
 	top: 50%;
@@ -1798,17 +1905,13 @@ aside#secondary:before {
 	height: 40px;
 	width: 40px;
 	background: rgba(9, 74, 128, 0.8);
-	padding: 8px;
+	padding: 3px;
 	text-align: center;
+	z-index: 10;
 }
 
-aside#secondary:hover, aside#secondary:active, aside#secondary:focus {
-	right: 0%;
-	height: 100%;
-}
-
-aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:focus:before {
-	display: none;
+.site-search-button {
+	left: 0;
 }
 
 /*--------------------------------------------------------------

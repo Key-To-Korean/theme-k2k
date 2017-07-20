@@ -36,6 +36,11 @@
         }
 }
 
+@mixin hover-shape() {
+        box-shadow: 0px 0px 15px $color__gray;
+        border: 1px solid $color__light_gray;
+}
+
 // Gradient Background
 @mixin gradient() {
         /* Vivid colors */
