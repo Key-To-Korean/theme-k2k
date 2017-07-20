@@ -136,7 +136,7 @@ add_action( 'save_post',     'k2k_category_transient_flusher' );
 function k2k_breadcrumbs() {
     
     /* translators: used between list items, there is a space after the comma */
-    $categories_list = get_the_category_list( ', ' );
+    $categories_list = get_the_category_list( ' ' );
     if ( $categories_list && k2k_categorized_blog() ) {
             printf( '<span class="breadcrumbs cat-links row">' . esc_html__( '%1$s', 'k2k' ) . '</span>', $categories_list ); // WPCS: XSS OK.
     }

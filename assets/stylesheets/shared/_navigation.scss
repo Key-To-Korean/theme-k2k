@@ -20,7 +20,7 @@
 		
 		&:hover,
 		&:focus {
-			color: white;
+			color: $color__white;
 			border-color: $color__link;
 			@include gradient();
 		}

@@ -37,6 +37,11 @@ object {
                 color: $color__gray;
                 @include font-size(0.75);
                 font-weight: 300;
+                -webkit-transform: skewX(14deg);
+                transform: skewX(14deg);
+                font-style: italic;
+                margin-left: 6px;
+                margin-right: -6px;
 
                 a {
                     color: $color__gray;

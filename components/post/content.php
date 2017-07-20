@@ -11,10 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
-        <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
+        <div class="entry-header-container">
     
 	<?php if ( '' != get_the_post_thumbnail() ) : ?>
-        <div class="entry-header-container row">
 		<div class="post-thumbnail-container">
 			<a href="<?php the_permalink(); ?>">
 				<div class="post-thumbnail" style="background: url(' <?php the_post_thumbnail_url(); ?> ');">
@@ -37,9 +36,12 @@
 		endif; ?>
 	</header>
             
-        <?php if ( '' != get_the_post_thumbnail() ) { echo '</div><!-- .entry-header-container -->'; } ?>
+        </div><!-- .entry-header-container -->
             
 	<div class="entry-content row">
+            
+                <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
+            
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

@@ -329,17 +329,6 @@ th {
 	margin-left: 1.5em;
 }
 
-@media screen and (min-width: 75rem) {
-	.alignleft,
-	.wp-caption.alignleft {
-		margin-left: -6.25rem;
-	}
-	.alignright,
-	.wp-caption.alignright {
-		margin-right: -6.25rem;
-	}
-}
-
 .aligncenter {
 	clear: both;
 	display: block;
@@ -358,6 +347,58 @@ th {
 	.centered-image {
 		margin: 0 -2em 1.6em;
 	}
+}
+
+blockquote.alignleft,
+blockquote.alignright {
+	width: 50%;
+	padding: 1em;
+	margin: 0 1.5em 1.5em 0;
+	background: none;
+}
+
+blockquote.alignleft:before, blockquote.alignleft:after,
+blockquote.alignright:before,
+blockquote.alignright:after {
+	border: none;
+}
+
+blockquote.alignleft p,
+blockquote.alignright p {
+	margin-bottom: 0;
+}
+
+blockquote.alignleft em, blockquote.alignleft i,
+blockquote.alignright em,
+blockquote.alignright i {
+	font-style: italic;
+	font-weight: 400;
+}
+
+blockquote.alignleft:after {
+	border-right: 2px solid gainsboro;
+	border-top: 2px solid gainsboro;
+	padding-bottom: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 50%;
+	width: 100%;
+	-webkit-transform: skewX(14deg);
+	        transform: skewX(14deg);
+}
+
+blockquote.alignright:after {
+	border-left: 2px solid gainsboro;
+	border-bottom: 2px solid gainsboro;
+	padding-top: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 50%;
+	width: 100%;
+	-webkit-transform: skewX(14deg);
+	        transform: skewX(14deg);
 }
 
 /*--------------------------------------------------------------
@@ -413,41 +454,43 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-family: "Oswald", "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	color: #363a3c;
-	font-weight: 300;
+	font-weight: 400;
 	clear: both;
+	margin: 1em 0 0.5em;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+	font-weight: 400;
 }
 
 h1 {
+	font-family: "Oswald";
 	font-size: 3em;
-	font-weight: 100;
 }
 
 h2 {
+	font-family: "Oswald";
 	font-size: 2em;
-	font-weight: 300;
 }
 
 h3 {
 	font-size: 1.8em;
-	font-weight: 400;
 }
 
 h4 {
 	font-size: 1.6em;
-	font-weight: 700;
 }
 
 h5 {
-	font-size: 1.4em;
+	font-size: 1.6em;
 	font-family: "Satisfy", cursive;
 }
 
 h6 {
 	font-size: 1em;
 	color: #878d91;
-	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
@@ -463,6 +506,7 @@ dfn, cite, em, i {
 
 cite, q {
 	font-family: "Satisfy", cursive;
+	font-style: normal;
 }
 
 strong, dt {
@@ -470,12 +514,15 @@ strong, dt {
 }
 
 blockquote {
-	margin: 1em 1.5em;
+	margin: 1em 0em;
 	font-weight: 100;
 	font-size: 24px;
 	font-size: 1.5rem;
 	background: #f8fafb;
-	padding: 2.5em 2em 1.5em;
+	padding: 2.5em 1.5em 1.5em;
+	-webkit-transform: skewX(14deg);
+	transform: skewX(14deg);
+	font-style: italic;
 }
 
 blockquote:before, blockquote:after {
@@ -491,6 +538,14 @@ blockquote:before {
 
 blockquote p {
 	margin-bottom: 1em;
+}
+
+blockquote dfn, blockquote em, blockquote i {
+	font-style: normal;
+}
+
+blockquote cite, blockquote q {
+	font-style: italic;
 }
 
 address {
@@ -700,7 +755,6 @@ dd {
 --------------------------------------------------------------*/
 table {
 	margin: 0 auto 1.5em;
-	width: 90%;
 	background: #363a3c;
 	color: #ffffff;
 	font-size: 18px;
@@ -759,7 +813,7 @@ table th, table td {
 .paging-navigation a:focus,
 .paging-navigation a:visited:hover,
 .paging-navigation a:visited:focus {
-	color: white;
+	color: #ffffff;
 	border-color: #51CF66;
 	/* Vivid colors */
 	background: #51CF66;
@@ -961,6 +1015,8 @@ body {
 	max-width: none;
 	margin-left: -0.625rem;
 	margin-right: -0.625rem;
+	margin-left: 0rem;
+	margin-right: 0rem;
 	max-width: none;
 }
 
@@ -968,6 +1024,8 @@ body {
 	.row .row {
 		margin-left: -0.9375rem;
 		margin-right: -0.9375rem;
+		margin-left: 0rem;
+		margin-right: 0rem;
 	}
 }
 
@@ -1021,14 +1079,15 @@ body {
 
 .entry-title,
 .page-title {
-	font-family: "Satisfy", cursive;
+	font-family: "Oswald", "Satisfy", cursive;
 	text-align: center;
+	margin: 0.5em;
 }
 
 .entry-meta {
 	display: block;
 	text-align: center;
-	margin: 0 0 5em -0.25em;
+	margin: 0 0 4em 0em;
 	color: #878d91;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -1057,7 +1116,82 @@ body {
 	margin: 1.5em 0 0;
 }
 
-.entry-content p:first-child:first-letter {
+.breadcrumbs {
+	display: block;
+	color: #878d91;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	font-weight: 300;
+	margin-bottom: 2em;
+	margin-left: -6px !important;
+}
+
+.breadcrumbs a {
+	color: #878d91;
+	text-decoration: none;
+}
+
+.breadcrumbs a {
+	padding: 0 15px 5px 10px;
+	margin-right: 5px;
+}
+
+.breadcrumbs a:before {
+	background: #fff;
+	content: "";
+	height: 50%;
+	left: 0;
+	position: absolute;
+	bottom: 0;
+	-webkit-transform: skewX(14deg);
+	transform: skewX(14deg);
+	width: 100%;
+	z-index: -1;
+	border-right: 1px solid gainsboro;
+	border-bottom: 1px solid gainsboro;
+}
+
+.entry-header-container {
+	background: #f8fafb;
+	margin: -2em -2em 2em;
+	padding: 3.5em 2em 0.25em;
+}
+
+.entry-header-container .post-thumbnail-container {
+	width: 402px;
+	height: 402px;
+	text-align: center;
+	position: relative;
+	margin: 0 auto;
+	border: 1px solid transparent;
+}
+
+.entry-header-container .post-thumbnail-container:hover {
+	box-shadow: 0px 0px 15px #878d91;
+	border-radius: 50%;
+	border: 1px solid gainsboro;
+}
+
+.entry-header-container .post-thumbnail {
+	margin: 0 auto;
+	width: 400px;
+	height: 400px;
+	background-size: cover !important;
+	border-radius: 50%;
+}
+
+.entry-header,
+.entry-content {
+	max-width: 42em !important;
+	margin: 0 auto;
+}
+
+.entry-content {
+	font-size: 18px;
+	font-size: 1.125rem;
+}
+
+.entry-content > p:first-child:first-letter {
 	font-size: 3.5em;
 	line-height: 0.6;
 	float: left;
@@ -1066,7 +1200,7 @@ body {
 	padding-right: 0.05em;
 }
 
-.entry-content p:first-child:first-line {
+.entry-content > p:first-child:first-line {
 	font-family: "Noto Serif", Georgia, Cambria, "Times New Roman", Times, serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -1087,7 +1221,6 @@ body {
 	max-width: 75rem;
 	margin: 1em auto;
 	display: block;
-	/*    margin: 0 0 1em -0.25em;*/
 	color: #878d91;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -1097,10 +1230,6 @@ body {
 .tags-links a {
 	color: #878d91;
 	text-decoration: none;
-}
-
-.tags-links a:not(:first-child) {
-	padding: 0 0 0 0.2em;
 }
 
 /*--------------------------------------------------------------
@@ -1120,6 +1249,12 @@ body {
 
 .bypostauthor {
 	display: block;
+}
+
+#comments {
+	background: #f8fafb;
+	margin: 0 -2em;
+	padding: 2em;
 }
 
 /*--------------------------------------------------------------
@@ -1196,6 +1331,11 @@ object {
 	font-size: 15px;
 	font-size: 0.9375rem;
 	font-weight: 300;
+	-webkit-transform: skewX(14deg);
+	transform: skewX(14deg);
+	font-style: italic;
+	margin-left: 6px;
+	margin-right: -6px;
 }
 
 .wp-caption .wp-caption-text a {
@@ -1629,57 +1769,48 @@ object {
 /*--------------------------------------------------------------
 # Primary (Main Content)
 --------------------------------------------------------------*/
-.breadcrumbs {
-	display: block;
-	/*    margin: 0 0 1em -0.25em;*/
-	color: #878d91;
-	font-size: 15px;
-	font-size: 0.9375rem;
-	font-weight: 300;
-}
-
-.breadcrumbs a {
-	color: #878d91;
-	text-decoration: none;
-}
-
-.breadcrumbs a:not(:first-child) {
-	padding: 0 0 0 0.2em;
-}
-
-.entry-header-container .post-thumbnail-container {
-	width: 100%;
-	height: 400px;
-	text-align: center;
-	position: relative;
-}
-
-.entry-header-container .post-thumbnail {
-	margin: 0 auto;
-	width: 400px;
-	height: 400px;
-	background-size: cover !important;
-	border-radius: 50%;
-}
-
-.entry-header,
-.entry-content {
-	max-width: 62.5rem !important;
-	margin: 0 auto;
-}
-
 /*--------------------------------------------------------------
 # Secondary (Sidebar)
 --------------------------------------------------------------*/
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Feb 9, 2017, 11:16:56 AM
-    Author     : jekkilekki
-*/
+aside#secondary {
+	font-size: 16px;
+	font-size: 1rem;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	padding: 3em;
+	position: fixed;
+	width: 37.5rem;
+	max-width: 37.5rem;
+	top: 0;
+	right: -37.5rem;
+	color: white;
+	background: rgba(9, 74, 128, 0.8);
+	overflow-y: scroll;
+}
+
+aside#secondary:before {
+	font-family: "FontAwesome";
+	content: "\f04a";
+	display: block;
+	position: fixed;
+	top: 50%;
+	right: 0;
+	height: 40px;
+	width: 40px;
+	background: rgba(9, 74, 128, 0.8);
+	padding: 8px;
+	text-align: center;
+}
+
+aside#secondary:hover, aside#secondary:active, aside#secondary:focus {
+	right: 0%;
+	height: 100%;
+}
+
+aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:focus:before {
+	display: none;
+}
+
 /*--------------------------------------------------------------
 # WPAdminBar Fix
 --------------------------------------------------------------*/

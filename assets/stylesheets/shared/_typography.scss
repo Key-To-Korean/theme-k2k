@@ -15,18 +15,22 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-        font-family: $font__sans;
+        font-family: "Oswald", $font__sans;
         color: $color__text-main;
-        font-weight: 300;
+        font-weight: 400;
 	clear: both;
+        margin: 1em 0 0.5em;
+        strong {
+            font-weight: 400;
+        }
 }
 
-h1 { font-size: 3em; font-weight: 100; }
-h2 { font-size: 2em; font-weight: 300; }
-h3 { font-size: 1.8em; font-weight: 400; }
-h4 { font-size: 1.6em; font-weight: 700; }
-h5 { font-size: 1.4em; font-family: $font__cursive; }
-h6 { font-size: 1em; color: $color__gray; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+h1 { font-family: "Oswald"; font-size: 3em; }
+h2 { font-family: "Oswald"; font-size: 2em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.6em; }
+h5 { font-size: 1.6em; font-family: $font__cursive; }
+h6 { font-size: 1em; color: $color__gray; text-transform: uppercase; letter-spacing: 2px; }
 
 p {
 	margin-bottom: 1.5em;
@@ -39,6 +43,7 @@ dfn, cite, em, i {
 
 cite, q {
     font-family: $font__cursive;
+    font-style: normal;
 }
 
 strong, dt {
@@ -46,11 +51,15 @@ strong, dt {
 }
 
 blockquote {
-	margin: 1em 1.5em;
+	margin: 1em 0em;
         font-weight: 100;
         @include font-size(1.2);
         background: $color__very_light_gray;
-        padding: 2.5em 2em 1.5em;
+        padding: 2.5em 1.5em 1.5em;
+        -webkit-transform: skewX(14deg);
+        transform: skewX(14deg);
+        font-style: italic;
+        
         &:before, &:after {
             content: "";
             position: absolute;
@@ -62,6 +71,12 @@ blockquote {
         }
         p {
             margin-bottom: 1em;
+        }
+        dfn, em, i {
+            font-style: normal;
+        }
+        cite, q {
+            font-style: italic;
         }
 }
 

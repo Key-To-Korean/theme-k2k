@@ -13,11 +13,11 @@
 @media screen and (min-width: $query__large) {
     .alignleft,
     .wp-caption.alignleft {
-        margin-left: -6.25rem;
+        
     }
     .alignright, 
     .wp-caption.alignright {
-        margin-right: -6.25rem;
+       
     }
 }
 
@@ -33,5 +33,52 @@
     
     @media screen and (min-width: $query__small) {
         margin: 0 -2em 1.6em;
+    }
+}
+
+blockquote.alignleft, 
+blockquote.alignright {
+    width: 50%;
+    padding: 1em;
+    margin: 0 1.5em 1.5em 0;
+    background: none;
+    &:before, 
+    &:after {
+        border: none;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    em, i {
+        font-style: italic;
+        font-weight: 400;
+    }
+}
+
+blockquote.alignleft {
+    &:after{
+        border-right: 2px solid $color__light_gray;
+        border-top: 2px solid $color__light_gray;
+        padding-bottom: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 50%;
+        width: 100%;
+        transform: skewX(14deg);
+    }
+}
+
+blockquote.alignright {
+    &:after{
+        border-left: 2px solid $color__light_gray;
+        border-bottom: 2px solid $color__light_gray;
+        padding-top: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50%;
+        width: 100%;
+        transform: skewX(14deg);
     }
 }

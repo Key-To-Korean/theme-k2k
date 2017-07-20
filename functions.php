@@ -227,7 +227,7 @@ function k2k_scripts() {
         // wp_enqueue_style( 'k2k-ea-font', 'http://fonts.googleapis.com/earlyaccess/notosanskr.css' );
         wp_enqueue_style( 'k2k-fa', get_template_directory_uri() . '/assets/fonts/font-awesome.min.css' );
         wp_enqueue_style( 'k2k-spoqa', get_template_directory_uri() . '/assets/fonts/k2k-fonts.css' );
-        wp_enqueue_style( 'k2k-satisfy', 'https://fonts.googleapis.com/css?family=Satisfy' );
+        wp_enqueue_style( 'k2k-satisfy', 'https://fonts.googleapis.com/css?family=Satisfy|News+Cycle:700|Oswald:200,300,400,500,600,700|Yanone+Kaffeesatz:700' );
         
         // Enqueue Noto Sans Mono
         

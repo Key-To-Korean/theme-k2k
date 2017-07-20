@@ -8,15 +8,16 @@
 
 .entry-title,
 .page-title {
-    font-family: $font__cursive;
+    font-family: "Oswald", $font__cursive;
     text-align: center;
+    margin: 0.5em;
 }
 
 .entry-meta {
     
     display: block;
     text-align: center;
-    margin: 0 0 5em -0.25em;
+    margin: 0 0 4em 0em;
     color: $color__gray;
     @include font-size(0.75);
     font-weight: 300;
@@ -46,8 +47,72 @@
 	margin: 1.5em 0 0;
 }
 
+.breadcrumbs {
+    
+    @include breadcrumbs();
+    margin-bottom: 2em;
+    margin-left: -6px!important;
+    
+    
+    a {
+        padding: 0 15px 5px 10px;
+        margin-right: 5px;
+        
+        &:before {
+            background: #fff;
+            content: "";
+            height: 50%;
+            left: 0;
+            position: absolute;
+            bottom: 0;
+            -webkit-transform: skewX(14deg);
+            transform: skewX(14deg);
+            width: 100%;
+            z-index: -1;
+            border-right: 1px solid $color__light_gray;
+            border-bottom: 1px solid $color__light_gray;
+        }
+    }
+    
+}
+
+.entry-header-container {
+    
+    background: $color__very_light_gray;
+    margin: -2em -2em 2em;
+    padding: 3.5em 2em 0.25em;
+    
+    .post-thumbnail-container {
+            width: 402px;
+            height: 402px;
+            text-align: center;
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid transparent;
+            &:hover {
+                box-shadow: 0px 0px 15px $color__gray;
+                border-radius: 50%;
+                border: 1px solid $color__light_gray;
+            }
+    }
+    .post-thumbnail {
+            margin: 0 auto;
+            width: 400px;
+            height: 400px;
+            background-size: cover!important;
+            border-radius: 50%;
+    }
+}
+
+.entry-header,
 .entry-content {
-    p {
+    max-width: 42em!important;
+    margin: 0 auto;
+}
+
+.entry-content {
+    @include font-size(0.9);
+    & > p {
         &:first-child {
             &:first-letter {
                 font-size: 3.5em;
