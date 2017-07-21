@@ -47,16 +47,17 @@
 	margin: 1.5em 0 0;
 }
 
-.breadcrumbs {
+.breadcrumbs, 
+.tags-links {
     
     @include breadcrumbs();
     margin-bottom: 2em;
     margin-left: -6px!important;
     
-    
     a {
         padding: 0 15px 5px 10px;
         margin-right: 5px;
+        display: inline-block;
         
         &:before {
             background: #fff;
@@ -72,8 +73,21 @@
             border-right: 1px solid $color__light_gray;
             border-bottom: 1px solid $color__light_gray;
         }
+        
+        &:hover,
+        &:focus,
+        &:active {
+            background: transparent;
+            color: $color__link;
+            &:before {
+                border-color: $color__link;
+            }
+        }
     }
     
+}
+.tags-links a {
+    padding: 2px 10px 2px 5px;
 }
 
 .entry-header-container {
@@ -102,6 +116,40 @@
             background-size: cover!important;
             border-radius: 50%;
     }
+    
+}
+
+.skewed-thumbnail {
+        width: 42em!important;
+        -webkit-transform: skewX(14deg)!important;
+        transform: skewX(14deg)!important;
+        &:before {
+                z-index: 2;
+                height: 100%;
+                width: 110px;
+                background: #fafafa;
+                content: "";
+                position: absolute;
+                left: -60px;
+        }
+        &:after {
+                z-index: 2;
+                height: 100%;
+                width: 110px;
+                background: #fafafa;
+                content: "";
+                position: absolute;
+                right: -60px;
+                top: 0;
+        }
+        img,
+        .post-thumbnail {
+                width: 42em!important;
+                border-radius: 0%!important;
+                -webkit-transform: skewX(-14deg)!important;
+                transform: skewX(-14deg)!important;
+                background-position: center!important;
+        }
 }
 
 .entry-header,
@@ -141,8 +189,7 @@
     }
 }
 
-.tags-links {
-    max-width: $query__large;
-    margin: 1em auto;
-    @include breadcrumbs();
+.entry-footer {
+    max-width: $size__body;
+    margin: 0 auto 2em;
 }

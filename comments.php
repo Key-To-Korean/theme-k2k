@@ -21,37 +21,30 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-
+    <div class="comments-body">
+    
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'k2k' ) ),
+					esc_html( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'k2k' ) ),
 					number_format_i18n( get_comments_number() ),
 					'<span>' . get_the_title() . '</span>'
 				);
-			?>
-		</h2>
+			?> 
+		</h2> 
+        
+                <span class="view-comments">Click to view</span>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'k2k' ); ?></h2>
-			<div class="nav-links">
-
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'k2k' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'k2k' ) ); ?></div>
-
-			</div>
-		</nav>
-		<?php endif; // Check for comment navigation. ?>
-
+                <div class="view-the-comments">
 		<ol class="comment-list">
 			<?php
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
+                                        'avatar_size'=> '160'
 				) );
 			?>
 		</ol>
@@ -78,7 +71,11 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+        if( have_comments() ) { comment_form(); }
 	?>
-
+                </div><!-- .view-the-comments -->
+                
+        <?php if( ! have_comments() ) { comment_form(); } ?>
+                
+    </div><!-- .comments-body -->
 </div>

@@ -6,8 +6,11 @@
 	font-family: $font__sans;
 	text-align: left;
 	overflow: hidden;
-        max-width: $query__large;
+        max-width: $size__page;
         margin: 0 auto;
+        -webkit-transform: skewX(14deg);
+        transform: skewX(14deg);
+        font-style: italic;
 	
 	a {
 		display: block;
@@ -21,7 +24,7 @@
 		&:focus {
                         @include hover-shape();
 			color: $color__white;
-			border-color: $color__link;
+			/*border-color: $color__link;*/
 			@include gradient();
 		}
 	}

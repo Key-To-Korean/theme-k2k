@@ -14,7 +14,7 @@
         <div class="entry-header-container">
     
 	<?php if ( '' != get_the_post_thumbnail() ) : ?>
-		<div class="post-thumbnail-container">
+		<div class="post-thumbnail-container skewed-thumbnail">
 			<a href="<?php the_permalink(); ?>">
 				<div class="post-thumbnail" style="background: url(' <?php the_post_thumbnail_url(); ?> ');">
                                 </div>

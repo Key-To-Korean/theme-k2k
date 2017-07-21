@@ -42,9 +42,9 @@ function k2k_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	add_image_size( 'k2k-featured-image', 640, 9999 );
-	add_image_size( 'k2k-hero', 1280, 1000, true );
-	add_image_size( 'k2k-thumbnail-avatar', 100, 100, true );
+	add_image_size( 'k2k-featured-image', 840, 400, true );
+	//add_image_size( 'k2k-hero', 1280, 1000, true );
+	//add_image_size( 'k2k-thumbnail-avatar', 100, 100, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

@@ -7,6 +7,7 @@
         left: 0;
         z-index: 9;
         background: darken( $color__bright_blue_alpha, 30% );
+        @include gradient();
         position: fixed;
         padding-top: 20px;
         
@@ -22,6 +23,7 @@
                         font-family: "Oswald";
                         text-align: center;
                         background: darken( $color__bright_blue_alpha, 30% );
+                        @include gradient();
                         color: $color__white;
                         border: none;
                         width: 0%;
@@ -31,6 +33,13 @@
                         &:focus,
                         &:active {
                             outline: none;
+                        }
+                        
+                        &::-webkit-input-placeholder,
+                        &::-moz-placeholder, 
+                        &:-ms-input-placeholder, 
+                        &:-moz-placeholder {
+                            color: white;
                         }
                         
                 }

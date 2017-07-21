@@ -63,9 +63,9 @@ function k2k_entry_footer() {
 	if ( 'post' === get_post_type() ) {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'k2k' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( '', 'k2k' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'k2k' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Keywords: %1$s', 'k2k' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 

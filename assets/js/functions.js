@@ -9,6 +9,8 @@
     $( 'figure.wp-caption.aligncenter' ).removeAttr( 'style' );
     $( 'img.aligncenter' ).wrap( '<figure class="centered-image" />' );
     
+    $( '.comments-body .vcard' ).addClass( 'skewed-thumbnail' );
+    
     // Turn on site search
     $( '#site-search-button, .search-toggle' ).click( function() {
         if( $( '#secondary' ).hasClass( 'active' ) ) {
@@ -33,5 +35,11 @@
         }
         $( '#secondary' ).toggleClass( 'active' );
     });
+    
+    // View Comments
+    $( '.view-comments' ).click( function() {
+       $( '.view-the-comments' ).toggleClass( 'active' ); 
+    });
+    
 }) ( jQuery );
 
