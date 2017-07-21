@@ -1,5 +1,8 @@
 <div class="site-info">
-	<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'k2k' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'k2k' ), 'WordPress' ); ?></a>
-	<span class="sep"> | </span>
-	<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'k2k' ), 'K2K', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+        <?php 
+        printf( esc_html__( '%1$s is a %2$s theme designed by %3$s.', 'k2k' ), 
+                '<strong>K2K</strong>', 
+                '<a href="http://wordpress.org"><i class="fa fa-wordpress"><span class="screen-reader-text">WordPress</span></i></a>', 
+                '<a href="http://aaronsnowberger.com/" rel="designer" title="Aaron Snowberger">Aaron</a>' ); 
+        ?>
 </div><!-- .site-info -->
