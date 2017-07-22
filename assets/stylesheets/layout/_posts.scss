@@ -163,18 +163,19 @@
     & > p {
         &:first-child {
             &:first-letter {
-                font-size: 3.5em;
+                font-size: 3em;
                 line-height: 0.6;
                 float: left;
                 float: left;
                 padding-top: 0.2em;
                 padding-right: 0.05em;
+                font-family: "Oswald";
             }
-            &:first-line {
-                font-family: $font__serif;
+/*            &:first-line {
+                font-family: "Oswald";
                 text-transform: uppercase;
                 letter-spacing: 2px;
-            }
+            }*/
         }
     }
     

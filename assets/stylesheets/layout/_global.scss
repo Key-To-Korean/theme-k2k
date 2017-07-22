@@ -35,9 +35,13 @@
       margin-right: auto; }
 
 .site-content {
-    padding: 1em;
+    padding: 1em 1em 0;
     
     @media screen and (min-width: $query__small) {
-        padding: 2em;
+        padding: 2em 2em 0;
     }
+}
+
+.site-footer {
+    background-size: cover!important;
 }

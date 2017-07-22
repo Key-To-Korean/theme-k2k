@@ -1,5 +1,7 @@
 aside#secondary {
+    
     @include font-size(0.8);
+    
     transition: all 0.5s;
     padding: 3em;
     position: fixed;
@@ -11,6 +13,7 @@ aside#secondary {
     //background: $color__dark_green_alpha;
     background: darken( $color__bright_blue_alpha, 30% );
     overflow-y: scroll;
+    
 /*    &:before {
         font-family: "FontAwesome";
         content: "\f04a";
@@ -25,19 +28,26 @@ aside#secondary {
         padding: 8px;
         text-align: center;
     }*/
+
     &:hover,
     &:active,
     &:focus,
     &.active {
+        
         right: 0%;
         height: 100%;
+        z-index: 1;
+        
         &:before {
             display: none;
         }
+        
     }
+    
 }
 
 .site-side-button {
+    
         color: white;
         display: block;
         position: fixed;
@@ -50,7 +60,9 @@ aside#secondary {
         padding: 3px;
         text-align: center;
         z-index: 10;
+        
 }
+
 .site-search-button {
         left: 0;
 }

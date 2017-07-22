@@ -1081,13 +1081,17 @@ body {
 }
 
 .site-content {
-	padding: 1em;
+	padding: 1em 1em 0;
 }
 
 @media screen and (min-width: 37.5rem) {
 	.site-content {
-		padding: 2em;
+		padding: 2em 2em 0;
 	}
+}
+
+.site-footer {
+	background-size: cover !important;
 }
 
 /*--------------------------------------------------------------
@@ -1288,19 +1292,22 @@ body {
 	font-size: 1.125rem;
 }
 
+.entry-content > p:first-child {
+	/*            &:first-line {
+                font-family: "Oswald";
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }*/
+}
+
 .entry-content > p:first-child:first-letter {
-	font-size: 3.5em;
+	font-size: 3em;
 	line-height: 0.6;
 	float: left;
 	float: left;
 	padding-top: 0.2em;
 	padding-right: 0.05em;
-}
-
-.entry-content > p:first-child:first-line {
-	font-family: "Noto Serif", Georgia, Cambria, "Times New Roman", Times, serif;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+	font-family: "Oswald";
 }
 
 .entry-content:after {
@@ -1662,7 +1669,7 @@ body {
 # Widgets
 --------------------------------------------------------------*/
 .widget-area {
-	margin-top: 1.5em;
+	margin-top: 0;
 }
 
 /* Footer widgets for archive pages */
@@ -1676,6 +1683,7 @@ body {
 	margin: 0 1em 2em 0;
 	padding: 0 0 2em;
 	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	color: gainsboro;
 	/* Make sure select elements fit in widgets. */
 }
 
@@ -1729,12 +1737,25 @@ body {
 	/*border-bottom: 3px solid $color__interactive;*/
 }
 
+.widget strong {
+	color: inherit;
+}
+
 .widget select {
 	width: 100%;
 	height: 2.5em;
 	padding: 10px;
 	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	border: 1px solid #ccc;
+}
+
+.widget .wp-caption .wp-caption-text {
+	background: rgba(9, 74, 128, 0.8);
+	color: gainsboro;
+}
+
+.widget .wp-caption .wp-caption-text:after {
+	border-color: rgba(50, 154, 240, 0.8);
 }
 
 .widget-title {
@@ -1769,8 +1790,10 @@ body {
 }
 
 /* Archive and Categories widgets */
-.widget_archive li {
-	color: #7D7D7D;
+.widget_archive li,
+.widget_categories li {
+	color: #878d91;
+	font-weight: 300;
 }
 
 .widget_archive select {
@@ -1825,9 +1848,14 @@ body {
 }
 
 /* Recent comments */
+.widget_recent_comments .comment-author-link a {
+	color: #ffffff;
+	font-weight: 600;
+}
+
 .widget_recent_comments li {
-	line-height: 1.3em;
-	padding-bottom: .5em;
+	line-height: 1.5em !important;
+	padding-bottom: 1.5em;
 }
 
 .widget_recent_comments a:hover,
@@ -1844,19 +1872,34 @@ body {
 	padding-right: .5em;
 	font-size: 1em;
 	line-height: 1.4em;
+	font-weight: 600;
+	color: #ffffff;
 }
 
-.rss-date,
-.widget_rss cite {
-	color: #333;
+.rss-date {
+	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-weight: 300;
 	font-size: .8em;
+}
+
+.widget_rss cite {
+	font-family: "Satisfy", cursive;
 }
 
 .rssSummary {
 	padding: .5em 0;
-	font-family: "Noto Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 	font-size: .8em;
-	line-height: 1.4em;
+	line-height: 1.5em;
+	font-weight: 300;
+}
+
+.rss-widget-icon {
+	-webkit-transform: skewX(-14deg);
+	transform: skewX(14deg);
+	float: left;
+	margin-top: 1em;
+	margin-right: 0.25em;
 }
 
 /* Search widget */
@@ -1864,8 +1907,15 @@ body {
 	box-sizing: border-box;
 	width: 100%;
 	padding: .5em 1em;
-	border: 1px solid #c3c3c3;
+	border: 1px solid #ffffff;
 	border-radius: 0;
+	color: white;
+	background: transparent;
+	font-family: "Oswald";
+}
+
+.widget_search input[type="search"]:focus, .widget_search input[type="search"]:hover {
+	outline-color: rgba(81, 207, 102, 0.8);
 }
 
 /* Calendar widget */
@@ -1921,7 +1971,102 @@ body {
 /* Text widget */
 .textwidget {
 	font-size: 80%;
-	line-height: 1.3em;
+	line-height: 1.5em;
+}
+
+/* Tag Cloud */
+.tagcloud a {
+	font-weight: 400;
+}
+
+.footer-widgets-area {
+	background-color: rgba(9, 74, 128, 0.8);
+	margin: 0;
+	padding: 1em 0;
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+.footer-widgets {
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 37.5rem) {
+	.footer-widgets {
+		padding: 2em 1em;
+	}
+}
+
+.footer-widgets .widget {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	margin: 0 1em 2em;
+	padding-top: 1em;
+}
+
+.footer-widgets .widget .original-title {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-widgets .widget:before {
+	border-color: #329AF0;
+}
+
+.footer-widgets .widget-title {
+	font-size: 1.5em;
+	margin-left: -5px;
+	border-color: #329AF0;
+}
+
+.footer-widgets .widget-title:before {
+	border-color: #329AF0;
+}
+
+.footer-widgets .widget,
+.footer-widgets .widget-title,
+.footer-widgets .widget a,
+.footer-widgets .widget_calendar thead,
+.footer-widgets .rss-date,
+.footer-widgets .widget_rss cite {
+	color: white;
+}
+
+.footer-widgets .widget_calendar td,
+.footer-widgets .widget_calendar a {
+	color: black;
+}
+
+@media screen and (min-width: 62.5rem) {
+	.footer-widgets {
+		/* Use flex to create a responsive layout */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		-ms-flex-pack: distribute;
+		    justify-content: space-around;
+		/* If only one widget is displayed, make it full width. */
+		/* If 2 or 3 widgets are displayed, make the second one twice as wide. */
+		/* If 4 or more widgets are displayed, show three across when available. */
+	}
+	.footer-widgets .widget:only-of-type {
+		width: 100%;
+	}
+	.footer-widgets .widget:nth-last-child(n+2):nth-last-child(-n+3):first-child ~ .widget:nth-child(2) {
+		-webkit-box-flex: 2;
+		    -ms-flex: 2;
+		        flex: 2;
+	}
+	.footer-widgets .widget:nth-last-child(n+4),
+	.footer-widgets .widget:nth-last-child(n+4) ~ .widget {
+		width: 30%;
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 1 30%;
+		        flex: 1 1 30%;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -2535,6 +2680,7 @@ aside#secondary {
 aside#secondary:hover, aside#secondary:active, aside#secondary:focus, aside#secondary.active {
 	right: 0%;
 	height: 100%;
+	z-index: 1;
 }
 
 aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:focus:before, aside#secondary.active:before {
