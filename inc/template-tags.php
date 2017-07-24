@@ -37,7 +37,8 @@ function k2k_posted_on() {
 	echo '<span class="byline"> ' . $byline . '</span> <span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
         if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<br><span class="comments-link">';
+		echo ( ! is_archive() && ! is_home() && ! is_search() ) ? '<br>' : ' ';
+                echo '<span class="comments-link">';
 		comments_popup_link( esc_html__( 'Leave a comment', 'k2k' ), esc_html__( '1 Comment', 'k2k' ), esc_html__( '% Comments', 'k2k' ) );
 		echo '</span>';
 	}

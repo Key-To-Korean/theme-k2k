@@ -106,17 +106,27 @@
 .pagination {
 	
 	font-family: $font__sans;
+        background: $color__very_light_gray;
+        -webkit-transform: skewX(14deg);
+        transform: skewX(14deg);
+        font-style: italic;
+        margin-top: 4em;
+        font-size: 0.8em;
 	
 	.nav-links {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
+                
 	}
 	
 	a,
 	span {
-		padding: .5em 1em;
-		background: white;
+		padding: .5em 1.5em;
+		background: white;   
+                border: 1px solid $color__light_gray;
+                margin: 5px 5px;
+                
 	}
 	
 	a {
@@ -131,7 +141,7 @@
 	
 	.current {
 		font-weight: 600;
-		color: $color__link;
+		color: $color__black;
 	}
 	
 	.prev .icon {

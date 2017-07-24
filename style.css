@@ -496,7 +496,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 1em 0 0.5em;
 }
 
-h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+h1 strong, h1 i, h1 em, h2 strong, h2 i, h2 em, h3 strong, h3 i, h3 em, h4 strong, h4 i, h4 em, h5 strong, h5 i, h5 em, h6 strong, h6 i, h6 em {
 	font-weight: 400;
 }
 
@@ -944,6 +944,12 @@ table th, table td {
 
 .pagination {
 	font-family: "Spoqa Han Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	background: #f8fafb;
+	-webkit-transform: skewX(14deg);
+	transform: skewX(14deg);
+	font-style: italic;
+	margin-top: 4em;
+	font-size: 0.8em;
 }
 
 .pagination .nav-links {
@@ -959,8 +965,10 @@ table th, table td {
 
 .pagination a,
 .pagination span {
-	padding: .5em 1em;
+	padding: .5em 1.5em;
 	background: white;
+	border: 1px solid gainsboro;
+	margin: 5px 5px;
 }
 
 .pagination a {
@@ -974,7 +982,7 @@ table th, table td {
 
 .pagination .current {
 	font-weight: 600;
-	color: #51CF66;
+	color: #1d1f21;
 }
 
 .pagination .prev .icon {
@@ -1115,6 +1123,11 @@ body {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	max-width: 75rem;
 	margin: 0 auto;
 	padding-left: 0;
@@ -1122,7 +1135,7 @@ body {
 }
 
 .show-sidebar .site-content .content-area {
-	width: 65%;
+	width: 60%;
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 auto;
 	flex: 1 1 auto;
@@ -1147,9 +1160,47 @@ body {
 	font-weight: 400;
 }
 
+.show-sidebar .page-header {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 100%;
+	        flex: 1 0 100%;
+}
+
+.show-sidebar .page-title {
+	font-size: 30px;
+	font-size: 1.875rem;
+	color: #363a3c;
+	padding-bottom: 0.25em;
+	margin-bottom: 1.5em;
+	border-bottom: 4px solid gainsboro;
+}
+
+.show-sidebar .taxonomy-description {
+	text-align: center;
+	font-size: 0.8em;
+	color: #878d91;
+	font-style: italic;
+	font-weight: 300;
+	max-width: 50em;
+	margin: -2em auto 4em;
+}
+
 .show-sidebar .widget-title {
 	color: #363a3c;
 	font-size: 1.5em;
+}
+
+.has-page-sidebar .site-content {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	    -ms-flex-direction: row-reverse;
+	        flex-direction: row-reverse;
+}
+
+.has-page-sidebar aside#secondary {
+	width: 20% !important;
+	margin-left: 0 !important;
+	margin-right: 2em;
 }
 
 /*--------------------------------------------------------------
@@ -1298,23 +1349,24 @@ body {
 
 .skewed-thumbnail:before {
 	z-index: 2;
-	height: 100%;
+	height: 101%;
 	width: 110px;
 	background: #fafafa;
 	content: "";
 	position: absolute;
 	left: -60px;
+	top: 0px;
 }
 
 .skewed-thumbnail:after {
 	z-index: 2;
-	height: 100%;
+	height: 101%;
 	width: 110px;
 	background: #fafafa;
 	content: "";
 	position: absolute;
 	right: -60px;
-	top: 0;
+	top: 0px;
 }
 
 .skewed-thumbnail img,
@@ -2840,7 +2892,7 @@ aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:foc
 	margin: 0;
 	padding-left: 0px;
 	padding-top: 10px;
-	border-top: 1px solid #878d91;
+	border-top: 1px solid gainsboro;
 }
 
 .archive-view .entry-header.has-thumbnail {
@@ -2848,8 +2900,8 @@ aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:foc
 }
 
 .archive-view .entry-title {
-	font-size: 24px;
-	font-size: 1.5rem;
+	font-size: 20px;
+	font-size: 1.25rem;
 	margin: 0;
 	text-align: left;
 }

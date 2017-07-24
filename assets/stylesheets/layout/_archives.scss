@@ -30,14 +30,14 @@
         margin: 0;
         padding-left: 0px;
         padding-top: 10px;
-        border-top: 1px solid $color__gray;
+        border-top: 1px solid $color__light_gray;
         &.has-thumbnail {
             padding-left: 220px;
         }
     }
     
     .entry-title {
-        @include font-size(1.2);
+        @include font-size(1);
         margin: 0;
         text-align: left;
         a {

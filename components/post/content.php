@@ -38,7 +38,7 @@
             
         </div><!-- .entry-header-container -->
         
-        <?php if ( is_singular() ) : ?>
+        <?php if ( is_singular() || ( is_sticky() && ! is_search() ) ) : ?>
             
 	<div class="entry-content row">
             

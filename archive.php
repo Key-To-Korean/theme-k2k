@@ -9,18 +9,27 @@
 
 get_header(); ?>
 
+<?php
+if ( have_posts() ) : ?>
+
+    <header class="page-header">
+            <?php
+                    the_archive_title( '<h1 class="page-title">', '</h1>' );
+                    the_archive_description( '<div class="taxonomy-description">', '</div>' );
+            ?>
+    </header>
+
+<?php 
+else : 
+    
+    get_template_part( 'components/post/content', 'none' );
+    return;
+    
+endif; ?>
+
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header>
+		<main id="main" class="site-main" role="main">   
+                    
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -34,13 +43,12 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'components/post/content', 'none' );
-
-		endif; ?>
+			the_posts_pagination( array(
+                            'prev_text'     => __( 'Newer', 'k2k' ),
+                            'next_text'     => __( 'Older', 'k2k' ),
+                            'before_page_number'    => '<span class="screen-reader-text">' . __( 'Page ', 'k2k' ) . '</span>',
+                        ) );
+                        ?>
 
 		</main>
 	</div>

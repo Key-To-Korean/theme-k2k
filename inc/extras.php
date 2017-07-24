@@ -31,6 +31,11 @@ function k2k_body_classes( $classes ) {
 	} else {
                 $classes[] = 'has-sidebar'; 
         }
+        
+        // Add a class of no-sidebar when there is no sidebar present
+	if ( is_page() && is_active_sidebar( 'sidebar-3' ) ) {
+		$classes[] = 'has-page-sidebar';
+	} 
 
 	return $classes;
 }

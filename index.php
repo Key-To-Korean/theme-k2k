@@ -13,12 +13,14 @@
  */
 
 get_header(); ?>
+
+<?php
+if ( have_posts() ) : ?>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
-		<?php
-		if ( have_posts() ) :
-
+                    
+                        <?php
 			if ( is_home() && ! is_front_page() ) : ?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
@@ -38,16 +40,22 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'components/post/content', 'none' );
-
-		endif; ?>
+			the_posts_pagination( array(
+                            'prev_text'     => __( 'Newer', 'k2k' ),
+                            'next_text'     => __( 'Older', 'k2k' ),
+                            'before_page_number'    => '<span class="screen-reader-text">' . __( 'Page ', 'k2k' ) . '</span>',
+                        ) );
+                        ?>
 
 		</main>
 	</div>
 <?php
 get_sidebar();
 get_footer();
+
+else : 
+    
+    get_template_part( 'components/post/content', 'none' );
+    return;
+    
+endif; ?>

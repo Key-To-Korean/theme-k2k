@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site <?php echo ( is_archive() || is_home() || is_search() ) ? 'show-sidebar' : ''; ?>">
+<div id="page" class="site <?php echo ( is_page() || is_archive() || is_home() || is_search() || is_404() ) ? 'show-sidebar' : ''; ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'k2k' ); ?></a>
 
             <!-- Site Search over EVERYTHING else - pushes site down if opened -->
