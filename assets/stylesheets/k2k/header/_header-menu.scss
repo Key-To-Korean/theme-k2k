@@ -107,6 +107,8 @@
         li {
             display: inline-block;
             padding: 20px 10px;
+            transform: skewX(14deg);
+            font-style: italic;
         }
         a {
             color: $color__gray;

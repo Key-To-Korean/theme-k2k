@@ -22,7 +22,7 @@
 		</div>
 	<?php endif; ?> 
 
-	<header class="entry-header">
+	<header class="entry-header <?php echo get_the_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -37,12 +37,13 @@
 	</header>
             
         </div><!-- .entry-header-container -->
+        
+        <?php if ( is_singular() ) : ?>
             
 	<div class="entry-content row">
             
-                <?php if ( is_single() ) { k2k_breadcrumbs(); } ?>
+                <?php if ( is_single() ) { k2k_breadcrumbs(); } 
             
-		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'k2k' ), array( 'span' => array( 'class' => array() ) ) ),
@@ -53,7 +54,10 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'k2k' ),
 				'after'  => '</div>',
 			) );
-		?>
+                ?>
 	</div>
 	<?php get_template_part( 'components/post/content', 'footer' ); ?>
+        
+        <?php endif; ?>
+        
 </article><!-- #post-## -->

@@ -25,7 +25,7 @@ function k2k_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Published on %s', 'post date', 'k2k' ),
+		esc_html_x( 'on %s', 'post date', 'k2k' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
@@ -60,7 +60,7 @@ if ( ! function_exists( 'k2k_entry_footer' ) ) :
  */
 function k2k_entry_footer() {
 	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
+	if ( 'post' === get_post_type() && is_singular() ) {
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( '', 'k2k' ) );
@@ -142,3 +142,19 @@ function k2k_breadcrumbs() {
     }
     
 }
+
+/**
+ * Customize ellipsis at end of excerpts.
+ */
+function k2k_excerpt_more( $more ) {
+    return "&hellip;";
+}
+add_filter( 'excerpt_more', 'k2k_excerpt_more' );
+
+/**
+ * Filter excerpt length to 100 words.
+ */
+function k2k_excerpt_length( $length ) {
+    return 100;
+}
+add_filter( 'excerpt_length', 'k2k_excerpt_length' );

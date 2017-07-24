@@ -54,16 +54,47 @@ aside#secondary {
         top: 50%;
         right: 0;
         height: 40px;
-        width: 40px;
+        width: 30px;
         //background: $color__dark_green_alpha;
-        background: darken( $color__bright_blue_alpha, 30% );
+        background: darken( $color__bright_blue, 10% );
         padding: 3px;
-        text-align: center;
         z-index: 10;
+        
+        &:before {
+            
+            height: 100%;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            -webkit-transform: skewX(14deg);
+            transform: skewX(14deg);
+            background: darken( $color__bright_blue, 10% );
+            z-index: -1;
+        
+        }
         
 }
 
 .site-search-button {
-        left: 0;
+    left: 0;
+    text-align: right;
+
+    &:before {
+        left: 5px;
+    }
+            
 }
+
+.site-sidebar-button {
+    text-align: left;
+
+    &:before {
+        left: -5px;
+    }
+
+}
+        
+        
 

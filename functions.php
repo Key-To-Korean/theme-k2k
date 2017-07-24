@@ -282,3 +282,18 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Add 'odd' and 'even' post classes
+ */
+function k2k_odd_even_post_classes( $classes ) {
+    global $current_class;
+    if( is_archive() || is_search() || is_home() ) : 
+        $classes[] = $current_class;
+        $current_class = ( $current_class == 'odd' ) ? 'even' : 'odd';
+    endif;
+    return $classes;
+}
+add_filter( 'post_class', 'k2k_odd_even_post_classes' );
+global $current_class;
+$current_class = 'odd';

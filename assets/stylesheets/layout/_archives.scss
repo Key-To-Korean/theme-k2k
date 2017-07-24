@@ -1,0 +1,86 @@
+.archive-view {
+    
+    .entry-header-container {
+        background: $color__white;
+        max-width: $size__body;
+        margin: 0 auto;
+        padding: 0;
+        
+        .post-thumbnail-container {
+            height: 140px;
+            width: 200px!important;
+            position: absolute;
+            
+            &:before,
+            &:after {
+                background: $color__white;
+                height: 140px;
+                width: 77px;
+            }
+            
+            .post-thumbnail {
+                width: 200px!important;
+                height: 140px!important;
+            }
+        }
+        
+    }
+    
+    .entry-header {
+        margin: 0;
+        padding-left: 0px;
+        padding-top: 10px;
+        border-top: 1px solid $color__gray;
+        &.has-thumbnail {
+            padding-left: 220px;
+        }
+    }
+    
+    .entry-title {
+        @include font-size(1.2);
+        margin: 0;
+        text-align: left;
+        a {
+            text-decoration: none;
+            color: $color__body;
+            line-height: 1.5;
+        }
+    }
+    
+    .entry-meta {
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    .entry-content {
+        
+        &:after {
+            display: none;
+        }
+        
+    }
+    
+    .hentry {
+        min-height: 140px;
+        margin-bottom: 1.25em;
+    }
+    
+    .even {
+                
+        .skewed-thumbnail {
+            -webkit-transform: skewX(-14deg);
+            transform: skewX(-14deg)!important;
+            .post-thumbnail {
+                -webkit-transform: skewX(14deg);
+                transform: skewX(14deg)!important;
+            }
+        }
+        
+        .entry-header.has-thumbnail {
+            margin-left: 35px;
+            padding-left: 185px;
+        }
+
+    }
+}
+

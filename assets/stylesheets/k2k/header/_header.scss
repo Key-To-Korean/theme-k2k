@@ -9,6 +9,10 @@
     padding: 1em;
     font-family: $font__sans;
     background-color: $color__green;
+    .site-header-container {
+            max-width: $query__large;
+            margin: 0 auto;
+    }
     
     @media screen and (min-width: $query__small) {
         padding: 2em 2em;
@@ -100,7 +104,7 @@
 }
 
 @media screen and (min-width: $query__small) {
-    .site-header {
+    .site-header-container {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;

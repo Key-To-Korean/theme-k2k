@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="site <?php echo ( is_archive() || is_home() || is_search() ) ? 'show-sidebar' : ''; ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'k2k' ); ?></a>
 
             <!-- Site Search over EVERYTHING else - pushes site down if opened -->
@@ -58,12 +58,15 @@
                 
                 <div class="gradient-overlay"></div>
                 
-		<?php get_template_part( 'components/header/site', 'branding' ); ?>
+                <div class="site-header-container">
+                
+                    <?php get_template_part( 'components/header/site', 'branding' ); ?>
 
-		<?php if ( is_front_page() ) {
-                    get_template_part( 'components/navigation/navigation', 'top' ); 
-                }
-                ?>
+                    <?php if ( is_front_page() ) {
+                        get_template_part( 'components/navigation/navigation', 'top' ); 
+                    }
+                    ?>
+                </div><!-- .site-header-container -->
 
             </header>
             

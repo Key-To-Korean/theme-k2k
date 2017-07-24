@@ -30,6 +30,52 @@ body {
   margin-right: auto;
 }
 
+.show-sidebar {
+    
+    .site-sidebar-button {
+        display: none;
+    }
+
+    .site-content {
+
+        display: flex;
+        max-width: 75rem;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+
+        .content-area {
+            width: 65%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+            flex: 1 1 auto;
+        }
+
+        aside#secondary {
+            width: 35%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+            position: relative;
+            top: auto;
+            right: 0;
+            background: $color__white;
+            color: initial;
+            margin-left: 2em;
+            padding-right: 0;
+            a {
+                color: $color__gray;
+                font-weight: 400;
+            }
+        }
+    }
+    
+    .widget-title {
+        color: $color__body;
+        font-size: 1.5em;
+    }
+}
+
 /*--------------------------------------------------------------
 ## Posts
 --------------------------------------------------------------*/
