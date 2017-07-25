@@ -116,6 +116,15 @@
         
 }
 
+.show-sidebar {
+    .widget:before {
+        top: 48px;
+    }
+    .widget_title {
+        margin-left: -5px;
+    }
+}
+
 /* Turn OFF left border on these widgets */
 .widget_search,
 .widget_calendar,
@@ -347,7 +356,7 @@
 		}
                 
                 &:before {
-                    border-color: $color__bright_blue;
+                    border: none;
                 }
 	}
         
@@ -357,7 +366,7 @@
             border-color: $color__bright_blue;
             
             &:before {
-                border-color: $color__bright_blue;
+                border: none;
             }
             
         }

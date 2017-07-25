@@ -63,16 +63,16 @@
                     <?php get_template_part( 'components/header/site', 'branding' ); ?>
 
                     <?php if ( is_front_page() ) {
-                        get_template_part( 'components/navigation/navigation', 'top' ); 
+                        get_template_part( 'components/navigation/navigation', 'home' ); 
                     }
                     ?>
                 </div><!-- .site-header-container -->
 
             </header>
             
-            <?php if ( ! is_front_page() ) {
-                get_template_part( 'components/navigation/navigation', 'top' ); 
-            }
+            <?php //if ( ! is_front_page() ) {
+                get_template_part( 'components/navigation/navigation', 'main' ); 
+            //}
             ?>
             
             <div class="site-search-button site-side-button">

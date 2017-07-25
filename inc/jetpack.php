@@ -39,7 +39,7 @@ function k2k_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :
-		    get_template_part( 'components/post/content', 'search' );
+		    get_template_part( 'components/post/content', 'none' );
 		else :
 		    get_template_part( 'components/post/content', get_post_format() );
 		endif;

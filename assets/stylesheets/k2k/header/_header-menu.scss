@@ -99,7 +99,9 @@
         ul {
             list-style: none;
             float: right;
-            position: relative;
+            position: absolute;
+            right: 0;
+            top: 0;
             ul {
                 display: none;
             }
@@ -113,6 +115,35 @@
         a {
             color: $color__gray;
         }
+        .main-navigation-container {
+            max-width: $query__large;
+            margin: 0 auto;
+            .logo img {
+                float: left;
+                height: 45px;
+                top: 15px;
+            }
+            .site-title {
+                float: left;
+                padding-top: 1em;
+                padding-left: 1em;
+                font-size: 1.5em;
+                color: $color__body;
+            }
+        }
+}
+
+.fixed.main-navigation {
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background: rgba(255,255,255,0.8);
+    border-color: $color__very_light_gray;
+    &:hover, 
+    &:active, 
+    &:focus {
+        background: $color__white;
+    }
 }
 
 /* Small menu. */

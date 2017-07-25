@@ -97,6 +97,7 @@
     margin: 0;
     @include font-size(0.9);
     font-weight: 300;
+    color: $color__body;
     
     a {
         color: #fff;

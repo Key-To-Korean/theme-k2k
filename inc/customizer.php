@@ -16,6 +16,24 @@ function k2k_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
         
         /**
+         * Dark Logo
+         */
+        $wp_customize->add_setting( 'dark_logo',
+                array(
+                    'priority'          => 10,
+                    'sanitize_callback' => 'k2k_sanitize_upload',
+                ));
+        
+        $wp_customize->add_control( new WP_Customize_Image_Control( 
+                $wp_customize,
+                'dark_logo',
+                array(
+                    'section'           => 'title_tagline',
+                    'label'             => __( '(Optional) Dark Logo', 'k2k' ),
+                    'description'       => __( 'Add a darker version of your logo that will look good on a light background.', 'k2k' )
+                )));
+        
+        /**
          * Extended Blog Description
          */
         $wp_customize->add_setting( 'blogdescription_xl',
@@ -40,6 +58,13 @@ add_action( 'customize_register', 'k2k_customize_register' );
  */
 function k2k_sanitize_html( $input ) {
         return wp_kses_post( force_balance_tags( $input ), array( 'a' => array( 'href' => array() ) ) );
+}
+
+/**
+ * Sanitize Upload
+ */
+function k2k_sanitize_upload( $input ) {
+        return esc_url_raw( $input );
 }
 
 /**
