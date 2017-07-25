@@ -10,7 +10,7 @@
  */
 
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-svg">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,8 +38,24 @@
                          <li>1-800-123-1234</li>
                          <li>info@eco-nature.com</li>
                      </ul>
-                </div>
-                <?php k2k_social_menu(); ?>
+                    
+                    <?php if ( has_nav_menu( 'social' ) ) : ?>
+                        <nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">
+                                <?php
+                                        wp_nav_menu( array(
+                                                'theme_location' => 'social',
+                                                'menu_class'     => 'social-links-menu',
+                                                'depth'          => 1,
+                                                'link_before'    => '<span class="screen-reader-text">',
+                                                'link_after'     => '</span>' /* . twentyseventeen_get_svg( array( 'icon' => 'chain' ) ),*/
+                                        ) );
+                                ?>
+                        </nav><!-- .social-navigation -->
+                    <?php endif; ?>
+                        
+                </div><!-- .header-contact -->
+                <?php // k2k_social_menu(); ?>
+                
                 <div class="search-toggle">
                     <i class="fa fa-search"></i>
                     <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>

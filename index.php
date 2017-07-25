@@ -41,8 +41,8 @@ if ( have_posts() ) : ?>
 			endwhile;
 
 			the_posts_pagination( array(
-                            'prev_text'     => __( 'Newer', 'k2k' ),
-                            'next_text'     => __( 'Older', 'k2k' ),
+                            'prev_text'     => k2k_get_svg( array( 'icon' => 'level-up' ) ) . __( 'Newer', 'k2k' ),
+                            'next_text'     => __( 'Older', 'k2k' ) . k2k_get_svg( array( 'icon' => 'level-down' ) ),
                             'before_page_number'    => '<span class="screen-reader-text">' . __( 'Page ', 'k2k' ) . '</span>',
                         ) );
                         ?>

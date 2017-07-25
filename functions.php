@@ -43,12 +43,13 @@ function k2k_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	add_image_size( 'k2k-featured-image', 840, 400, true );
-	//add_image_size( 'k2k-hero', 1280, 1000, true );
+	add_image_size( 'k2k-thumbnail', 200, 140, true );
 	//add_image_size( 'k2k-thumbnail-avatar', 100, 100, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Top', 'k2k' ),
+		'menu-1'    => esc_html__( 'Top', 'k2k' ),
+                'social'    => esc_html__( 'Social Menu', 'k2k' )
 	) );
 
 	/**
@@ -180,6 +181,96 @@ function k2k_the_custom_logo() {
 	}
 }
 
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for content images.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $sizes A source size value for use in a 'sizes' attribute.
+ * @param array  $size  Image size. Accepts an array of width and height
+ *                      values in pixels (in that order).
+ * @return string A source size value for use in a content image 'sizes' attribute.
+ * 
+ * @TODO  Find responsive breakpoints and adjust these values
+ */
+function k2k_content_image_sizes_attr( $sizes, $size ) {
+	$width = $size[0];
+	if ( 900 <= $width ) {
+		$sizes = '(min-width: 900px) 700px, 900px';
+	}
+	if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-2' ) ) {
+		$sizes = '(min-width: 900px) 600px, 900px';
+	}
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'k2k_content_image_sizes_attr', 10, 2 );
+
+/**
+ * Filter the `sizes` value in the header image markup.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $html   The HTML image tag markup being filtered.
+ * @param object $header The custom header object returned by 'get_custom_header()'.
+ * @param array  $attr   Array of the attributes for the image tag.
+ * @return string The filtered header image HTML.
+ * 
+ * @TODO  Find responsive breakpoints and adjust these values
+ */
+function k2k_header_image_tag( $html, $header, $attr ) {
+	if ( isset( $attr['sizes'] ) ) {
+		$html = str_replace( $attr['sizes'], '100vw', $html );
+	}
+	return $html;
+}
+add_filter( 'get_header_image_tag', 'k2k_header_image_tag', 10, 3 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for post thumbnails.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param array $attr       Attributes for the image markup.
+ * @param int   $attachment Image attachment ID.
+ * @param array $size       Registered image size or flat array of height and width dimensions.
+ * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ * 
+ * @TODO  Find responsive breakpoints and adjust these values
+ */
+function k2k_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+	if ( !is_singular() ) {
+		if ( is_active_sidebar( 'sidebar-1' ) ) {
+			$attr['sizes'] = '(max-width: 900px) 90vw, 800px';
+		} else {
+			$attr['sizes'] = '(max-width: 1000px) 90vw, 1000px';
+		}
+	} else {
+		$attr['sizes'] = '100vw';
+	}
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'k2k_post_thumbnail_sizes_attr', 10, 3 );
+
+
+/**
+ * Add 'odd' and 'even' post classes
+ */
+function k2k_odd_even_post_classes( $classes ) {
+    global $current_class;
+    if( is_archive() || is_search() || is_home() ) : 
+        $classes[] = $current_class;
+        $current_class = ( $current_class == 'odd' ) ? 'even' : 'odd';
+    endif;
+    return $classes;
+}
+add_filter( 'post_class', 'k2k_odd_even_post_classes' );
+global $current_class;
+$current_class = 'odd';
+
+
 /**
  * Register widget area.
  *
@@ -284,16 +375,6 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Add 'odd' and 'even' post classes
+ * Load SVG icon functions.
  */
-function k2k_odd_even_post_classes( $classes ) {
-    global $current_class;
-    if( is_archive() || is_search() || is_home() ) : 
-        $classes[] = $current_class;
-        $current_class = ( $current_class == 'odd' ) ? 'even' : 'odd';
-    endif;
-    return $classes;
-}
-add_filter( 'post_class', 'k2k_odd_even_post_classes' );
-global $current_class;
-$current_class = 'odd';
+require get_template_directory() . '/inc/icon-functions.php';
