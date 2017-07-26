@@ -350,6 +350,31 @@ function k2k_scripts() {
 add_action( 'wp_enqueue_scripts', 'k2k_scripts' );
 
 /**
+ * Returns true if the word count can be displayed in posts.
+ *
+ * @return bool
+ */
+function k2k_show_word_count() {
+	$content = get_post_field( 'post_content', get_the_ID() );
+	return in_array( get_post_type(), array( 'post' ) ) && ! empty( $content ) && (bool) 1 === (bool) get_theme_mod( 'k2k_display_reading_time', 1 );
+}
+
+if ( ! function_exists( 'k2k_word_count' ) ) :
+/**
+ * Gets the number of words in the post content.
+ *
+ * @link http://php.net/str_word_count
+ * @link http://php.net/number_format
+ */
+function k2k_word_count() {
+	$content = get_post_field( 'post_content', get_the_ID() );
+	$count   = str_word_count( strip_tags( $content ) );
+	$time    = $count / 250; // Roughly 250 wpm reading time
+	return number_format( $time );
+}
+endif; // k2k_word_count
+
+/**
  * Custom header for this theme.
  */
 require get_template_directory() . '/inc/custom-header.php';

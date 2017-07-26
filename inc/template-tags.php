@@ -25,31 +25,43 @@ function k2k_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'on %s', 'post date', 'k2k' ),
+		esc_html_x( '%s', 'post date', 'k2k' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'By %s', 'post author', 'k2k' ),
+		esc_html_x( '%s', 'post author', 'k2k' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="byline"> ' . $byline . '</span> <span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+	echo '<span class="byline">' . k2k_get_svg( array( 'icon' => 'octoface' ) ) . ' ' . $byline . '</span>';
+        echo '<span class="posted-on">' . k2k_get_svg( array( 'icon' => 'calendar' ) ) . ' ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
+        if ( k2k_show_word_count() ) {
+                printf( '%s <span class="word-count">%s</span>', 
+                        k2k_get_svg( array( 'icon' => 'hourglass' ) ), 
+                        sprintf( _nx( '%s Minute', '%s Minutes', k2k_word_count(), 'time to read', 'k2k' ), k2k_word_count() ) 
+                );
+        }
+        
         if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo ( ! is_archive() && ! is_home() && ! is_search() ) ? '<br>' : ' ';
-                echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'k2k' ), esc_html__( '1 Comment', 'k2k' ), esc_html__( '% Comments', 'k2k' ) );
+                echo ' <span class="comments-link">';
+		comments_popup_link( 
+                        k2k_get_svg( array( 'icon' => 'comment' ) ) . esc_html__( ' Leave a comment', 'k2k' ), 
+                        k2k_get_svg( array( 'icon' => 'comment' ) ) . esc_html__( ' 1', 'k2k' ), 
+                        k2k_get_svg( array( 'icon' => 'comment-discussion' ) ) . esc_html__( ' %', 'k2k' ) );
 		echo '</span>';
 	}
         
         edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'k2k' ),
+			esc_html__( '%s Edit %s', 'k2k' ),
+                        k2k_get_svg( array( 'icon' => 'pencil' ) ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		' <span class="edit-link">',
+		'<span class="edit-link">',
 		'</span>'
 	);
 }
