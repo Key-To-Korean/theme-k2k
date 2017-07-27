@@ -33,11 +33,20 @@
             
             <div class="header-flash row">
                 <div class="header-contact">
-                     <ul>
-                         <li>Brooklyn, NY 10036, United States</li>
-                         <li>1-800-123-1234</li>
-                         <li>info@eco-nature.com</li>
-                     </ul>
+                    <?php 
+                    $header_text1 = get_theme_mod( 'header_text1' );
+                    $header_text2 = get_theme_mod( 'header_text2' );
+                    $header_text3 = get_theme_mod( 'header_text3' );
+                    
+                    if ( $header_text1 || $header_text2 || $header_text3 ) : ?> 
+                    <ul>
+                        <?php 
+                            echo $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : ''; 
+                            echo $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '';
+                            echo $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '';
+                        ?>
+                    </ul>
+                    <?php endif; ?>
                     
                     <?php if ( has_nav_menu( 'social' ) ) : ?>
                         <nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">

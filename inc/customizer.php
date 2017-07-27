@@ -15,6 +15,8 @@ function k2k_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
         
+        $wp_customize->get_section( 'header_image' )->title         = __( 'Header and Footer', 'k2k' );
+        
         /*
          * Custom Customizer Customizations
          * #1: Settings, #2: Controls
@@ -54,7 +56,59 @@ function k2k_customize_register( $wp_customize ) {
                     'type'              => 'text',
                     'section'           => 'title_tagline',
                     'label'             => __( 'Extended Blog Description', 'k2k' ),
-                    'description'       => __( 'You can put a descriptive paragraph here, including HTML links.', 'k2k' )
+                    'description'       => __( 'You can put a descriptive paragraph here (HTML links are OK).', 'k2k' )
+                ));
+        
+        /* ///////////////// HEADER TEXT AREAS ////////////////// */
+        /**
+         * Header Text 1
+         */
+        $wp_customize->add_setting( 'header_text1',
+                array(
+                    'default'           => '',
+                    'sanitize_callback' => 'k2k_sanitize_html',
+                ));
+        
+        $wp_customize->add_control( 'header_text1',
+                array(
+                    'type'              => 'text',
+                    'section'           => 'header_image',
+                    'label'             => __( 'Header Text 1', 'k2k' ),
+                    'description'       => __( 'A good place to put your address (or tagline/motto).', 'k2k' )
+                ));
+        
+        /**
+         * Header Text 2
+         */
+        $wp_customize->add_setting( 'header_text2',
+                array(
+                    'default'           => '',
+                    'sanitize_callback' => 'k2k_sanitize_html',
+                ));
+        
+        $wp_customize->add_control( 'header_text2',
+                array(
+                    'type'              => 'text',
+                    'section'           => 'header_image',
+                    'label'             => __( 'Header Text 2', 'k2k' ),
+                    'description'       => __( 'A good place to put your phone number.', 'k2k' )
+                ));
+        
+        /**
+         * Header Text 3
+         */
+        $wp_customize->add_setting( 'header_text3',
+                array(
+                    'default'           => '',
+                    'sanitize_callback' => 'k2k_sanitize_html',
+                ));
+        
+        $wp_customize->add_control( 'header_text3',
+                array(
+                    'type'              => 'text',
+                    'section'           => 'header_image',
+                    'label'             => __( 'Header Text 3', 'k2k' ),
+                    'description'       => __( 'A good place to put your contact email (HTML links are OK).', 'k2k' )
                 ));
         
         /* ///////////////// GRADIENT ////////////////// */

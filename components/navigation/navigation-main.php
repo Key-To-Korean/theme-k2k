@@ -19,7 +19,8 @@
         <?php wp_nav_menu( 
                 array( 
                     'theme_location' => 'menu-1', 
-                    'menu_id' => 'top-menu' 
+                    'menu_id' => 'top-menu',
+                    'item_spacing' => 'discard'
                     ) ); 
         ?>
     </div><!-- .main-navigation-container -->
