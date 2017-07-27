@@ -49,6 +49,8 @@ function k2k_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1'    => esc_html__( 'Top', 'k2k' ),
+                'menu-2'    => esc_html__( 'Home', 'k2k' ),
+                'menu-3'    => esc_html__( 'Footer', 'k2k' ),
                 'social'    => esc_html__( 'Social Menu', 'k2k' )
 	) );
 

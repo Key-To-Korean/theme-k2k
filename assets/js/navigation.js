@@ -42,7 +42,7 @@
 		});
 	}
 
-	initMainNavigation( $( '.main-navigation' ) );
+	initMainNavigation( $( '.main-navigation, .home-navigation' ) );
 
 	masthead       = $( '#masthead' );
 	menuToggle     = masthead.find( '.menu-toggle' );

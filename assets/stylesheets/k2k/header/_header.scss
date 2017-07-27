@@ -1,6 +1,6 @@
 .header-image {
     margin: 0;
-    max-height: 60vh;
+    /*max-height: 60vh;*/
     background-size: cover;
     background-position-x: center;
 }
@@ -109,6 +109,7 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        align-items: baseline;
     }
     
     .site-branding {
@@ -116,7 +117,7 @@
         flex: 0 0 auto;
     }
     
-    .main-navigation {
+    .home-navigation {
         width: 55%;
         flex: 0 0 auto;
     }

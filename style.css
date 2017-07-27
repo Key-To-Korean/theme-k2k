@@ -317,6 +317,14 @@ th {
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
+.grid {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+}
+
 .alignleft {
 	display: inline;
 	float: left;
@@ -998,18 +1006,27 @@ table th, table td {
 --------------------------------------------------------------*/
 a {
 	color: #51CF66;
+	text-decoration: none;
 }
 
 a:visited {
 	color: rgba(81, 207, 102, 0.8);
 }
 
-a:hover, a:focus, a:active {
+a:hover {
+	border-bottom: 2px solid;
+}
+
+a:focus, a:active {
 	color: white;
 	background-color: #51CF66;
 }
 
 a:focus {
+	outline: thin dotted;
+}
+
+a:focus img {
 	outline: thin dotted;
 }
 
@@ -1225,7 +1242,7 @@ body {
 .entry-meta {
 	display: block;
 	text-align: center;
-	margin: 0 0 4em 0em;
+	margin: 0 0 3em 0em;
 	color: #878d91;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -1236,6 +1253,11 @@ body {
 	color: #878d91;
 	text-decoration: none;
 	border-bottom: 1px dotted gainsboro;
+}
+
+.entry-meta > span {
+	padding-right: 1.5em;
+	display: inline-block;
 }
 
 .byline,
@@ -1278,8 +1300,8 @@ body {
 	display: inline-block;
 }
 
-.breadcrumbs a:before,
-.tags-links a:before {
+.breadcrumbs a:after,
+.tags-links a:after {
 	background: #fff;
 	content: "";
 	height: 50%;
@@ -1313,10 +1335,14 @@ body {
 	padding: 2px 10px 2px 5px;
 }
 
+.tags-links a:before {
+	content: "# ";
+}
+
 .entry-header-container {
 	background: #f8fafb;
-	margin: -2em -2em 2em;
-	padding: 3.5em 2em 0.25em;
+	margin: -2em -2em 3.5em;
+	padding: 3.5em 2em;
 }
 
 .entry-header-container .post-thumbnail-container {
@@ -1412,8 +1438,8 @@ body {
 	content: "끝";
 	font-family: "Satisfy", cursive;
 	content: "End";
-	font-size: 80px;
-	font-size: 5rem;
+	font-size: 50px;
+	font-size: 3.125rem;
 	text-align: center;
 	display: block;
 	margin: 1.5em auto;
@@ -2048,6 +2074,7 @@ body {
 
 .widget_calendar thead th {
 	border-bottom-width: 2px;
+	padding: .5em;
 }
 
 .widget_calendar td {
@@ -2363,7 +2390,7 @@ object {
 --------------------------------------------------------------*/
 .header-image {
 	margin: 0;
-	max-height: 60vh;
+	/*max-height: 60vh;*/
 	background-size: cover;
 	background-position-x: center;
 }
@@ -2500,6 +2527,9 @@ object {
 		        justify-content: space-between;
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
+		-webkit-box-align: baseline;
+		    -ms-flex-align: baseline;
+		        align-items: baseline;
 	}
 	.site-branding {
 		width: 35%;
@@ -2507,7 +2537,7 @@ object {
 		    -ms-flex: 0 0 auto;
 		        flex: 0 0 auto;
 	}
-	.main-navigation {
+	.home-navigation {
 		width: 55%;
 		-webkit-box-flex: 0;
 		    -ms-flex: 0 0 auto;
@@ -2559,6 +2589,20 @@ object {
 	width: 120%;
 }
 
+.social-navigation .social-links-menu a {
+	color: #878d91;
+	margin-right: 5px;
+	text-align: center;
+}
+
+.social-navigation .social-links-menu a:hover, .social-navigation .social-links-menu a:active, .social-navigation .social-links-menu a:focus {
+	background: transparent;
+}
+
+.social-navigation .social-links-menu a svg {
+	padding-left: 5px;
+}
+
 .social-navigation .social-links-menu li {
 	margin-right: 5px;
 }
@@ -2568,9 +2612,13 @@ object {
 	margin: 0 !important;
 }
 
-.social-navigation .social-links-menu a {
-	color: #878d91;
-	margin-right: 5px;
+.social-navigation .social-links-menu li:hover, .social-navigation .social-links-menu li:active, .social-navigation .social-links-menu li:focus {
+	background: #878d91;
+	border-radius: 50%;
+}
+
+.social-navigation .social-links-menu li:hover a, .social-navigation .social-links-menu li:active a, .social-navigation .social-links-menu li:focus a {
+	color: #ffffff;
 }
 
 .no-svg .social-navigation .social-links-menu li {
@@ -2815,21 +2863,21 @@ object {
 /*--------------------------------------------------------------
 # Header Menu
 --------------------------------------------------------------*/
-.main-navigation {
+.home-navigation {
 	clear: both;
 	display: block;
 	font-size: 18px;
 	font-size: 1.125rem;
 }
 
-.main-navigation ul {
+.home-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
 }
 
-.main-navigation ul ul {
+.home-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
@@ -2838,26 +2886,26 @@ object {
 	z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.home-navigation ul ul ul {
 	left: -999em;
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.home-navigation ul ul li:hover > ul,
+.home-navigation ul ul li.focus > ul {
 	left: 100%;
 }
 
-.main-navigation ul ul a {
+.home-navigation ul ul a {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.home-navigation ul li:hover > ul,
+.home-navigation ul li.focus > ul {
 	left: auto;
 }
 
-.main-navigation li {
+.home-navigation li {
 	/*float: left;*/
 	text-align: right;
 	border-bottom: 1px dotted #ffffff;
@@ -2867,13 +2915,13 @@ object {
 	/*padding-right: 0.25em;*/
 }
 
-.main-navigation a {
+.home-navigation a {
 	display: block;
 	text-decoration: none;
 	color: #ffffff;
 }
 
-.main-navigation .dropdown-toggle {
+.home-navigation .dropdown-toggle {
 	position: absolute;
 	top: 0;
 	right: -2em;
@@ -2885,19 +2933,19 @@ object {
 	line-height: 2;
 }
 
-.not-front.main-navigation {
+.main-navigation {
 	width: 100%;
 	border-bottom: 1px solid gainsboro;
 	font-size: 0.8em;
 	height: 76px;
 }
 
-.not-front.main-navigation .menu-main-menu-container {
+.main-navigation .menu-main-menu-container {
 	max-width: 75rem;
 	margin: 0 auto;
 }
 
-.not-front.main-navigation ul {
+.main-navigation ul {
 	list-style: none;
 	float: right;
 	position: absolute;
@@ -2905,11 +2953,11 @@ object {
 	top: 0;
 }
 
-.not-front.main-navigation ul ul {
+.main-navigation ul ul {
 	display: none;
 }
 
-.not-front.main-navigation li {
+.main-navigation li {
 	display: inline-block;
 	padding: 20px 10px;
 	-webkit-transform: skewX(14deg);
@@ -2917,27 +2965,29 @@ object {
 	font-style: italic;
 }
 
-.not-front.main-navigation a {
+.main-navigation a {
 	color: #878d91;
 }
 
-.not-front.main-navigation .main-navigation-container {
+.main-navigation .main-navigation-container {
 	max-width: 75rem;
 	margin: 0 auto;
 }
 
-.not-front.main-navigation .main-navigation-container .logo img {
+.main-navigation .main-navigation-container .logo img {
 	float: left;
 	height: 45px;
 	top: 15px;
+	opacity: 0;
 }
 
-.not-front.main-navigation .main-navigation-container .site-title {
+.main-navigation .main-navigation-container .site-title {
 	float: left;
 	padding-top: 1em;
 	padding-left: 1em;
 	font-size: 1.5em;
 	color: #363a3c;
+	opacity: 0;
 }
 
 .fixed.main-navigation {
@@ -2948,13 +2998,19 @@ object {
 	border-color: #f8fafb;
 }
 
+.fixed.main-navigation .logo img,
+.fixed.main-navigation .site-title {
+	opacity: 1 !important;
+}
+
 .fixed.main-navigation:hover, .fixed.main-navigation:active, .fixed.main-navigation:focus {
 	background: #ffffff;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation.toggled ul,
+.home-navigation.toggled ul {
 	display: block;
 }
 
@@ -2970,6 +3026,18 @@ object {
 	}
 	.main-navigation ul {
 		display: block;
+	}
+	.home-navigation ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+	}
+	.home-navigation ul li {
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 1 50%;
+		        flex: 1 1 50%;
 	}
 }
 
@@ -3217,6 +3285,19 @@ aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:foc
 	padding-left: 185px;
 }
 
+.archive-view .sticky {
+	margin-bottom: 4em;
+}
+
+.archive-view .sticky .entry-title {
+	font-size: 40px;
+	font-size: 2.5rem;
+}
+
+.archive-view .sticky .entry-meta {
+	margin-bottom: 2em;
+}
+
 /*--------------------------------------------------------------
 # Icons
 --------------------------------------------------------------*/
@@ -3230,6 +3311,13 @@ aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:foc
 	top: -0.0625em;
 	vertical-align: middle;
 	width: 1em;
+}
+
+.icon-flourish-one,
+.icon-flourish-two,
+.icon-flourish-three {
+	width: 100%;
+	margin: 0;
 }
 
 /*--------------------------------------------------------------

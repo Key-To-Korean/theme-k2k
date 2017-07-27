@@ -34,18 +34,18 @@ function k2k_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="byline">' . k2k_get_svg( array( 'icon' => 'octoface' ) ) . ' ' . $byline . '</span>';
-        echo '<span class="posted-on">' . k2k_get_svg( array( 'icon' => 'calendar' ) ) . ' ' . $posted_on . '</span>'; // WPCS: XSS OK.
+	echo '<span class="byline">' . k2k_get_svg( array( 'icon' => 'material-account-circle' ) ) . ' ' . $byline . '</span>';
+        echo '<span class="posted-on">' . k2k_get_svg( array( 'icon' => 'material-schedule' ) ) . ' ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
         if ( k2k_show_word_count() ) {
-                printf( '%s <span class="word-count">%s</span>', 
-                        k2k_get_svg( array( 'icon' => 'hourglass' ) ), 
+                printf( '<span class="word-count">%s %s</span>', 
+                        k2k_get_svg( array( 'icon' => 'material-timelapse' ) ), 
                         sprintf( _nx( '%s Minute', '%s Minutes', k2k_word_count(), 'time to read', 'k2k' ), k2k_word_count() ) 
                 );
         }
         
         if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo ( ! is_archive() && ! is_home() && ! is_search() ) ? '<br>' : ' ';
+		// echo ( ! is_archive() && ! is_home() && ! is_search() ) ? '<br>' : ' ';
                 echo ' <span class="comments-link">';
 		comments_popup_link( 
                         k2k_get_svg( array( 'icon' => 'comment' ) ) . esc_html__( ' Leave a comment', 'k2k' ), 
@@ -58,7 +58,7 @@ function k2k_posted_on() {
 		sprintf(
 			/* translators: %s: Name of current post */
 			esc_html__( '%s Edit %s', 'k2k' ),
-                        k2k_get_svg( array( 'icon' => 'pencil' ) ),
+                        k2k_get_svg( array( 'icon' => 'material-mode-edit' ) ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',

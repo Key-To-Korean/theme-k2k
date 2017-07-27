@@ -1,4 +1,4 @@
-.main-navigation {
+.home-navigation {
 	clear: both;
 	display: block;
         @include font-size(0.9);
@@ -87,7 +87,7 @@
         }
 }
 
-.not-front.main-navigation {
+.main-navigation {
         width: 100%;
         border-bottom: 1px solid $color__light_gray;
         font-size: 0.8em;
@@ -122,6 +122,7 @@
                 float: left;
                 height: 45px;
                 top: 15px;
+                opacity: 0;
             }
             .site-title {
                 float: left;
@@ -129,6 +130,7 @@
                 padding-left: 1em;
                 font-size: 1.5em;
                 color: $color__body;
+                opacity: 0;
             }
         }
 }
@@ -139,6 +141,10 @@
     z-index: 20;
     background: rgba(255,255,255,0.8);
     border-color: $color__very_light_gray;
+    .logo img,
+    .site-title {
+        opacity: 1!important;
+    }
     &:hover, 
     &:active, 
     &:focus {
@@ -148,7 +154,8 @@
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation.toggled ul,
+.home-navigation.toggled ul {
 	display: block;
 }
 
@@ -162,7 +169,15 @@
 	.menu-toggle {
 		display: none;
 	}
-	.main-navigation ul {
-		display: block;
+        .main-navigation ul {
+                display: block;
+        }
+	.home-navigation ul {
+		display: flex;
+                flex-wrap: wrap;
+                
+                li {
+                    flex: 1 1 50%;
+                }
 	}
 }

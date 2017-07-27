@@ -1,10 +1,13 @@
 a {
 	color: $color__link;
+        text-decoration: none;
 
 	&:visited {
 		color: $color__link-visited;
 	}
-	&:hover,
+        &:hover {
+                border-bottom: 2px solid;
+        }
 	&:focus,
 	&:active {
 		color: $color__link-hover;
@@ -12,6 +15,9 @@ a {
 	}
 	&:focus {
 		outline: thin dotted;
+                img {
+                    outline: thin dotted;
+                }
 	}
 	&:hover,
 	&:active {

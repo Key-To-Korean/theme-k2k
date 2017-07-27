@@ -31,8 +31,12 @@
 			}
 
 		if ( 'post' === get_post_type() ) : ?>
-		<?php get_template_part( 'components/post/content', 'meta' ); ?>
-		<?php
+		<?php get_template_part( 'components/post/content', 'meta' ); 
+                
+                if ( is_singular() ) {
+                    echo k2k_get_svg( array( 'icon' => 'flourish-one' ) );
+                }
+                
 		endif; ?>
 	</header>
             
@@ -40,7 +44,7 @@
         
         <?php if ( is_singular() || ( is_sticky() && ! is_search() ) ) : ?>
             
-	<div class="entry-content row">
+	<div class="entry-content row <?php echo is_sticky() ? 'sticky' : ''; ?>">
             
                 <?php if ( is_single() ) { k2k_breadcrumbs(); } 
             
@@ -56,8 +60,12 @@
 			) );
                 ?>
 	</div>
-	<?php get_template_part( 'components/post/content', 'footer' ); ?>
+	<?php get_template_part( 'components/post/content', 'footer' ); 
         
-        <?php endif; ?>
+        if ( is_singular() ) {
+            echo k2k_get_svg( array( 'icon' => 'flourish-one' ) );
+        }
+        
+        endif; ?>
         
 </article><!-- #post-## -->
