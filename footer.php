@@ -27,6 +27,11 @@
                 <div class="site-info-area">
                     <?php get_template_part( 'components/footer/site', 'info' ); ?>
                 </div>
+                
+                <a href="#" class="topbutton">
+                    <span class="screen-reader-text"><?php _e( 'Back to Top', 'k2k' ); ?></span>
+                    <?php echo k2k_get_svg( array( 'icon' => 'material-arrow-upward' ) ); ?>
+                </a>
                     
         </footer>
         

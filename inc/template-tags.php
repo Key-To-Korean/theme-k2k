@@ -160,7 +160,7 @@ function k2k_breadcrumbs() {
  * Customize ellipsis at end of excerpts.
  */
 function k2k_excerpt_more( $more ) {
-    return "&hellip;";
+    return " &hellip;";
 }
 add_filter( 'excerpt_more', 'k2k_excerpt_more' );
 
@@ -171,3 +171,43 @@ function k2k_excerpt_length( $length ) {
     return 100;
 }
 add_filter( 'excerpt_length', 'k2k_excerpt_length' );
+
+/**
+ * Fancy excerpts
+ * 
+ * @link: http://wptheming.com/2015/01/excerpt-versus-content-for-archives/
+ */
+function k2k_fancy_excerpt() {
+    global $post;
+    if ( has_excerpt() ) :
+        the_excerpt();
+    elseif ( @strpos ( $post->post_content, '<!--more-->' ) ) :
+        the_content();
+    elseif ( str_word_count ( $post->post_content ) < 100 ) :
+        the_content();
+    else :
+        the_excerpt();
+    endif;
+}
+
+/**
+ * Dynamic Copyright
+ */
+ function k2k_dynamic_copyright() {
+    
+    global $wpdb;
+    
+    $copyright_dates = $wpdb->get_results( "SELECT YEAR(min(post_date_gmt)) AS firstdate, YEAR(max(post_date_gmt)) AS lastdate FROM $wpdb->posts WHERE post_status = 'publish' " );
+    $output = '';
+    $blog_name = get_bloginfo();
+    
+    if ( $copyright_dates ) {
+        $copyright = "&copy; " . $copyright_dates[0]->firstdate;
+        if ( $copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate ) {
+            $copyright .= " &ndash; " . $copyright_dates[0]->lastdate;
+        }
+        $output = $copyright . " " . $blog_name;
+    }
+    echo $output;
+    
+}

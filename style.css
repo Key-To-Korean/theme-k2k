@@ -593,7 +593,9 @@ blockquote p:after {
 }
 
 blockquote dfn, blockquote em, blockquote i {
-	font-style: normal;
+	font-style: italic;
+	font-weight: 400;
+	color: #878d91;
 }
 
 blockquote cite, blockquote q {
@@ -1226,6 +1228,13 @@ body {
 --------------------------------------------------------------*/
 .sticky {
 	display: block;
+}
+
+.pinned-post {
+	font-size: 0.6em;
+	text-transform: uppercase;
+	color: gainsboro;
+	margin-bottom: 0;
 }
 
 .hentry {
@@ -3472,6 +3481,41 @@ aside#secondary:hover:before, aside#secondary:active:before, aside#secondary:foc
 
 .archive-view .sticky .entry-meta {
 	margin-bottom: 2em;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.topbutton {
+	font-family: "FontAwesome";
+	content: '\f077';
+	color: #ffffff;
+	background-color: #1081df;
+	height: 30px;
+	width: 40px;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 1;
+	display: none;
+}
+
+.topbutton .icon {
+	display: block;
+	margin: 0 auto;
+	top: 2px;
+}
+
+.topbutton:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -5px;
+	-webkit-transform: skewY(14deg);
+	transform: skewY(14deg);
+	width: 100%;
+	height: 100%;
+	background-color: #1081df;
 }
 
 /*--------------------------------------------------------------

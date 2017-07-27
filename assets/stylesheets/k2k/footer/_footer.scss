@@ -1,0 +1,29 @@
+.topbutton {
+    font-family: "FontAwesome";
+    content: '\f077'; // fa-chevron-up
+    color: $color__white;
+    background-color: darken( $color__bright_blue, 10% );
+    height: 30px;
+    width: 40px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+    display: none;
+    .icon {
+        display: block;
+        margin: 0 auto;
+        top: 2px;
+    }
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -5px;
+        -webkit-transform: skewY(14deg);
+        transform: skewY(14deg);
+        width: 100%;
+        height: 100%;
+        background-color: darken( $color__bright_blue, 10% );
+    }
+}

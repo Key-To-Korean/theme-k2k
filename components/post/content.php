@@ -27,6 +27,7 @@
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} else {
+                                echo '<p class="pinned-post">' . __( 'Pinned Post', 'k2k' ) . '</p>';
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
 
@@ -47,6 +48,12 @@
 	<div class="entry-content row <?php echo is_sticky() ? 'sticky' : ''; ?>">
             
                 <?php if ( is_single() ) { k2k_breadcrumbs(); } 
+                
+                    if ( ! is_single() && is_sticky() ) { 
+                        
+                        k2k_fancy_excerpt(); 
+                        
+                    } else {
             
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
@@ -58,6 +65,8 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'k2k' ),
 				'after'  => '</div>',
 			) );
+                        
+                    }
                 ?>
 	</div>
 	<?php get_template_part( 'components/post/content', 'footer' ); 

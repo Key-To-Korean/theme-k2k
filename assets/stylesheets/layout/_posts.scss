@@ -1,6 +1,12 @@
 .sticky {
 	display: block;
 }
+.pinned-post {
+    font-size: 0.6em;
+    text-transform: uppercase;
+    color: $color__light_gray;
+    margin-bottom: 0;
+}
 
 .hentry {
 	margin: 0 0 1.5em;

@@ -80,7 +80,9 @@ blockquote {
             }
         }
         dfn, em, i {
-            font-style: normal;
+            font-style: italic;
+            font-weight: 400;
+            color: $color__gray;
         }
         cite, q {
             font-style: italic;
