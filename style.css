@@ -2887,12 +2887,14 @@ object {
 }
 
 .home-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	/*box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);*/
+	border-left: 1px dotted gainsboro;
+	border-right: 1px dotted gainsboro;
 	float: left;
 	position: absolute;
 	top: 2em;
 	left: -999em;
-	z-index: 99999;
+	z-index: 9999999;
 	display: block;
 	width: 100%;
 	background: #f8fafb;
@@ -2901,53 +2903,59 @@ object {
 .home-navigation ul ul ul {
 	left: -999em;
 	top: 0;
-	background: #e8eef2;
+	background: #f0f4f6;
 }
 
 .home-navigation ul ul ul ul {
-	background: #d8e3e8;
+	background: #e8eef2;
 }
 
 .home-navigation ul ul ul ul ul {
-	background: #c7d7df;
+	background: #e0e9ed;
 }
 
 .home-navigation ul ul ul ul ul ul {
-	background: #b7ccd6;
+	background: #d8e3e8;
 }
 
 .home-navigation ul ul ul ul ul ul ul {
-	background: #a7c0cd;
+	background: #cfdde4;
 }
 
 .home-navigation ul ul ul ul ul ul ul ul {
-	background: #97b4c3;
+	background: #c7d7df;
 }
 
 .home-navigation ul ul ul ul ul ul ul ul ul {
-	background: #86a9ba;
+	background: #bfd1db;
 }
 
 .home-navigation ul ul ul ul ul ul ul ul ul ul {
-	background: #769db1;
+	background: #b7ccd6;
 }
 
 .home-navigation ul ul ul ul ul ul ul ul ul ul ul {
-	background: #6692a8;
+	background: #afc6d1;
 }
 
 .home-navigation ul ul a {
 	/*width: 200px;*/
-	color: #363a3c;
+	color: #878d91;
 	border-bottom: 1px dotted gainsboro;
-	padding: 3px 1em;
+	/*padding: 3px 1em;*/
 	font-size: 0.9em;
+}
+
+.home-navigation ul ul li {
+	padding: 0.5em 1em;
+	height: 50px;
 }
 
 .home-navigation ul ul li:hover > ul,
 .home-navigation ul ul li.focus > ul {
 	/*					left: 100%;*/
-	top: 2em;
+	top: 50px;
+	margin-left: -1em;
 }
 
 .home-navigation ul ul li a {
@@ -2957,6 +2965,7 @@ object {
 .home-navigation ul ul .dropdown-toggle {
 	background: #ffffff;
 	color: #363a3c;
+	height: 50px;
 }
 
 .home-navigation ul li:hover > ul,
@@ -2967,11 +2976,12 @@ object {
 .home-navigation li {
 	/*float: left;*/
 	text-align: right;
-	border-bottom: 1px dotted #ffffff;
+	border-bottom: 1px dotted gainsboro;
 	position: relative;
 	font-weight: 300;
 	line-height: 2;
-	height: 37px;
+	/*padding: 1em;*/
+	height: auto;
 	/*padding-right: 0.25em;*/
 }
 
@@ -3004,6 +3014,8 @@ object {
 	border-bottom: 1px solid gainsboro;
 	font-size: 0.8em;
 	height: 70px;
+	position: relative;
+	z-index: 999999;
 }
 
 .main-navigation .menu-main-menu-container {
@@ -3024,17 +3036,18 @@ object {
 
 .main-navigation ul ul {
 	display: none;
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	/*box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);*/
 	float: left;
 	position: absolute;
 	top: 70px;
-	right: 25px;
+	right: 8px;
 	-webkit-transform: skewX(-14deg);
 	        transform: skewX(-14deg);
 	left: -999em;
 	z-index: 99999;
 	display: block;
 	width: 100%;
+	height: 100%;
 	background: #f8fafb;
 }
 
@@ -3080,15 +3093,23 @@ object {
 	/*width: 200px;*/
 	color: #363a3c;
 	border-bottom: 1px dotted gainsboro;
-	padding: 3px 1em;
+	padding: 0;
 }
 
 .main-navigation ul ul li {
-	-webkit-transform: skewX(0deg);
-	        transform: skewX(0deg);
+	transform: skewX(0deg);
 	font-style: normal;
+	-webkit-transform: skewX(0deg);
+	transform: skewX(0deg);
+	/* position: absolute; */
+	background: #f8fafb;
+	min-width: 300px;
 	height: auto;
-	position: absolute;
+	padding: 1em;
+	border: 1px dotted gainsboro;
+	border-top: none;
+	font-weight: normal;
+	font-size: 0.9em;
 }
 
 .main-navigation ul ul li:hover > ul,
@@ -3099,11 +3120,12 @@ object {
 
 .main-navigation ul ul li a {
 	border-bottom: none;
+	color: #878d91;
 }
 
 .main-navigation ul ul .dropdown-toggle {
 	background: #ffffff;
-	color: #363a3c;
+	color: #878d91;
 }
 
 .main-navigation ul li:hover > ul,
@@ -3130,7 +3152,7 @@ object {
 	background: #51CF66;
 }
 
-.main-navigation li:hover a {
+.main-navigation li:hover > a {
 	color: #ffffff;
 }
 

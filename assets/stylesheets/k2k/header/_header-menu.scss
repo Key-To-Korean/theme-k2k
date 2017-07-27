@@ -10,12 +10,14 @@
 		padding-left: 0;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			/*box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);*/
+                        border-left: 1px dotted $color__light_gray;
+                        border-right: 1px dotted $color__light_gray;
 			float: left;
 			position: absolute;
 			top: 2em;
 			left: -999em;
-			z-index: 99999;
+			z-index: 9999999;
                         display: block;
                         width: 100%;
                         background: $color__very_light_gray;
@@ -23,31 +25,34 @@
 			ul {
 				left: -999em;
 				top: 0;
-                                background: darken($color__very_light_gray, 5%);
+                                background: darken($color__very_light_gray, 2.5%);
 			}
                         
-                        ul ul { background: darken($color__very_light_gray, 10%); } // Depth 3
-                        ul ul ul { background: darken($color__very_light_gray, 15%); } // Depth 4
-                        ul ul ul ul { background: darken($color__very_light_gray, 20%); } // Depth 5
-                        ul ul ul ul ul { background: darken($color__very_light_gray, 25%); } // Depth 6
-                        ul ul ul ul ul ul { background: darken($color__very_light_gray, 30%); } // Depth 7
-                        ul ul ul ul ul ul ul { background: darken($color__very_light_gray, 35%); } // Depth 8
-                        ul ul ul ul ul ul ul ul { background: darken($color__very_light_gray, 40%); } // Depth 9
-                        ul ul ul ul ul ul ul ul ul { background: darken($color__very_light_gray, 45%); } // Depth 10
+                        ul ul { background: darken($color__very_light_gray, 5%); } // Depth 3
+                        ul ul ul { background: darken($color__very_light_gray, 7.5%); } // Depth 4
+                        ul ul ul ul { background: darken($color__very_light_gray, 10%); } // Depth 5
+                        ul ul ul ul ul { background: darken($color__very_light_gray, 12.5%); } // Depth 6
+                        ul ul ul ul ul ul { background: darken($color__very_light_gray, 15%); } // Depth 7
+                        ul ul ul ul ul ul ul { background: darken($color__very_light_gray, 17.5%); } // Depth 8
+                        ul ul ul ul ul ul ul ul { background: darken($color__very_light_gray, 20%); } // Depth 9
+                        ul ul ul ul ul ul ul ul ul { background: darken($color__very_light_gray, 22.5%); } // Depth 10
 
                         a {
 				/*width: 200px;*/
-                                color: $color__body;
+                                color: $color__gray;
                                 border-bottom: 1px dotted $color__light_gray;
-                                padding: 3px 1em;
+                                /*padding: 3px 1em;*/
                                 font-size: 0.9em;
 			}
                         
 			li {
-				&:hover > ul,
+				padding: 0.5em 1em;
+                                height: 50px;
+                                &:hover > ul,
 				&.focus > ul {
 /*					left: 100%;*/
-                                        top: 2em;
+                                        top: 50px;
+                                        margin-left: -1em;
 				}
                                 a {
                                     border-bottom: none;
@@ -65,6 +70,7 @@
                         .dropdown-toggle {
                             background: $color__white;
                             color: $color__body;
+                            height: 50px;
                         }
 		}
 
@@ -77,11 +83,12 @@
 	li {
 		/*float: left;*/
                 text-align: right;
-                border-bottom: 1px dotted $color__white;
+                border-bottom: 1px dotted $color__light_gray;
 		position: relative;
                 font-weight: 300;
                 line-height: 2;
-                height: 37px;
+                /*padding: 1em;*/
+                height: auto;
                 /*padding-right: 0.25em;*/
 
 		&:hover > a,
@@ -126,6 +133,8 @@
         border-bottom: 1px solid $color__light_gray;
         font-size: 0.8em;
         height: 70px;
+        position: relative;
+        z-index: 999999;
         
         .menu-main-menu-container {
             max-width: $query__large;
@@ -145,16 +154,17 @@
             ul {
                 display: none;
                 
-                box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+                /*box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);*/
 			float: left;
 			position: absolute;
 			top: 70px;
-                        right: 25px;
+                        right: 8px;
                         transform: skewX(-14deg);
 			left: -999em;
 			z-index: 99999;
                         display: block;
                         width: 100%;
+                        height: 100%;
                         background: $color__very_light_gray;
                         
                         ul {
@@ -176,14 +186,23 @@
 				/*width: 200px;*/
                                 color: $color__body;
                                 border-bottom: 1px dotted $color__light_gray;
-                                padding: 3px 1em;
+                                padding: 0;
 			}
                         
 			li {
                             transform: skewX(0deg);
                             font-style: normal;
-                            height: auto;
-                            position: absolute;
+                                -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);
+    /* position: absolute; */
+    background: $color__very_light_gray;
+    min-width: 300px;
+    height: auto;
+    padding: 1em;
+    border: 1px dotted $color__light_gray;
+    border-top: none;
+    font-weight: normal;
+    font-size: 0.9em;
 				&:hover > ul,
 				&.focus > ul {
 /*					left: 100%;*/
@@ -191,6 +210,7 @@
 				}
                                 a {
                                     border-bottom: none;
+                                    color: $color__gray;
                                 }
 			}
 
@@ -204,7 +224,7 @@
                         
                         .dropdown-toggle {
                             background: $color__white;
-                            color: $color__body;
+                            color: $color__gray;
                         }
             }
             li:hover > ul,
@@ -225,7 +245,7 @@
             height: 70px;
             &:hover {
                 background: $color__link;
-                a {
+                & > a {
                     color: $color__white;
                 }
             }
