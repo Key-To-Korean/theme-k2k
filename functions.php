@@ -259,6 +259,8 @@ add_filter( 'wp_get_attachment_image_attributes', 'k2k_post_thumbnail_sizes_attr
 
 /**
  * Add 'odd' and 'even' post classes
+ * 
+ * @source http://www.goldenapplewebdesign.com/alternating-post-classes-with-odd-even-styling/
  */
 function k2k_odd_even_post_classes( $classes ) {
     global $current_class;
@@ -405,3 +407,20 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load SVG icon functions.
  */
 require get_template_directory() . '/inc/icon-functions.php';
+
+/**
+ * Load Better Recent Posts Widget (replacing original Recent Posts Widget)
+ */
+require get_template_directory() . '/components/features/widgets/recent-posts.php';
+
+/**
+ * Load Better Recent Comments Widget (replacing original Recent Comments Widget)
+ */
+require get_template_directory() . '/components/features/widgets/recent-comments.php';
+
+/**
+ * Load Better Archives Widget (replacing original Archives Widget)
+ */
+require get_template_directory() . '/components/features/widgets/archives.php';
+
+add_filter( 'pre_option_link_manager_enabled', '__return_true' );

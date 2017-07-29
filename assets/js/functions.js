@@ -96,5 +96,10 @@
          return false;
     });
     
+    /**
+     * Better Categories Widgets
+     */
+    $( '.widget_categories ul.children' ).parent().addClass( 'category-item-has-children' );
+    
 }) ( jQuery );
 

@@ -9,9 +9,11 @@ aside#secondary {
     max-width: $query__small;
     top: 0;
     right: -$query__small;
-    color: white;
+    /*color: white;*/
     //background: $color__dark_green_alpha;
-    background: darken( $color__bright_blue_alpha, 30% );
+    /*background: darken( $color__bright_blue_alpha, 30% );*/
+    background: $color__white;
+    border-left: 1px solid $color__light_gray;
     overflow-y: scroll;
     
 /*    &:before {
@@ -36,7 +38,7 @@ aside#secondary {
         
         right: 0%;
         height: 100%;
-        z-index: 1;
+        z-index: 999999;
         
         &:before {
             display: none;

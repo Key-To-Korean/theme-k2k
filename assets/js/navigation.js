@@ -15,7 +15,7 @@
 			.append( $( '<span />', { 'class': 'dropdown-icon', text: '+' }) )
 			.append( $( '<span />', { 'class': 'screen-reader-text', text: k2kScreenReaderText.expand }) );
 
-		container.find( '.menu-item-has-children > a, .page_item_has_children > a' ).after( dropdownToggle );
+		container.find( '.menu-item-has-children > a, .page_item_has_children > a, .category-item-has-children > a' ).after( dropdownToggle );
 
 		// Set the active submenu dropdown toggle button initial state.
 		container.find( '.current-menu-ancestor > button' )
@@ -42,7 +42,7 @@
 		});
 	}
 
-	initMainNavigation( $( '.main-navigation, .home-navigation' ) );
+	initMainNavigation( $( '.main-navigation, .home-navigation, .widget_pages, .widget_categories' ) );
 
 	masthead       = $( '#masthead' );
 	menuToggle     = masthead.find( '.menu-toggle' );
