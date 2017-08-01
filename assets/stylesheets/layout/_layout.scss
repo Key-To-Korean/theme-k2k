@@ -32,6 +32,10 @@ body {
 
 .show-sidebar {
     
+    #secondary {
+        border-left: none;
+    }
+    
     .site-sidebar-button {
         display: none;
     }
@@ -43,14 +47,15 @@ body {
         justify-content: space-between;
         max-width: 75rem;
         margin: 0 auto;
-        padding-left: 0;
-        padding-right: 0;
+        /*padding-left: 0;*/
+        /*padding-right: 0;*/
 
         .content-area {
             width: 60%;
             -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
             flex: 1 1 auto;
+            padding-right: 4em;
         }
 
         aside#secondary {
@@ -66,8 +71,8 @@ body {
             margin-left: 2em;
             padding-right: 0;
             a {
-                color: $color__gray;
-                font-weight: 400;
+/*                color: $color__gray;
+                font-weight: 400;*/
             }
         }
     }
@@ -92,11 +97,11 @@ body {
         margin: -2em auto 4em;
     }
     
-    .widget-title {
+/*    .widget-title {
         color: $color__body;
         font-size: 1.5em;
         margin-left: -5px;
-    }
+    }*/
 }
 
 .has-page-sidebar {

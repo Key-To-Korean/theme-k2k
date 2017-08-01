@@ -40,3 +40,39 @@ function k2k_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'k2k_body_classes' );
+
+/**
+ * Add a "STOP" at the end of the Post Content
+ */
+function k2k_end_content ( $content ) {
+    $last_tag = strrpos( $content, '</' );
+    $content_end = substr( $content, $last_tag );
+    return substr( $content, 0, $last_tag ) . k2k_get_svg( array( 'icon' => 'material-stop' ) ) . $content_end;
+}
+add_filter( 'the_content', 'k2k_end_content' );
+
+/**
+ * Filters out the parentheses from Category Count
+ * 
+ * @param type $variable
+ * @return type
+ */
+function k2k_categories_postcount_filter ( $count ) {
+        $count = str_replace( '(', '<span class="post_count">', $count );
+        $count = str_replace( ')', '</span>', $count );
+        return $count;
+}
+add_filter( 'wp_list_categories','k2k_categories_postcount_filter' );
+
+/**
+ * Filters out the parentheses from Archives Count
+ * 
+ * @param type $variable
+ * @return type
+ */
+function k2k_archive_postcount_filter ($count) {
+   $count = str_replace( '(', '<span class="post_count">', $count );
+   $count = str_replace( ')', '</span>', $count );
+   return $count;
+}
+add_filter( 'get_archives_link', 'k2k_archive_postcount_filter' );

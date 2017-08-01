@@ -13,7 +13,7 @@
 
 	</div>
         
-        <footer id="colophon" role="contentinfo" class="site-footer <?php 
+        <footer id="colophon" role="contentinfo" class="site-footer <?php echo comments_open( $post->ID ) ? 'with-comments ' : '';
                 if ( get_header_image() ) : ?>
                     footer-image" style="background: url('<?php header_image(); ?>') no-repeat center center fixed
                 <?php endif; ?>">

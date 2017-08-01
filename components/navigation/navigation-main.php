@@ -1,5 +1,5 @@
 <nav id="site-navigation" class="main-navigation not-front" role="navigation">
-    <div class="main-navigation-container">
+    <div class="main-navigation-container container">
         <?php 
         if ( get_theme_mod( 'dark_logo' ) ) { ?>
         

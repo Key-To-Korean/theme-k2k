@@ -32,7 +32,7 @@
             </div><!-- #site-search-container -->
             
             <div class="header-flash row">
-                <div class="header-contact">
+                <div class="header-contact container">
                     <?php 
                     $header_text1 = get_theme_mod( 'header_text1' );
                     $header_text2 = get_theme_mod( 'header_text2' );
@@ -62,14 +62,15 @@
                         </nav><!-- .social-navigation -->
                     <?php endif; ?>
                         
+                    <div class="search-toggle">
+                        <i class="fa fa-search"></i>
+                        <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>
+                    </div>
+                        
                 </div><!-- .header-contact -->
                 <?php // k2k_social_menu(); ?>
-                
-                <div class="search-toggle">
-                    <i class="fa fa-search"></i>
-                    <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>
-                </div>
-            </div>
+
+            </div><!-- .header-flash -->
         
             <header role="banner" id="masthead" class="site-header <?php 
                 if ( get_header_image() && is_front_page() ) : ?>
@@ -83,7 +84,7 @@
                 
                 <div class="gradient-overlay"></div>
                 
-                <div class="site-header-container">
+                <div class="site-header-container container">
                 
                     <?php get_template_part( 'components/header/site', 'branding' ); ?>
 
@@ -112,4 +113,4 @@
             </div>
         
         
-	<div id="content" class="site-content">
+	<div id="content" class="site-content container">

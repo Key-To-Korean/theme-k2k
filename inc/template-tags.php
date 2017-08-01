@@ -34,12 +34,14 @@ function k2k_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="byline">' . k2k_get_svg( array( 'icon' => 'material-account-circle' ) ) . ' ' . $byline . '</span>';
+        if ( is_singular() ) {
+            echo '<span class="byline">' . k2k_get_svg( array( 'icon' => 'material-account-circle' ) ) . ' ' . $byline . '</span>';
+        }
         echo '<span class="posted-on">' . k2k_get_svg( array( 'icon' => 'material-schedule' ) ) . ' ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
-        if ( k2k_show_word_count() ) {
+        if ( k2k_show_word_count() && is_singular() ) {
                 printf( '<span class="word-count">%s %s</span>', 
-                        k2k_get_svg( array( 'icon' => 'material-timelapse' ) ), 
+                        k2k_get_svg( array( 'icon' => 'material-subject' ) ), 
                         sprintf( _nx( '%s Minute', '%s Minutes', k2k_word_count(), 'time to read', 'k2k' ), k2k_word_count() ) 
                 );
         }

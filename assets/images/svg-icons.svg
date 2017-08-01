@@ -215,6 +215,12 @@
 <symbol id="icon-material-arrow-downward" viewBox="0 0 24 24">
 <path d="M20.016 12l-8.016 8.016-8.016-8.016 1.453-1.406 5.578 5.578v-12.188h1.969v12.188l5.625-5.578z"></path>
 </symbol>
+<symbol id="icon-material-subject" viewBox="0 0 24 24">
+<path d="M3.984 5.016h16.031v1.969h-16.031v-1.969zM3.984 15v-2.016h16.031v2.016h-16.031zM20.016 9v2.016h-16.031v-2.016h16.031zM14.016 17.016v1.969h-10.031v-1.969h10.031z"></path>
+</symbol>
+<symbol id="icon-material-stop" viewBox="0 0 24 24">
+<path d="M6 6h12v12h-12v-12z"></path>
+</symbol>
 
 <!-- Flourishes -->
 <<symbol id="icon-flourish-one" viewBox="0 0 193.214 36.749">

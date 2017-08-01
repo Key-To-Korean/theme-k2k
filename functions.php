@@ -423,4 +423,5 @@ require get_template_directory() . '/components/features/widgets/recent-comments
  */
 require get_template_directory() . '/components/features/widgets/archives.php';
 
+// Adds Links Section and Links Widget back into WordPress
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );

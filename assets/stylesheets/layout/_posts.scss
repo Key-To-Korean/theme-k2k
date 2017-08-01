@@ -16,22 +16,22 @@
 .page-title {
     font-family: "Oswald", $font__cursive;
     text-align: center;
-    margin: 0.5em;
+    margin: 1em 0;
 }
 
 .entry-meta {
     
     display: block;
     text-align: center;
-    margin: 0 0 3em 0em;
+    margin: 0.25em 0 3em 0em;
     color: $color__gray;
-    @include font-size(0.75);
+    @include font-size(0.7);
     font-weight: 300;
     
     a {
         color: $color__gray;
         text-decoration: none;
-        border-bottom: 1px dotted $color__light_gray;
+        /*border-bottom: 1px dotted $color__light_gray;*/
         //padding: 0 0.25em;
     }
     
@@ -66,11 +66,17 @@
     margin-left: -6px!important;
     
     a {
-        padding: 0 15px 5px 10px;
+        padding: 0 15px 0px 10px;
         margin-right: 5px;
         display: inline-block;
+            color: white;
+    text-decoration: none;
+    background: #878d91;
+    transform: skewX(14deg);
+    font-style: italic;
         
         &:after {
+            display: none;
             background: #fff;
             content: "";
             height: 50%;
@@ -98,7 +104,7 @@
     
 }
 .tags-links a {
-    padding: 2px 10px 2px 5px;
+    /*padding: 2px 10px 2px 5px;*/
     &:before {
         content: "# ";
     }
@@ -202,6 +208,10 @@
         text-align: center;
         display: block;
         margin: 1.5em auto;
+    }
+    
+    .icon-material-stop {
+        fill: $color__link;
     }
 }
 

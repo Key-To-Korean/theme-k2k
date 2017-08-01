@@ -6,7 +6,7 @@
 }
 
 .site-header {
-    padding: 1em;
+    padding: 1em 0;
     font-family: $font__sans;
     background-color: $color__green;
     .site-header-container {
@@ -15,7 +15,7 @@
     }
     
     @media screen and (min-width: $query__small) {
-        padding: 2em 2em;
+        padding: 2em 0;
     }
 }
 
@@ -64,6 +64,12 @@
         display: inline;
         height: 65px;
         width: auto;
+        &:hover, 
+        &:focus, 
+        &:active {
+            background: none;
+            border: none;
+        }
     }
 }
 

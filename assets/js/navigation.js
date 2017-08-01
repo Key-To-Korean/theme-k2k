@@ -42,7 +42,7 @@
 		});
 	}
 
-	initMainNavigation( $( '.main-navigation, .home-navigation, .widget_pages, .widget_categories' ) );
+	initMainNavigation( $( '.main-navigation, .home-navigation' ) );
 
 	masthead       = $( '#masthead' );
 	menuToggle     = masthead.find( '.menu-toggle' );

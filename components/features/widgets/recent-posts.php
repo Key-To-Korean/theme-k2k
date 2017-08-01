@@ -13,7 +13,7 @@ class k2k_recent_posts extends WP_Widget {
 	function __construct() {
             
             $widget_ops = array( 
-                'classname' => 'widget_k2k_recent_posts', 
+                'classname' => 'widget_recent_posts', 
                 'description' => __( 'Displays most recent posts with featured image and publishing date.', 'k2k' ) 
             );
             parent::__construct( 'widget_k2k_recent_posts', __( 'Better Recent Posts','k2k' ), $widget_ops );
@@ -55,31 +55,37 @@ class k2k_recent_posts extends WP_Widget {
                                 ) );
                                 
                                 if ( $recent_posts->have_posts() ) :
-                                    
+                                        $count = 1;
                                         while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
 
-                                        <li>
+                                        <li class="<?php echo $count % 2 == 0 ? 'even' : 'odd'; ?>">
                                                 <?php global $post; ?>
                                             
-                                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                                        <div class="post-icon" aria-hidden="true">
-                                                                
-                                                                <?php
-                                                                if ( has_post_thumbnail() ) :
-                                                                        the_post_thumbnail( 'thumbnail' );
-                                                                else :
-                                                                        $post_firstletter = substr( the_title_attribute( 'echo=0' ), 0, 1 );
-                                                                        echo $post_firstletter;
-                                                                endif;
-                                                                ?>
+                                                <a class="rsswidget" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                                        
+                                                        <?php if ( has_post_thumbnail() ) : ?>
+                                                    
+                                                        <div class="post-icon skewed-thumbnail" aria-hidden="true">
+                                                                <?php the_post_thumbnail( 'thumbnail' ); ?>
                                                         </div>
+                                                                
+                                                        <?php else : 
+//                                                                        $post_firstletter = substr( the_title_attribute( 'echo=0' ), 0, 1 );
+//                                                                        echo $post_firstletter;
+                                                                ?>
+                                                            
+                                                    
+                                                        <?php endif; ?>
+                                                        
                                                         <p class="title"><?php the_title(); ?></p>
-                                                        <p class="meta"><?php the_time( get_option( 'date_format' ) ); ?></p>
+                                                        <span class="meta rss-date"><?php echo k2k_get_svg( array( 'icon' => 'material-schedule' ) ) . ' '; the_time( get_option( 'date_format' ) ); ?></span>
                                                 </a>
                                             
                                         </li>
 
-                                        <?php endwhile; ?>
+                                        <?php 
+                                        $count++;
+                                        endwhile; ?>
 
                                 <?php endif; ?>
                                         

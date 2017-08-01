@@ -29,6 +29,10 @@
 .aligncenter {
 	clear: both;
 	@include center-block;
+        
+        img {
+            width: 100%;
+        }
 }
 
 .wp-caption.aligncenter,
@@ -48,6 +52,7 @@ blockquote.aligncenter {
     padding: 1em;
     margin: 0 1.5em 1.5em 0;
     background: none;
+    z-index: 1;
     &:before, 
     &:after {
         border: none;
@@ -58,6 +63,7 @@ blockquote.aligncenter {
     em, i {
         font-style: italic;
         font-weight: 400;
+        color: inherit;
     }
     strong {
         color: inherit;
@@ -112,5 +118,20 @@ blockquote.aligncenter {
         left: 0;
         height: 50%;
         width: 50%;
+    }
+}
+
+blockquote.long-quote, 
+.long-quote blockquote {
+    font-size: 1em;
+    font-style: normal;
+    /*background: none;*/
+    transform: skewX(0deg);
+    padding-left: 2em;
+    padding-right: 2em;
+    /*color: $color__gray;*/
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.5em;
+        /*color: $color__gray;*/
     }
 }

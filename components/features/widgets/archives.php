@@ -99,7 +99,7 @@ class k2k_archives extends WP_Widget {
                                         <a href="<?php esc_url( bloginfo( 'url' ) ); ?>/<?php echo $month->year; ?>/<?php echo date( "m", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?>">
                                             <span class="archive-month-name"><?php echo date_i18n( "F", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?></span>
                                         </a>
-                                        <span class="archive-month-count">(<?php echo $month->post_count; ?>)</span>
+                                        <span class="archive-month-count post_count"><?php echo $month->post_count; ?></span>
                                     </li>
 
                         <?php } 
@@ -110,7 +110,7 @@ class k2k_archives extends WP_Widget {
                                     <a href="<?php esc_url( bloginfo( 'url' ) ); ?>/<?php echo $month->year; ?>/<?php echo date( "m", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?>">
                                         <span class="archive-month-name"><?php echo date_i18n( "F", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?></span>
                                     </a>
-                                    <span class="archive-month-count">(<?php echo $month->post_count; ?>)</span>
+                                    <span class="archive-month-count post_count"><?php echo $month->post_count; ?></span>
                                 </li>
                                 
                         <?php } 

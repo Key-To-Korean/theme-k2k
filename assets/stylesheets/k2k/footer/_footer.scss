@@ -28,7 +28,7 @@
     }
 }
 
-.site-footer {
+.site-footer:not(.with-comments) {
     &:before {
         content: "";
         height: 10px;
@@ -52,7 +52,8 @@
         margin: 0 auto;
 
 	@media screen and (min-width: $query__small) {
-		padding: 2em 1em;
+		padding-top: 2em;
+                padding-bottom: 2em;
 	}
 
 	.widget {

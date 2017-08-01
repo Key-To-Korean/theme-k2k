@@ -14,7 +14,7 @@ class k2k_recent_comments extends WP_Widget {
 	function __construct() {
             
                 $widget_ops = array( 
-                        'classname' => 'widget_k2k_recent_comments', 
+                        'classname' => 'widget_recent_comments', 
                         'description' => __( 'Displays recent comments with user avatar and excerpt.', 'k2k' ) 
                 );
                 parent::__construct( 'widget_k2k_recent_comments', __( 'Better Recent Comments', 'k2k' ), $widget_ops );
@@ -49,7 +49,8 @@ class k2k_recent_comments extends WP_Widget {
 					$args = array(
                                                 'orderby'   => 'date',
                                                 'number'    => $number_of_comments,
-                                                'status'    => 'approve'
+                                                'status'    => 'approve',
+                                                'type'      => 'comment'
 					);
                                         
 					global $comment;
@@ -59,21 +60,25 @@ class k2k_recent_comments extends WP_Widget {
 					$comments = $comments_query->query( $args );
                                         
 					// Comment Loop
-					if ( $comments ) :
+					if ( $comments ) : $count = 1;
 						foreach ( $comments as $comment ) : ?>
 
-							<li>
+							<li class="recentcomments <?php echo $count % 2 == 0 ? 'even' : 'odd'; ?>">
 								<a href="<?php echo get_permalink( $comment->comment_post_ID ); ?>#comment-<?php echo $comment->comment_ID; ?>">
-									<div class="post-icon">
+									<div class="skewed-thumbnail post-icon">
 										<?php echo get_avatar( get_comment_author_email( $comment->comment_ID ), $size = '96' ); ?>
 									</div>
-									<p class="title"><span><?php comment_author(); ?></span></p>
-									<p class="excerpt"><?php echo esc_attr( comment_excerpt( $comment->comment_ID ) ); ?></p>
-									<p class="original-title"><span><?php _e( 'on', 'k2k' ); ?></span> <?php the_title_attribute( array( 'post' => $comment->comment_post_ID ) ); ?></p>
+									<p class="comment-meta">
+                                                                            <span class="comment-author-link"><?php comment_author(); ?></span>
+                                                                            <?php _e( 'on', 'k2k' ); ?> <span class="title"><?php the_title_attribute( array( 'post' => $comment->comment_post_ID ) ); ?></span>
+                                                                        </p>
+                                                                        <p class="excerpt rssSummary"><?php echo esc_attr( comment_excerpt( $comment->comment_ID ) ); ?></p>
 								</a>
 							</li>
 
-						<?php endforeach;
+						<?php 
+                                                $count++;
+                                                endforeach;
 					endif;
 				?>
 

@@ -26,8 +26,36 @@ object {
 	img[class*="wp-image-"] {
 		@include center-block;
 	}
+        
+        .wp-caption-text {
+                display: block;
+                font-family: "Oswald";
+                font-weight: 300;
+                font-size: 0.9em;
+                /*padding-top: 1em;*/
+                /*height: 40px;*/
+                margin: 0 auto;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                padding: 5px;
+                text-align: left;
 
-	.wp-caption-text {
+/*                &:hover,
+                &:focus,
+                &:active {
+                    background: rgba(255, 255, 255, 0.8);
+                    height: auto;
+                    width: 100%;
+                    cursor: pointer;
+                    overflow: visible;
+                    white-space: normal;
+                    position: absolute;
+                    z-index: 1;
+                }*/
+        }
+
+/*	.wp-caption-text {
 		padding: 0.8075em 0;
                 
                 background: $color__very_light_gray;
@@ -59,7 +87,7 @@ object {
                     max-width: 50%;
                     border-bottom: 2px solid $color__light_gray;
                 }
-	}
+	}*/
 }
 
 /* Ensure center-aligned captions center-align properly. */
