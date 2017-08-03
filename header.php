@@ -21,6 +21,12 @@
 </head>
 
 <body <?php body_class(); ?>>
+    
+    <div class="site-search-overlay">
+        <span class="close-search">x</span>
+        <?php get_search_form(); ?>
+    </div>
+    
 <div id="page" class="site <?php echo ( is_page() || is_archive() || is_home() || is_search() || is_404() ) ? 'show-sidebar' : ''; ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'k2k' ); ?></a>
 
@@ -56,7 +62,7 @@
                                                 'menu_class'     => 'social-links-menu',
                                                 'depth'          => 1,
                                                 'link_before'    => '<span class="screen-reader-text">',
-                                                'link_after'     => '</span>' /* . twentyseventeen_get_svg( array( 'icon' => 'chain' ) ),*/
+                                                'link_after'     => '</span>' /* . k2k_get_svg( array( 'icon' => 'chain' ) ),*/
                                         ) );
                                 ?>
                         </nav><!-- .social-navigation -->
@@ -101,16 +107,30 @@
             //}
             ?>
             
-            <div class="site-search-button site-side-button">
-                <i id="site-search-button" class="fa fa-search"></i>
-            </div>
-            <div class="site-search-overlay">
-                <?php get_search_form(); ?>
-            </div>
+            <div class="side-button-container">
             
-            <div class="site-sidebar-button site-side-button">
-                <i id="site-sidebar-button" class="fa fa-backward"></i>
-            </div>
+                    <div class="site-side-button site-search-button">
+                        <span class="screen-reader-text"><?php esc_html_e( 'Search', 'k2k' ); ?></span>
+                        <i id="site-search-button" class="fa fa-search"></i>
+                    </div>
+
+                    <div class="site-side-button site-sidebar-button">
+                        <span class="screen-reader-text"><?php esc_html_e( 'Sidebar', 'k2k' ); ?></span>
+                        <i id="site-sidebar-button" class="fa fa-gear"></i>
+                    </div>
+                
+                    <?php if ( is_single() ) { 
+                            k2k_post_side_navigation();
+                    } ?>
+                            
+                    <div class="site-side-button top-button-container">
+                            <a href="#" class="topbutton">
+                                <span class="screen-reader-text"><?php esc_html_e( 'Top', 'k2k' ); ?></span>
+                                <?php echo k2k_get_svg( array( 'icon' => 'material-arrow-upward' ) ); ?>
+                            </a>
+                    </div>
+                
+            </div><!-- .side-button-container -->
         
         
 	<div id="content" class="site-content container">

@@ -69,10 +69,14 @@ body {
             background: $color__white;
             color: initial;
             margin-left: 2em;
-            padding-right: 0;
+            padding: 0;
             a {
 /*                color: $color__gray;
                 font-weight: 400;*/
+            }
+            
+            @media screen and (min-width: $query__small ) {
+                max-width: 300px;
             }
         }
     }

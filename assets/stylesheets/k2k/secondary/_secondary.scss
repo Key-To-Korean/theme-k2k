@@ -3,7 +3,7 @@ aside#secondary {
     @include font-size(0.8);
     
     transition: all 0.5s;
-    /*padding: 3em;*/
+    padding: 3em;
     position: fixed;
     width: $query__small;
     max-width: $query__small;
@@ -15,10 +15,6 @@ aside#secondary {
     background: $color__white;
     border-left: 1px solid $color__light_gray;
     overflow-y: scroll;
-    
-    @media screen and (min-width: $query__small ) {
-        max-width: 300px;
-    }
     
 /*    &:before {
         font-family: "FontAwesome";
@@ -42,7 +38,7 @@ aside#secondary {
         
         right: 0%;
         height: 100%;
-        /*z-index: 999999;*/
+        z-index: 2;
         
         &:before {
             display: none;
@@ -52,7 +48,7 @@ aside#secondary {
     
 }
 
-.site-side-button {
+/*.site-side-button {
     
         color: white;
         display: block;
@@ -100,7 +96,7 @@ aside#secondary {
         left: -5px;
     }
 
-}
+}*/
         
         
 

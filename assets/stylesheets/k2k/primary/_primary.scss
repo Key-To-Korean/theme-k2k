@@ -2,18 +2,20 @@
     
         transition: all 0.5s;
         width: 0%;
-        height: 6em;
-        top: calc( 50% - 2em );
-        left: 0;
+        height: 0%;
+        top: 0;
+        right: 0;
         z-index: 9;
-        background: darken( $color__bright_blue_alpha, 30% );
-        @include gradient();
+        /*background: darken( $color__bright_blue_alpha, 30% );*/
+        /*@include gradient();*/
+        background: rgba( 255,255,255,0.7 );
         position: fixed;
-        padding-top: 20px;
+        /*padding-top: 20px;*/
         
         .search-form {
             
-                padding: 1em 0;
+                padding: 0 2em;
+                text-align: center;
 
                 .search-field {
                     
@@ -22,13 +24,16 @@
                         font-weight: 300;
                         font-family: "Oswald";
                         text-align: center;
-                        background: darken( $color__bright_blue_alpha, 30% );
+                        /*background: darken( $color__bright_blue_alpha, 30% );*/
                         @include gradient();
                         color: $color__white;
                         border: none;
                         width: 0%;
-                        margin-top: -15px;
-                        margin-left: -10px;
+/*                        margin-top: -15px;
+                        margin-left: -10px;*/
+                        border: 1px solid;
+                        max-width: 50%;
+                        margin: 0 auto;
                         
                         &:focus,
                         &:active {
@@ -51,13 +56,36 @@
                 }
         }
         
+        .close-search {
+            transition: all 1s;
+            right: 0;
+            top: 0;
+            width: 0%;
+            height: 0%;
+            color: $color__light_gray_2;
+            text-shadow: 0px 0px 2px black;
+        }
+        
         &.active {
             width: 100%;
-            padding-left: 60px;
+            height: 100%;
             
             .search-field {
                 width: calc(100vw - 125px);
-                border: 1px solid;
+                margin-top: calc( 50vh - 38px );
+            }
+            
+            .close-search {
+                position: absolute;
+                right: 2em;
+                top: 1em;
             }
         }
+        
+        
+}
+
+.blur {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
 }

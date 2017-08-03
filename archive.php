@@ -44,8 +44,8 @@ endif; ?>
 			endwhile;
 
 			the_posts_pagination( array(
-                            'prev_text'     => k2k_get_svg( array( 'icon' => 'level-up' ) ) . __( 'Newer', 'k2k' ),
-                            'next_text'     => __( 'Older', 'k2k' ) . k2k_get_svg( array( 'icon' => 'level-down' ) ),
+                            'prev_text'     => k2k_get_svg( array( 'icon' => 'material-arrow-backward' ) ) . __( 'Newer', 'k2k' ),
+                            'next_text'     => __( 'Older', 'k2k' ) . k2k_get_svg( array( 'icon' => 'material-arrow-forward' ) ),
                             'before_page_number'    => '<span class="screen-reader-text">' . __( 'Page ', 'k2k' ) . '</span>',
                         ) );
                         ?>

@@ -177,7 +177,7 @@
 .widget_archive select, 
 .widget_categories select {
         width: 100%;
-        /*margin-left: 5%;*/
+        margin-top: 8px;
         border-radius: none;
         background: $color__very_light_gray;
         font-size: 1.2em;
@@ -255,7 +255,7 @@
 	li {
 		line-height: 1.5em!important;
 		padding-bottom: 1.5em!important;
-                padding-top: 0.5em!important;
+                padding-top: 0.8em!important;
 	}
         
         .k2k-widget-list .recentcomments {
@@ -317,6 +317,8 @@
             
             .skewed-thumbnail {
                 margin-left: -20px;
+                -webkit-transform: skewX(-14deg)!important;
+                transform: skewX(-14deg)!important;
                 
                 img {
                     -webkit-transform: skewX(14deg)!important;
@@ -405,6 +407,9 @@
         /*display: inline-flex;*/
         color: $color__black;
         font-family: "Oswald";
+        a {
+            color: $color__black;
+        }
 }
 
 .rss-date {
@@ -432,11 +437,9 @@
         color: $color__gray;
 }
 .rss-widget-icon {
-        -webkit-transform: skewX(-14deg);
-        transform: skewX(14deg);
         float: left;
-        margin-top: 1em;
-        margin-right: 0.25em;
+        margin-top: 0.5em;
+        margin-right: 0.5em;
 }
 
 /* Search widget */
@@ -489,7 +492,7 @@
 	font-weight: 400;
         
         table {
-            margin: auto 0;
+            margin: 1.25em 0 auto;
             width: 100%;
             background: $color__white;
             color: $color__link;

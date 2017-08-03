@@ -42,7 +42,7 @@ function k2k_posted_on() {
         if ( k2k_show_word_count() && is_singular() ) {
                 printf( '<span class="word-count">%s %s</span>', 
                         k2k_get_svg( array( 'icon' => 'material-subject' ) ), 
-                        sprintf( _nx( '%s Minute', '%s Minutes', k2k_word_count(), 'time to read', 'k2k' ), k2k_word_count() ) 
+                        sprintf( _nx( '%s min read', '%s min read', k2k_word_count(), 'time to read', 'k2k' ), k2k_word_count() ) 
                 );
         }
         
@@ -98,6 +98,17 @@ function k2k_post_navigation() {
             'prev_text'         => '<span class="meta-nav" aria-hidden="true">' . __( 'Previously:', 'k2k' ) . '</span>' .
                                         '<span class="screen-reader-text">' . __( 'Previously:', 'k2k' ) . '</span>' .
                                         '<span class="post-title">%title</span>',
+            'in_same_term'      => true,
+    ) );
+}
+
+/**
+ * Post navigation (previous / next post) for the side buttons.
+ */
+function k2k_post_side_navigation() {
+    the_post_navigation( array(
+            'next_text'         => '<span class="screen-reader-text">' . __( 'Next post: ', 'k2k' ) . '%title</span>',
+            'prev_text'         => '<span class="screen-reader-text">' . __( 'Previously:', 'k2k' ) . '%title</span>',
             'in_same_term'      => true,
     ) );
 }

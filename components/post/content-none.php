@@ -54,7 +54,7 @@
         <?php
         if ( is_404() || is_search() ) {
         ?>
-                <h2 class="page-title secondary-title"><?php esc_html_e( 'Most recent posts:', 'humescores' ); ?></h2>
+                <h2 class="page-title secondary-title"><?php esc_html_e( 'Recent posts:', 'k2k' ); ?></h2>
                 <?php
                 // Get the 10 latest posts
                 $args = array(

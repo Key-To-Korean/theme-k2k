@@ -1,4 +1,4 @@
-.topbutton {
+/*.topbutton {
     font-family: "FontAwesome";
     content: '\f077'; // fa-chevron-up
     color: $color__white;
@@ -26,7 +26,7 @@
         height: 100%;
         background-color: darken( $color__bright_blue, 10% );
     }
-}
+}*/
 
 .site-footer:not(.with-comments) {
     &:before {
@@ -48,7 +48,7 @@
 }
 
 .footer-widgets {
-	max-width: $query__large;
+	/*max-width: $query__large;*/
         margin: 0 auto;
 
 	@media screen and (min-width: $query__small) {
@@ -62,26 +62,26 @@
 		padding-top: 1em;
 
 		.original-title {
-			color: hsla(0, 0%, 100%, .5);
+			/*color: hsla(0, 0%, 100%, .5);*/
 		}
                 
                 &:before {
-                    border: none;
+                    /*border: none;*/
                 }
                 
                 ol, 
                 ul {
-                    margin-left: 0;
+                    /*margin-left: 0;*/
                 }
 	}
         
         .widget-title {
-            font-size: 1.5em;
-            margin-left: -5px;
-            border-color: $color__bright_blue;
+            /*font-size: 1.5em;*/
+            /*margin-left: -5px;*/
+            /*border-color: $color__bright_blue;*/
             
             &:before {
-                border: none;
+                /*border: none;*/
             }
             
         }
@@ -104,7 +104,7 @@
 		/* Use flex to create a responsive layout */
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: space-between;
 
 		/* If only one widget is displayed, make it full width. */
 		.widget:only-of-type {
@@ -123,5 +123,102 @@
 			flex: 1 1 30%;
 		}
 	}
+        
+        @media screen and (min-width: $query__large) {
+                /* If 4 or more widgets are displayed, show three across when available. */
+		.widget:nth-last-child(n+4),
+		.widget:nth-last-child(n+4) ~ .widget {
+			width: 22%;
+			flex: 1 1 22%;
+		}
+        }
+}
 
+.footer-navigation {
+        flex: 1 0 100%;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto 2em;
+        padding: 0;
+        list-style: none;
+        
+        ul {
+            margin: 0;
+            z-index: 1;
+        }
+        
+        li {
+            display: inline-block;
+            padding: 0 1em;
+        }
+        &:before {
+            content: "";
+            width: 75%;
+            height: 1px;
+            display: block;
+            border-top: 2px solid $color__white;
+            top: 0;
+            z-index: 0;
+            margin: 0 auto;
+        }
+        &:after {
+            content: "";
+            width: 50%;
+            height: 1px;
+            display: block;
+            border-bottom: 1px solid $color__white;
+            bottom: 0;
+            z-index: 0;
+            margin: 0 auto;
+        }
+    }
+
+.site-info-area {
+    font-weight: 300;
+    font-size: 0.8em;
+    padding: 2em 0;
+    text-align: right;
+    color: $color__black;
+    background-color: $color__green;
+    
+    .site-info {
+            display: flex;
+            justify-content: space-between;
+            line-height: 3;
+            flex-wrap: wrap;
+    }
+    
+    a {
+        color: $color__white;
+    }
+    
+    
+    
+    .social-navigation {
+        float: left;
+        list-style: none;
+        
+        .social-links-menu {
+            margin: 0;
+            width: auto;
+        }
+        
+        li {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 2.2;
+            font-size: 1.2em;
+            margin-right: 0;
+            
+            a {
+                padding-right: 16px;
+                color: $color__white;
+            }
+            
+            &:hover, &:active, &:focus {
+                background: $color__bright_blue;
+            }
+        }
+    }
 }

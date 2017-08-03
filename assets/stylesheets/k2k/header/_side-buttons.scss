@@ -1,0 +1,141 @@
+.side-button-container {
+    position: fixed;
+    top: 50%;
+    z-index: 3;
+    right: 0px;
+    width: 3em;
+    background: $color__white;
+    border: 1px solid gainsboro;
+    border-right: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+    
+    .site-side-button {
+        color: $color__gray;
+        display: block;
+        /* position: fixed; */
+        /* top: 50%; */
+        /* right: 0; */
+        height: 3em;
+        width: 3em;
+        /* background: #1081df; */
+        /* padding: 3px; */
+        /* z-index: 10; */
+        text-align: center;
+        line-height: 3em;
+        border-bottom: 1px solid $color__light_gray;
+    }
+    
+    .post-navigation {
+        /* width: 3em; */
+        margin: 0;
+        padding: 0;
+        /* border: none; */
+        /* height: 3em; */
+        transform: skewX(0deg);
+        font-style: normal;
+        
+        .nav-links {
+            display: block;
+        }
+        
+        .nav-previous {
+            float: none;
+            display: block;
+            width: 3em;
+            border: none;
+            height: 3em;
+            border-bottom: 1px solid $color__light_gray;
+            
+            &:before {
+                font-family: FontAwesome;
+                content: "\f001";
+                color: $color__gray;
+                width: 3em;
+                height: 3em;
+                line-height: 3em;
+                /* text-align: center; */
+                /* margin: 0 auto; */
+                padding: 1em;
+            }
+        }
+        
+        .nav-next {
+            float: none;
+            display: block;
+            width: 3em;
+            height: 3em;
+            border-bottom: 1px solid $color__light_gray;
+            
+            &:before {
+                font-family: FontAwesome;
+                content: "\f003";
+                color: $color__gray;
+                width: 3em;
+                height: 3em;
+                padding: 1em;
+                line-height: 3em;
+            }
+        }
+        
+        a {
+            clip: rect(1px, 1px, 1px, 1px);
+            position: absolute !important;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    
+    .top-button-container {
+        width: 3em;
+        height: 3em;
+        /*border-top: 1px solid $color__light_gray;*/
+        border-bottom: none;
+        line-height: 3em;
+        
+        .topbutton {
+            font-family: "FontAwesome";
+            content: '\f077';
+            color: gray;
+            /* background-color: #1081df; */
+            /* height: 30px; */
+            /* width: 40px; */
+            /* position: fixed; */
+            /* right: 20px; */
+            /* bottom: 20px; */
+            /* z-index: 1; */
+            display: none;
+            /* line-height: 3em; */
+            /* height: 3em; */
+            padding: 1em;
+        }
+        
+        .screen-reader-text {
+            font-family: $font__sans;
+        }
+    }
+    
+    .site-side-button:hover .screen-reader-text,
+    .nav-previous:hover .screen-reader-text,
+    .nav-next:hover .screen-reader-text {
+        clip: auto;
+        position: relative;
+        height: auto;
+        width: auto;
+        right: 4em;
+        text-align: right;
+        font-size: 0.7em;
+        color: white;
+        background: $color__gray;
+        line-height: 2em;
+        margin: 1.2em;
+        padding: 0 1em;
+        font-weight: 300;
+        opacity: 0.8;
+        border-radius: 5px;
+    }
+    
+}

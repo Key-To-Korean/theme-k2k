@@ -19,13 +19,19 @@
     $( '#site-search-button, .search-toggle' ).click( function() {
         if( $( '#secondary' ).hasClass( 'active' ) ) {
             $( '#secondary' ).removeClass( 'active' );
+//            $( '.site' ).removeClass( 'blur' );
+        } else {
+            $( '#secondary' ).removeClass( 'active' );
+//            $( '.site' ).removeClass( 'blur' );
         }
         
         // @TODO: Needs some work to turn OFF search when button is clicked again
         if( $( '.site-search-overlay' ).hasClass( 'active' ) ) {
             $( '.site-search-overlay' ).removeClass( 'active' );
+//            $( '.site' ).removeClass( 'blur' );
         } else {
             $( '.site-search-overlay' ).addClass( 'active' );
+//            $( '.site' ).addClass( 'blur' );
             $( '.site-search-overlay .search-field' ).focus();
         }
  
@@ -33,6 +39,7 @@
     // Turn off site search when it's not in focus
     $( '.site-search-overlay .search-field' ).focusout( function() {
        $( '.site-search-overlay' ).removeClass( 'active' ); 
+       $( '.site' ).removeClass( 'blur' );
     });
     
     /*

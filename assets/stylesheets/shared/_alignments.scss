@@ -71,6 +71,7 @@ blockquote.aligncenter {
 }
 
 blockquote.alignleft {
+    padding-bottom: 0;
     &:after{
         border-right: 2px solid $color__bright_green;
         border-top: 2px solid $color__bright_green;
@@ -84,6 +85,7 @@ blockquote.alignleft {
 }
 
 blockquote.alignright {
+    padding-top: 0;
     &:after{
         border-left: 2px solid $color__bright_green;
         border-bottom: 2px solid $color__bright_green;

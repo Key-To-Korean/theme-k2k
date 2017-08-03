@@ -13,7 +13,7 @@ get_header(); ?>
 if ( have_posts() ) : ?>
 
         <header class="page-header">
-                <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'humescores' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'k2k' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
         </header><!-- .page-header -->
 
 <?php
@@ -42,8 +42,8 @@ endif;
 			endwhile;
 
 			the_posts_pagination( array(
-                            'prev_text'     => k2k_get_svg( array( 'icon' => 'level-up' ) ) . __( 'Newer', 'k2k' ),
-                            'next_text'     => __( 'Older', 'k2k' ) . k2k_get_svg( array( 'icon' => 'level-down' ) ),
+                            'prev_text'     => k2k_get_svg( array( 'icon' => 'material-arrow-backward' ) ) . __( 'Newer', 'k2k' ),
+                            'next_text'     => __( 'Older', 'k2k' ) . k2k_get_svg( array( 'icon' => 'material-arrow-forward' ) ),
                             'before_page_number'    => '<span class="screen-reader-text">' . __( 'Page ', 'k2k' ) . '</span>',
                         ) );
                         ?>
