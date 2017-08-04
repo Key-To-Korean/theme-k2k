@@ -41,7 +41,7 @@ class k2k_archives extends WP_Widget {
 		// $dropdown = ! empty( $instance['dropdown'] ) ? '1' : '0';
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-		$title = apply_filters( 'widget_title', empty( $instance[ 'title' ] ) ? __( 'Archives', 'k2k' ) : $instance[ 'title' ], $instance, $this->id_base );
+		$title = apply_filters( 'widget_title', empty( $instance[ 'title' ] ) ? esc_html__( 'Archives', 'k2k' ) : $instance[ 'title' ], $instance, $this->id_base );
 
 		echo $args[ 'before_widget' ];
                 
@@ -93,10 +93,10 @@ class k2k_archives extends WP_Widget {
                                     <li class="archive-year previous-year">
                             <?php } ?>
 
-                                <a href="<?php esc_url( bloginfo( 'url' ) ); ?>/<?php echo $month->year; ?>/"><?php echo $month->year; ?></a>
+                                <a href="<?php echo esc_url( home_url() ); ?>/<?php echo $month->year; ?>/"><?php echo $month->year; ?></a>
                                 <ul class="children"> 
                                     <li class="archive-month">
-                                        <a href="<?php esc_url( bloginfo( 'url' ) ); ?>/<?php echo $month->year; ?>/<?php echo date( "m", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?>">
+                                        <a href="<?php echo esc_url( home_url() ); ?>/<?php echo $month->year; ?>/<?php echo date( "m", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?>">
                                             <span class="archive-month-name"><?php echo date_i18n( "F", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?></span>
                                         </a>
                                         <span class="archive-month-count post_count"><?php echo $month->post_count; ?></span>
@@ -107,7 +107,7 @@ class k2k_archives extends WP_Widget {
                         else { ?>
 
                                 <li class="archive-month">
-                                    <a href="<?php esc_url( bloginfo( 'url' ) ); ?>/<?php echo $month->year; ?>/<?php echo date( "m", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?>">
+                                    <a href="<?php echo esc_url( home_url() ); ?>/<?php echo $month->year; ?>/<?php echo date( "m", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?>">
                                         <span class="archive-month-name"><?php echo date_i18n( "F", mktime( 0, 0, 0, $month->month, 1, $month->year ) ); ?></span>
                                     </a>
                                     <span class="archive-month-count post_count"><?php echo $month->post_count; ?></span>
@@ -168,7 +168,7 @@ class k2k_archives extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>"><?php  _e( 'Title', 'k2k' ); ?>:
+			<label for="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>"><?php  esc_html_e( 'Title', 'k2k' ); ?>:
 			<input id="<?php echo esc_attr( $this->get_field_id( 'widget_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'widget_title' ) ); ?>" type="text" class="widefat" value="<?php echo esc_attr( $widget_title ); ?>" /></label>
 		</p>
 

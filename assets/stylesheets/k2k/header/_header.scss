@@ -64,12 +64,13 @@
         display: inline;
         height: 65px;
         width: auto;
-        &:hover, 
-        &:focus, 
-        &:active {
-            background: none;
-            border: none;
-        }
+    }
+    
+    &:hover, 
+    &:focus, 
+    &:active {
+        background: none;
+        border: none;
     }
 }
 
@@ -87,6 +88,7 @@
     @include font-size(1.6);
     font-weight: 700;
     line-height: 1em;
+    margin-bottom: 5px;
     
     a {
         color: white;
@@ -94,7 +96,8 @@
         
         &:hover,
         &:focus {
-            text-decoration: underline;
+            /*text-decoration: underline;*/
+            /*border-bottom: none;*/
         }
     }
 }

@@ -31,7 +31,7 @@
 //            $( '.site' ).removeClass( 'blur' );
         } else {
             $( '.site-search-overlay' ).addClass( 'active' );
-//            $( '.site' ).addClass( 'blur' );
+            $( '.site' ).addClass( 'blur' );
             $( '.site-search-overlay .search-field' ).focus();
         }
  
@@ -88,16 +88,16 @@
     /**
      * Back to Top button
      */
-    var offset = 100;
+//    var offset = 0;
     var speed = 250;
     var duration = 500;
-    $( window ).scroll( function() {
-        if ( $( this ).scrollTop() < offset ) {
-            $( '.topbutton' ) .fadeOut( duration );
-        } else {
+//    $( window ).scroll( function() {
+//        if ( $( this ).scrollTop() < offset ) {
+//            $( '.topbutton' ) .fadeOut( duration );
+//        } else {
             $( '.topbutton' ) .fadeIn( duration );
-        }
-    });
+//        }
+//    });
     $( '.topbutton' ).on( 'click', function() {
          $( 'html, body' ).animate( { scrollTop:0 }, speed );
          return false;
@@ -107,6 +107,20 @@
      * Better Categories Widgets
      */
     $( '.widget_categories ul.children' ).parent().addClass( 'category-item-has-children' );
+    
+    /**
+     * Fixed Top Menu
+     */
+    var top_menu_start = $( '.main-navigation' ).offset().top;
+    $( window ).scroll( function() {
+        if ( $( this ).scrollTop() < top_menu_start ) {
+            $( '.main-navigation' ).removeClass( 'fixed' );
+            $( '.main-navigation .logo img, .main-navigation .site-title' ).addClass( 'screen-reader-text' );
+        } else {
+            $( '.main-navigation' ).addClass( 'fixed' );
+            $( '.main-navigation .logo img, .main-navigation .site-title' ).delay( 800 ).removeClass( 'screen-reader-text' );
+        }
+    });
     
 }) ( jQuery );
 

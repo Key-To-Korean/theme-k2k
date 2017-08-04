@@ -154,7 +154,7 @@ function k2k_customize_register( $wp_customize ) {
                         $wp_customize,
                         'grad2_color', array(
                             'label'         => __( 'Interactive Color #2', 'k2k' ),
-                            'description'   => __( 'Set the second interactive color. This color controls the RIGHT gradient, footer background, and search and sidebar buttons.', 'jinn' ),
+                            'description'   => __( 'Set the second interactive color. This color controls the RIGHT gradient, footer background, and search and sidebar buttons.', 'k2k' ),
                             'section'       => 'colors',
                         )
                 ));
@@ -198,7 +198,7 @@ function k2k_customize_register( $wp_customize ) {
         /**
 	 * Front Page sections 
 	 *
-	 * @since Jinn 2.1.2
+	 * @since K2K 0.0.2
 	 *
 	 * @param $page_names array
 	 */

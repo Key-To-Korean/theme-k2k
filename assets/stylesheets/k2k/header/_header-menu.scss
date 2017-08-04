@@ -48,6 +48,9 @@
 			li {
 				padding: 0.5em 1em;
                                 height: 50px;
+                                width: calc( 100% + 2px );
+                                margin-left: -1px;
+                                
                                 &:hover > ul,
 				&.focus > ul {
 /*					left: 100%;*/
@@ -94,6 +97,10 @@
 		&:hover > a,
 		&.focus > a {
 		}
+                
+                &:hover, &.focus {
+                    border-bottom: none;
+                }
 	}
 
 	a {
@@ -133,7 +140,7 @@
         border-bottom: 1px solid $color__light_gray;
         font-size: 0.8em;
         height: 70px;
-        position: relative;
+        position: absolute;
         z-index: 2;
         
         .menu-main-menu-container {
@@ -203,6 +210,8 @@
     border-top: none;
     font-weight: normal;
     font-size: 0.9em;
+    line-height: 25px;
+    box-shadow: 2px 3px 4px $color__gray;
 				&:hover > ul,
 				&.focus > ul {
 /*					left: 100%;*/
@@ -235,14 +244,22 @@
         a {
             color: $color__gray;
             font-weight: 300;
+            
+            &:hover, 
+            &:active, 
+            &:focus, 
+            &.active {
+                border-bottom: none!important;
+            }
         }
         li {
             display: block;
             float: left;
-            padding: 21px 10px;
+            padding: 0 10px;
             transform: skewX(14deg);
             font-style: italic;
             height: 70px;
+            line-height: 70px;
             &:hover {
                 background: $color__link;
                 & > a {
@@ -263,7 +280,7 @@
                 float: left;
                 height: 45px;
                 top: 12px;
-                opacity: 0;
+                /*opacity: 0;*/
             }
             .site-title {
                 float: left;
@@ -271,12 +288,13 @@
                 padding-left: 1em;
                 font-size: 1.5em;
                 color: $color__body;
-                opacity: 0;
+                /*opacity: 0;*/
             }
         }
         .menu-item-has-children {
             padding-right: 0;
-            padding-top: 18px;
+            padding-top: 0px;
+            line-height: 70px;
         }
         .dropdown-toggle {
             border: none;
@@ -297,8 +315,10 @@
     position: fixed;
     top: 0;
     z-index: 20;
-    background: rgba(255,255,255,0.8);
-    border-color: $color__very_light_gray;
+    background: $color__white;
+    /*border-color: $color__very_light_gray;*/
+    /*box-shadow: 0px 0px 5px $color__light_gray;*/
+    transition: all 0.5s;
     .logo img,
     .site-title {
         opacity: 1!important;

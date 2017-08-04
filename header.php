@@ -70,7 +70,7 @@
                         
                     <div class="search-toggle">
                         <i class="fa fa-search"></i>
-                        <a href="#search-container" class="screen-reader-text"><?php _e( 'Search this site', 'jkl' ); ?></a>
+                        <a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
                     </div>
                         
                 </div><!-- .header-contact -->
@@ -113,11 +113,14 @@
                         <span class="screen-reader-text"><?php esc_html_e( 'Search', 'k2k' ); ?></span>
                         <i id="site-search-button" class="fa fa-search"></i>
                     </div>
-
-                    <div class="site-side-button site-sidebar-button">
-                        <span class="screen-reader-text"><?php esc_html_e( 'Sidebar', 'k2k' ); ?></span>
-                        <i id="site-sidebar-button" class="fa fa-gear"></i>
-                    </div>
+                
+                    <?php if ( is_page() || is_archive() || is_home() || is_search() || is_404() ) { /* do nothing */ } 
+                    else { ?>
+                        <div class="site-side-button site-sidebar-button">
+                            <span class="screen-reader-text"><?php esc_html_e( 'Sidebar', 'k2k' ); ?></span>
+                            <i id="site-sidebar-button" class="fa fa-gear"></i>
+                        </div>
+                    <?php } ?>
                 
                     <?php if ( is_single() ) { 
                             k2k_post_side_navigation();

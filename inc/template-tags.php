@@ -173,7 +173,8 @@ function k2k_breadcrumbs() {
  * Customize ellipsis at end of excerpts.
  */
 function k2k_excerpt_more( $more ) {
-    return " &hellip;";
+    $more_str = " <a href='" . get_permalink() . "'><span class='screen-reader-text'>Continue reading " . get_the_title() . "</span>&hellip;</a>";
+    return $more_str;
 }
 add_filter( 'excerpt_more', 'k2k_excerpt_more' );
 

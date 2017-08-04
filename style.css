@@ -9,7 +9,7 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: k2k
-Tags:
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-image-header, featured-images, footer-widgets, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, blog
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -1156,6 +1156,7 @@ body {
 }
 
 .site-content {
+	margin-top: 70px;
 	padding: 1em 1em 0;
 }
 
@@ -1208,7 +1209,8 @@ body {
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
 	max-width: 75rem;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	/*padding-left: 0;*/
 	/*padding-right: 0;*/
 }
@@ -2841,7 +2843,7 @@ object {
 	width: auto;
 }
 
-.custom-logo-link img:hover, .custom-logo-link img:focus, .custom-logo-link img:active {
+.custom-logo-link:hover, .custom-logo-link:focus, .custom-logo-link:active {
 	background: none;
 	border: none;
 }
@@ -2868,6 +2870,7 @@ object {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1em;
+	margin-bottom: 5px;
 }
 
 .site-title a {
@@ -2876,7 +2879,8 @@ object {
 }
 
 .site-title a:hover, .site-title a:focus {
-	text-decoration: underline;
+	/*text-decoration: underline;*/
+	/*border-bottom: none;*/
 }
 
 .site-description {
@@ -3319,6 +3323,8 @@ object {
 .home-navigation ul ul li {
 	padding: 0.5em 1em;
 	height: 50px;
+	width: calc( 100% + 2px);
+	margin-left: -1px;
 }
 
 .home-navigation ul ul li:hover > ul,
@@ -3355,6 +3361,10 @@ object {
 	/*padding-right: 0.25em;*/
 }
 
+.home-navigation li:hover, .home-navigation li.focus {
+	border-bottom: none;
+}
+
 .home-navigation a {
 	display: block;
 	text-decoration: none;
@@ -3384,7 +3394,7 @@ object {
 	border-bottom: 1px solid gainsboro;
 	font-size: 0.8em;
 	height: 70px;
-	position: relative;
+	position: absolute;
 	z-index: 2;
 }
 
@@ -3480,6 +3490,8 @@ object {
 	border-top: none;
 	font-weight: normal;
 	font-size: 0.9em;
+	line-height: 25px;
+	box-shadow: 2px 3px 4px #878d91;
 }
 
 .main-navigation ul ul li:hover > ul,
@@ -3508,14 +3520,19 @@ object {
 	font-weight: 300;
 }
 
+.main-navigation a:hover, .main-navigation a:active, .main-navigation a:focus, .main-navigation a.active {
+	border-bottom: none !important;
+}
+
 .main-navigation li {
 	display: block;
 	float: left;
-	padding: 21px 10px;
+	padding: 0 10px;
 	-webkit-transform: skewX(14deg);
 	        transform: skewX(14deg);
 	font-style: italic;
 	height: 70px;
+	line-height: 70px;
 }
 
 .main-navigation li:hover {
@@ -3539,7 +3556,7 @@ object {
 	float: left;
 	height: 45px;
 	top: 12px;
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 .main-navigation .main-navigation-container .site-title {
@@ -3548,12 +3565,13 @@ object {
 	padding-left: 1em;
 	font-size: 1.5em;
 	color: #363a3c;
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 .main-navigation .menu-item-has-children {
 	padding-right: 0;
-	padding-top: 18px;
+	padding-top: 0px;
+	line-height: 70px;
 }
 
 .main-navigation .dropdown-toggle {
@@ -3571,8 +3589,11 @@ object {
 	position: fixed;
 	top: 0;
 	z-index: 20;
-	background: rgba(255, 255, 255, 0.8);
-	border-color: #f8fafb;
+	background: #ffffff;
+	/*border-color: $color__very_light_gray;*/
+	/*box-shadow: 0px 0px 5px $color__light_gray;*/
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
 }
 
 .fixed.main-navigation .logo img,
@@ -3651,6 +3672,11 @@ object {
 	border-bottom: 1px solid gainsboro;
 }
 
+.side-button-container .site-side-button:hover, .side-button-container .site-side-button:active, .side-button-container .site-side-button:focus {
+	color: #ffffff;
+	background: #51CF66;
+}
+
 .side-button-container .post-navigation {
 	/* width: 3em; */
 	margin: 0;
@@ -3677,7 +3703,7 @@ object {
 
 .side-button-container .post-navigation .nav-previous:before {
 	font-family: FontAwesome;
-	content: "\f001";
+	content: "\f060";
 	color: #878d91;
 	width: 3em;
 	height: 3em;
@@ -3697,7 +3723,7 @@ object {
 
 .side-button-container .post-navigation .nav-next:before {
 	font-family: FontAwesome;
-	content: "\f003";
+	content: "\f061";
 	color: #878d91;
 	width: 3em;
 	height: 3em;
@@ -3734,10 +3760,14 @@ object {
 	/* right: 20px; */
 	/* bottom: 20px; */
 	/* z-index: 1; */
-	display: none;
-	/* line-height: 3em; */
-	/* height: 3em; */
+	display: block;
+	line-height: 3em;
+	height: 3em;
 	padding: 1em;
+}
+
+.side-button-container .top-button-container .topbutton:hover, .side-button-container .top-button-container .topbutton:active, .side-button-container .top-button-container .topbutton:focus {
+	border-bottom: none;
 }
 
 .side-button-container .top-button-container .screen-reader-text {
