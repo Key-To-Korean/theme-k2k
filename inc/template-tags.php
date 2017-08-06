@@ -76,11 +76,13 @@ if ( ! function_exists( 'k2k_entry_footer' ) ) :
 function k2k_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() && is_singular() ) {
+            
+                k2k_breadcrumbs();
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( '', 'k2k' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Keywords: %1$s', 'k2k' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">%1$s</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
@@ -107,8 +109,8 @@ function k2k_post_navigation() {
  */
 function k2k_post_side_navigation() {
     the_post_navigation( array(
-            'next_text'         => '<span class="screen-reader-text">' . __( 'Next post: ', 'k2k' ) . '%title</span>',
-            'prev_text'         => '<span class="screen-reader-text">' . __( 'Previously:', 'k2k' ) . '%title</span>',
+            'next_text'         => '<span class="screen-reader-text">' . __( 'Next post: ', 'k2k' ) . '%title</span>' . k2k_get_svg( array( 'icon' => 'material-arrow-forward' ) ),
+            'prev_text'         => k2k_get_svg( array( 'icon' => 'material-arrow-backward' ) ) . '<span class="screen-reader-text">' . __( 'Previously: ', 'k2k' ) . '%title</span>',
             'in_same_term'      => true,
     ) );
 }
@@ -164,8 +166,100 @@ function k2k_breadcrumbs() {
     /* translators: used between list items, there is a space after the comma */
     $categories_list = get_the_category_list( ' ' );
     if ( $categories_list && k2k_categorized_blog() ) {
-            printf( '<span class="breadcrumbs cat-links row">' . esc_html__( '%1$s', 'k2k' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+            printf( '<span class="cat-links row">' . esc_html__( '%1$s', 'k2k' ) . '</span>', $categories_list ); // WPCS: XSS OK.
     }
+    
+//    global $post;
+//    
+//    if ( !is_home() ) {
+//        echo '<span id="breadcrumbs" class="breadcrumbs">';
+//        echo '<a href="';
+//        echo get_option( 'home' );
+//        echo '">';
+//        echo 'Home';
+//        echo '</a>';
+//        
+//        if ( is_category() || is_single() ) {
+////            echo '<li>';
+//            the_category('');
+//            if ( is_single() ) {
+////                echo '</li><li>';
+//                the_title();
+////                echo '</li>';
+//            }
+//        } 
+        else if ( is_page() ) {
+            if( $post->post_parent ) {
+                $ancestors = get_post_ancestors( $post->ID );
+                $title = get_the_title();
+                
+                foreach ( $ancestors as $ancestor ) {
+                    $output = '<a href="' . get_permalink( $ancestor ) . '" title="' . get_the_title( $ancestor ) . '">' . get_the_title( $ancestor ) . '</a>';    
+                }
+                
+                echo $output;
+                echo '<strong title="' . $title . '"> ' . $title . '</strong>';
+            } else {
+                echo '<strong> ' . get_the_title() . '</strong>';
+            }
+        } 
+//        else if ( is_tag() ) { single_tag_title(); }
+//        else if ( is_day() ) { echo "Archive for "; the_time( 'F jS, Y' ); }
+//        else if ( is_month() ) { echo "Archive for "; the_time( 'F, Y' ); }
+//        else if ( is_year() ) { echo "Archive for "; the_time( 'Y' ); }
+//        else if ( is_author() ) { echo "Author Archive"; }
+//        else if ( isset( $_GET[ 'paged' ] ) && !empty( $_GET[ 'paged' ] ) ) { echo "Blog Archives"; }
+//        else if ( is_search() ) { echo "Search Results"; }
+        
+//        echo '</span>';
+//    }
+    
+//    // Categories
+//        if ( 'post' === get_post_type() || 'jetpack-portfolio' === get_post_type() ) {
+//		/* translators: used between list items, there is a space after the comma */
+//                if( 'post' === get_post_type() ) {
+//                    $categories_list = get_the_category_list( __( '</li><li>', 'jinn' ) );
+//                } elseif ( 'jetpack-portfolio' === get_post_type() ) {
+//                    $categories_list = get_the_term_list( $post->ID, 'jetpack-portfolio-type', '', '</li><li>', '' );
+//                }
+//                $first = strpos( $categories_list, '</a>' );
+//                $first_cat = substr( $categories_list, 0, ( $first + 4 ) );
+//                $replaced = str_replace( '<a ', '<a class="first-cat-link" ', $first_cat );
+//                $the_rest = substr( $categories_list, ( $first + 4 ) );
+//
+//		if ( $categories_list && k2k_categorized_blog() ) {
+//                        echo '<span class="cat-links">';
+//                        if( 'post' === get_post_type() ) {
+//                            esc_html_e( 'Filed under: ', 'jinn' );
+//                        } elseif( 'jetpack-portfolio' === get_post_type() ) {
+//                            esc_html_e( 'Project type: ', 'jinn' );
+//                        }
+//                        echo wp_kses( $replaced, array( 
+//                                            'a' => array( 
+//                                                'href' => array(),
+//                                                'class' => array(),
+//                                                'rel' => array()
+//                                            ) ) );
+//                        if( ! empty( $the_rest ) ) {
+//                            echo '<span class="jinn_cat_switch"><i class="fa fa-angle-down"></i></span>';
+//                            printf( '<ul class="submenu dropdown">' . wp_kses( $the_rest, array( 
+//                                            'li' => array( 'class' => array() ),
+//                                            'a' => array(
+//                                                'href' => array(),
+//                                                'class' => array(),
+//                                                'rel' => array()
+//                                            ) ) ) . '</ul>', 
+//                                    wp_kses( $the_rest, array( 
+//                                            'li' => array( 'class' => array() ),
+//                                            'a' => array(
+//                                                'href' => array(),
+//                                                'class' => array(),
+//                                                'rel' => array()
+//                                            ) ) ) ); // WPCS: XSS OK.     
+//                        }
+//                        echo '</span>';
+//		}
+//	}          
     
 }
 
@@ -202,6 +296,68 @@ function k2k_fancy_excerpt() {
     else :
         the_excerpt();
     endif;
+}
+
+/**
+ * Add an author box below posts
+ * @link http://www.wpbeginner.com/wp-tutorials/how-to-add-an-author-info-box-in-wordpress-posts/
+ */
+function k2k_author_box() {
+    global $post;
+    
+    // Detect if a post author is set
+    if ( isset( $post->post_author ) ) {
+        
+        /*
+         * Get Author info
+         */
+        $display_name = get_the_author_meta( 'display_name', $post->post_author );                  // Get the author's display name  
+            if ( empty ( $display_name ) ) $display_name = get_the_author_meta( 'nickname', $post->post_author ); // If display name is not available, use nickname
+        $user_desc =    get_the_author_meta( 'user_description', $post->post_author );              // Get bio info
+        $user_site =    get_the_author_meta( 'url', $post->post_author );                           // Website URL
+        $user_posts =   get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) );    // Link to author archive page
+        
+        /*
+         * Create the Author box
+         */
+        $author_details  = '<aside class="author_bio_section">';
+        $author_details .= '<div class="author_bio_container">';
+        $author_details .= '<p class="show-hide-author label">' . esc_html__( 'Hide author info', 'k2k' ) . '</p>';
+        $author_details .= '<section class="author-avatar">' . get_avatar( get_the_author_meta( 'user_email' ), 240 ) . '</section>';
+//        $author_details .= '<h3 class="author-title"><span>' . esc_html__( 'About ', 'k2k' );
+//            if ( is_author() ) $author_details .= $display_name;        // If an author archive, just show the author name
+//            else $author_details .= esc_html__( 'the Author', 'k2k' ); // If a regular page, show "About the Author"
+//        $author_details .= '</span></h3>';
+        
+        $author_details .= '<div class="author-box">';
+        $author_details .= '<section class="author-info">';
+        
+        if ( ! empty( $display_name ) && ! is_author() ) {          // Don't show this name on an author archive page
+            $author_details .= '<h3 class="author-name">';
+            $author_details .= '<a class="fn" href="' . esc_url( $user_posts ) . '">' . $display_name . '</a>';
+            $author_details .= '</h3>';
+        }
+        if ( ! empty( $user_desc ) ) 
+            $author_details .= '<p class="author-description">' . $user_desc . '</p>';
+        
+        if ( ! is_author() ) {  // Don't show the meta info on an author archive page
+            $author_details .= '<p class="author-links entry-meta"><span class="vcard">' . esc_html__( 'All posts by ', 'k2k' ) . '<a class="fn" href="' . esc_url( $user_posts ) . '">' . $display_name . '</a></span>';
+
+            // Check if author has a website in their profile
+            if ( ! empty( $user_site ) ) 
+                $author_details .= '<a class="author-site" href="' . esc_url( $user_site ) . '" target="_blank" rel="nofollow">' . esc_html__( 'Website', 'k2k' ) . '</a></p>';
+            else $author_details .= '</p>';
+        }
+        
+        $author_details .= '</section>';
+        $author_details .= '</div>';
+        $author_details .= '</div><!-- .author_bio_container -->';
+        $author_details .= '</aside>';
+        
+        echo wp_kses_post( $author_details );
+
+    }
+    
 }
 
 /**

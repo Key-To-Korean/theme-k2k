@@ -14,15 +14,25 @@ get_header(); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
+                
+                        if ( is_single() ) { ?>
+                            <div class="breadcrumbs entry-meta">
+                                <?php k2k_breadcrumbs(); ?>
+                            </div>
+                        <?php }
 
 			get_template_part( 'components/post/content', get_post_format() );
 
-			k2k_post_navigation();
+			// k2k_post_navigation();
+                        
+                        k2k_author_box();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+                        
+                        k2k_post_navigation();
 
 		endwhile; // End of the loop.
 		?>

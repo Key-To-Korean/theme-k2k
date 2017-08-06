@@ -49,13 +49,17 @@
             
 	<div class="entry-content row <?php echo is_sticky() ? 'sticky' : ''; ?>">
             
-                <?php if ( is_single() ) { k2k_breadcrumbs(); } 
-                
-                    if ( ! is_single() && is_sticky() ) { 
+                <?php if ( ! is_single() && is_sticky() ) { 
                         
                         k2k_fancy_excerpt(); 
                         
                     } else {
+                        
+                        if ( is_singular() && has_excerpt() ) { ?>
+                            <div class="excerpt-intro">
+                                <?php the_excerpt(); ?>
+                            </div>
+                        <?php }
             
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
@@ -70,13 +74,16 @@
                         
                     }
                 ?>
-	</div>
-	<?php get_template_part( 'components/post/content', 'footer' ); 
+            
+        </div><!-- .entry-content -->
         
-        if ( is_singular() ) {
-            echo k2k_get_svg( array( 'icon' => 'flourish-one' ) );
-        }
+        <?php endif; ?>
+            
+        <?php if ( is_single() ) { get_template_part( 'components/post/content', 'footer' ); } ?>
         
-        endif; ?>
+        <?php //if ( is_singular() ) {
+            //echo k2k_get_svg( array( 'icon' => 'flourish-one' ) );
+        //}
+        ?>
         
 </article><!-- #post-## -->

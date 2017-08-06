@@ -70,6 +70,18 @@
        $( '.view-the-comments' ).toggleClass( 'active' ); 
     });
     
+    /*
+     * Toggle Author box
+     */
+    $( ".show-hide-author" ).click( function() {
+        $( ".author-box" ).toggle( 600, 'swing' );
+        if ( $( this ).html() == "Hide" ) {
+            $( this ).html( "Show" );
+        } else {
+            $( this ).html( "Hide" );
+        }
+    });
+    
     
     /**
      * Test if inline SVGs are supported.
@@ -115,10 +127,10 @@
     $( window ).scroll( function() {
         if ( $( this ).scrollTop() < top_menu_start ) {
             $( '.main-navigation' ).removeClass( 'fixed' );
-            $( '.main-navigation .logo img, .main-navigation .site-title' ).addClass( 'screen-reader-text' );
+            $( '.main-navigation .logo' ).addClass( 'screen-reader-text' );
         } else {
             $( '.main-navigation' ).addClass( 'fixed' );
-            $( '.main-navigation .logo img, .main-navigation .site-title' ).delay( 800 ).removeClass( 'screen-reader-text' );
+            $( '.main-navigation .logo' ).removeClass( 'screen-reader-text' ).delay( 800 );
         }
     });
     

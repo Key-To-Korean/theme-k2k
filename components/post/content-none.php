@@ -14,6 +14,9 @@
             <?php 
             if ( is_404() ) {
                 esc_html_e( 'Page not available', 'k2k' ); 
+            } elseif( is_archive() ) {
+                /* translators: %s = Archive title */
+                printf( esc_html__( 'Archive empty > %s', 'k2k' ), get_the_archive_title() ); 
             } elseif ( is_search() ) {
                 /* translators: %s = search query */
                 printf( esc_html__( 'Nothing found for &ldquo;%s&rdquo;', 'k2k' ), get_search_query() );

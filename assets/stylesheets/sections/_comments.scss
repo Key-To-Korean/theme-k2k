@@ -7,8 +7,8 @@
 
 #comments {
     background: $color__very_light_gray;
-    margin: 0 -2em;
-    padding: 2em;
+    margin: 0 -3rem;
+    padding: 3rem;
     &:before {
         content: "";
         height: 10px;
@@ -60,19 +60,23 @@
     .skewed-thumbnail {
         width: 100%;
         height: 100px;
-        font-style: italic;
+        /*font-style: italic;*/
+        /*-webkit-clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);*/
+        /*clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);*/
         img {
-            width: 100px;
+            width: 100px!important;
             position: absolute;
             top: 0;
-            left: -138px;
+            left: -139px;
         }
         &:before {
             width: 50px;
             left: -175px;
+            content: none;
         }
         &:after {
             width: 0px;
+            content: none;
         }
         
     }
@@ -109,7 +113,7 @@
             &:before {
                 height: 100px;
                 width: 50px;
-                content: "";
+                /*content: "";*/
                 display: block;
                 position: absolute;
                 top: -12px;

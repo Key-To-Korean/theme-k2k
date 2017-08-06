@@ -65,14 +65,23 @@
         margin-bottom: 1.25em;
     }
     
+    .skewed-thumbnail {
+        .post-thumbnail {
+            -webkit-clip-path: polygon(0 0, 82% 0, 100% 100%, 18% 100%);
+            clip-path: polygon(0 0, 82% 0, 100% 100%, 18% 100%);
+        }
+    }
+    
     .even {
                 
         .skewed-thumbnail {
-            -webkit-transform: skewX(-14deg);
-            transform: skewX(-14deg)!important;
+/*            -webkit-transform: skewX(-14deg);
+            transform: skewX(-14deg)!important;*/
             .post-thumbnail {
-                -webkit-transform: skewX(14deg);
-                transform: skewX(14deg)!important;
+/*                -webkit-transform: skewX(14deg);
+                transform: skewX(14deg)!important;*/
+-webkit-clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
+            clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
             }
         }
         

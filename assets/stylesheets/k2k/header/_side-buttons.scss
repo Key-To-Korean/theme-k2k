@@ -56,7 +56,7 @@
             
             &:before {
                 font-family: FontAwesome;
-                content: "\f060";
+                /*content: "\f060";*/
                 color: $color__gray;
                 width: 3em;
                 height: 3em;
@@ -76,7 +76,7 @@
             
             &:before {
                 font-family: FontAwesome;
-                content: "\f061";
+                /*content: "\f061";*/
                 color: $color__gray;
                 width: 3em;
                 height: 3em;
@@ -86,13 +86,46 @@
         }
         
         a {
-            clip: rect(1px, 1px, 1px, 1px);
+            border: none;
+            height: 3em;
+            width: 3em;
+            padding: 0;
+            text-align: center;
+            line-height: 3em;
+            color: $color__gray;
+/*            clip: rect(1px, 1px, 1px, 1px);
             position: absolute !important;
             height: 1px;
             width: 1px;
             overflow: hidden;
             padding: 0;
-            margin: 0;
+            margin: 0;*/
+
+            &:hover,
+            &:active, 
+            &:focus {
+                background: $color__link;
+                color: $color__white;
+                box-shadow: none;
+                
+                .screen-reader-text {
+                    clip: auto;
+        position: relative;
+        height: auto;
+        width: auto;
+        right: 4em;
+        text-align: right;
+        font-size: 0.7em;
+        color: white;
+        background: $color__gray;
+        line-height: 2em;
+        margin: 1.2em;
+        padding: 0 1em;
+        font-weight: 300;
+        opacity: 0.8;
+        border-radius: 5px;
+                }
+            }
         }
     }
     
@@ -106,7 +139,7 @@
         .topbutton {
             font-family: "FontAwesome";
             content: '\f077';
-            color: gray;
+            color: $color__gray;
             /* background-color: #1081df; */
             /* height: 30px; */
             /* width: 40px; */
@@ -114,7 +147,7 @@
             /* right: 20px; */
             /* bottom: 20px; */
             /* z-index: 1; */
-            display: block;
+            /*display: block;*/
             line-height: 3em; 
             height: 3em; 
             padding: 1em;
@@ -123,6 +156,8 @@
             &:active,
             &:focus {
                 border-bottom: none;
+                fill: $color__white;
+                color: $color__white;
             }
         }
         
@@ -131,11 +166,9 @@
         }
     }
     
-    .site-side-button:hover .screen-reader-text,
-    .nav-previous:hover .screen-reader-text,
-    .nav-next:hover .screen-reader-text {
+    .site-side-button:hover .screen-reader-text {
         clip: auto;
-        position: relative;
+        /*position: relative;*/
         height: auto;
         width: auto;
         right: 4em;

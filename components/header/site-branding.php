@@ -11,15 +11,14 @@
 			<?php
 			endif;
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-                                <p class="site-description">
-                                <?php if ( get_theme_mod( 'blogdescription_xl' ) != '' ) : 
-                                       echo get_theme_mod( 'blogdescription_xl' );
-                                else : echo $description; /* WPCS: xss ok. */
-				endif; ?>
-                                </p>
-			<?php
-			endif; ?>
+			$description = get_bloginfo( 'description', 'display' ); ?>
+                                
+                        <p class="site-description">
+                        <?php if ( get_theme_mod( 'blogdescription_xl' ) != '' ) : 
+                               echo get_theme_mod( 'blogdescription_xl' );
+                        else : echo $description; /* WPCS: xss ok. */
+                        endif; ?>
+                        </p>
+
                     </div><!-- .site-branding-text -->
 		</div><!-- .site-branding -->

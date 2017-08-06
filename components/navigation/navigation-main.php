@@ -3,7 +3,7 @@
         <?php 
         if ( get_theme_mod( 'dark_logo' ) ) { ?>
         
-            <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">        
+            <a class="logo screen-reader-text" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">        
                 <img src="<?php echo get_theme_mod( 'dark_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
                 <p class="site-title"><?php bloginfo( 'name' ); ?></p>
             </a>

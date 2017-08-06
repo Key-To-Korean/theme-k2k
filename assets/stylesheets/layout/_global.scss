@@ -22,15 +22,15 @@
     padding-right: 0; }
   .row .row {
     max-width: none;
-    margin-left: -0.625rem;
-    margin-right: -0.625rem;
+    /*margin-left: -0.625rem;*/
+    /*margin-right: -0.625rem;*/
     margin-left: 0rem;
     margin-right: 0rem;
     max-width: none; }
     @media screen and (min-width: 40em) {
       .row .row {
-        margin-left: -0.9375rem;
-        margin-right: -0.9375rem;
+        /*margin-left: -0.9375rem;*/
+        /*margin-right: -0.9375rem;*/
         margin-left: 0rem;
         margin-right: 0rem;
       } }
@@ -48,7 +48,7 @@
     padding: 1em 1em 0;
     
     @media screen and (min-width: $query__small) {
-        padding: 2em 2em 0;
+        padding: 3rem 3rem 0;
     }
 }
 

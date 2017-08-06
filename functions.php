@@ -378,6 +378,14 @@ function k2k_word_count() {
 }
 endif; // k2k_word_count
 
+/*
+ * Add Excerpts to Pages
+ */
+function k2k_add_excerpt_to_pages() {
+    add_post_type_support( 'page', 'excerpt' );
+}
+add_action( 'init', 'k2k_add_excerpt_to_pages' );
+
 /**
  * Custom header for this theme.
  */
