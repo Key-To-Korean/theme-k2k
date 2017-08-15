@@ -16,8 +16,10 @@ get_header(); ?>
 		while ( have_posts() ) : the_post();
                 
                         if ( is_single() ) { ?>
-                            <div class="breadcrumbs entry-meta">
-                                <?php k2k_breadcrumbs(); ?>
+                            <div class="breadcrumbs-container">
+                                <div class="breadcrumbs  entry-meta">
+                                    <?php k2k_breadcrumbs(); ?>
+                                </div>
                             </div>
                         <?php }
 

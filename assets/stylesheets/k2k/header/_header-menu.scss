@@ -15,7 +15,7 @@
                         border-right: 1px dotted $color__light_gray;
 			float: left;
 			position: absolute;
-			top: 2em;
+			top: 40px;
 			left: -999em;
 			z-index: 9999999;
                         display: block;
@@ -90,6 +90,7 @@
 		position: relative;
                 font-weight: 300;
                 line-height: 2;
+                height: 40px;
                 /*padding: 1em;*/
                 height: auto;
                 /*padding-right: 0.25em;*/
@@ -107,6 +108,7 @@
 		display: block;
 		text-decoration: none;
                 color: $color__white;
+                height: 40px;
 	}
 
 	.current_page_item > a,
@@ -126,7 +128,7 @@
             width: 2em;
             height: auto;
             line-height: 2;
-            height: 37px;
+            height: 40px;
             &:hover, 
             &:active, 
             &:focus {

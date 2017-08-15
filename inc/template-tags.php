@@ -77,7 +77,7 @@ function k2k_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() && is_singular() ) {
             
-                k2k_breadcrumbs();
+//                k2k_breadcrumbs();
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( '', 'k2k' ) );
@@ -316,20 +316,28 @@ function k2k_author_box() {
         $user_desc =    get_the_author_meta( 'user_description', $post->post_author );              // Get bio info
         $user_site =    get_the_author_meta( 'url', $post->post_author );                           // Website URL
         $user_posts =   get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) );    // Link to author archive page
-        
+        if( get_header_image() ) $header_image = 'style="background-image: url(\'' . get_header_image() . '\');"';
+        //echo $header_image;
         /*
          * Create the Author box
          */
-        $author_details  = '<aside class="author_bio_section">';
+        ?>
+        <aside class="author_bio_section_bg" style="background-image: url('<?php header_image(); ?>');">
+        <?php
+        // $author_details  = '<aside class="author_bio_section_bg" ' . $header_image . '>';
+              $author_details .= '<div class="author_bio_section">';  
         $author_details .= '<div class="author_bio_container">';
-        $author_details .= '<p class="show-hide-author label">' . esc_html__( 'Hide author info', 'k2k' ) . '</p>';
-        $author_details .= '<section class="author-avatar">' . get_avatar( get_the_author_meta( 'user_email' ), 240 ) . '</section>';
+        $author_details .= '<p class="entry-meta label">' . esc_html__( 'About the author', 'k2k' ) . ' <span class="show-hide-author"><i class="fa fa-minus-circle"></i></span></p>';
+        
 //        $author_details .= '<h3 class="author-title"><span>' . esc_html__( 'About ', 'k2k' );
 //            if ( is_author() ) $author_details .= $display_name;        // If an author archive, just show the author name
 //            else $author_details .= esc_html__( 'the Author', 'k2k' ); // If a regular page, show "About the Author"
 //        $author_details .= '</span></h3>';
         
         $author_details .= '<div class="author-box">';
+                $author_details .= '<section class="author-avatar">' . get_avatar( get_the_author_meta( 'user_email' ), 240 );
+                $author_details .= '</section>';
+
         $author_details .= '<section class="author-info">';
         
         if ( ! empty( $display_name ) && ! is_author() ) {          // Don't show this name on an author archive page
@@ -337,21 +345,21 @@ function k2k_author_box() {
             $author_details .= '<a class="fn" href="' . esc_url( $user_posts ) . '">' . $display_name . '</a>';
             $author_details .= '</h3>';
         }
+        if ( ! is_author() ) {  // Don't show the meta info on an author archive page
+                $author_details .= '<p class="author-links entry-meta"><span class="vcard"><a class="fn" href="' . esc_url( $user_posts ) . '">' . esc_html__( 'More posts', 'k2k' ) . '</a></span>';
+
+                // Check if author has a website in their profile
+                if ( ! empty( $user_site ) ) 
+                    $author_details .= '<a class="author-site" href="' . esc_url( $user_site ) . '" target="_blank" rel="nofollow">' . esc_html__( 'Website', 'k2k' ) . '</a></p>';
+                else $author_details .= '</p>';
+                }
         if ( ! empty( $user_desc ) ) 
             $author_details .= '<p class="author-description">' . $user_desc . '</p>';
-        
-        if ( ! is_author() ) {  // Don't show the meta info on an author archive page
-            $author_details .= '<p class="author-links entry-meta"><span class="vcard">' . esc_html__( 'All posts by ', 'k2k' ) . '<a class="fn" href="' . esc_url( $user_posts ) . '">' . $display_name . '</a></span>';
-
-            // Check if author has a website in their profile
-            if ( ! empty( $user_site ) ) 
-                $author_details .= '<a class="author-site" href="' . esc_url( $user_site ) . '" target="_blank" rel="nofollow">' . esc_html__( 'Website', 'k2k' ) . '</a></p>';
-            else $author_details .= '</p>';
-        }
         
         $author_details .= '</section>';
         $author_details .= '</div>';
         $author_details .= '</div><!-- .author_bio_container -->';
+            $author_details .= '</div><!-- .author_bio_container_bg -->';
         $author_details .= '</aside>';
         
         echo wp_kses_post( $author_details );

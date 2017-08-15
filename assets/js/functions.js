@@ -75,10 +75,10 @@
      */
     $( ".show-hide-author" ).click( function() {
         $( ".author-box" ).toggle( 600, 'swing' );
-        if ( $( this ).html() == "Hide" ) {
-            $( this ).html( "Show" );
+        if ( $( this ).html() == "<i class=\"fa fa-plus-circle\"></i>" ) {
+            $( this ).html( "<i class=\"fa fa-minus-circle\"></i>" );
         } else {
-            $( this ).html( "Hide" );
+            $( this ).html( "<i class=\"fa fa-plus-circle\"></i>" );
         }
     });
     

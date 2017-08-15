@@ -143,7 +143,7 @@
 .entry-header,
 .entry-content, 
 .author_bio_container {
-    max-width: 42em!important;
+    max-width: $size__body;
     margin: 0 auto;
 }
 
@@ -201,12 +201,14 @@
 }
 
 .entry-footer {
-    margin: 0 auto 2em;
+    margin: 0 auto;
+    max-width: $size__body;
+    border-top: 2px solid $color__light_gray;
     
 }
 
-.breadcrumbs, 
-.tags-links {
+.breadcrumbs,
+.cat-links {
     
     @include breadcrumbs();
     /*margin-bottom: 2em;*/
@@ -217,21 +219,23 @@
     /*margin-left: -6px!important;*/
     
     a {
-        /*padding: 0 15px 0px 10px;*/
+        padding: 0 10px;
         /*line-height: 3;*/
-        /*margin-right: 5px;*/
-        /*display: inline-block;*/
-            /*color: white;*/
+        margin-right: 5px;
+        display: inline-block;
+            color: white;
     text-decoration: none;
-    /*background: #878d91;*/
+    background: $color__light_gray;
+    border-radius: 20px;
+    cursor: pointer;
         
         &:hover,
         &:focus,
         &:active {
-            background: transparent;
-            color: $color__link;
+            background: $color__gray;
+            /*color: $color__link;*/
             &:before {
-                border-color: $color__link;
+                /*border-color: $color__link;*/
             }
         }
     }
@@ -246,46 +250,63 @@
     }
     
 }
-.breadcrumbs {
+.breadcrumbs-container {
     background: $color__very_light_gray;
     /*border-bottom: 1px solid $color__light_gray_2;*/
     margin: -3rem -3rem 0;
-    padding: 0.5em 3rem 0;
+    padding: 1rem 3rem 0;
+}
+.breadcrumbs {
+    max-width: $query__large;
+    margin: 0 auto;
     text-align: left;
-    max-width: $size__body;
 }
 .tags-links {
-    float: right;
+    text-align: right;
+    display: block;
+    margin: 1em 0;
+    padding-right: 0!important;
     a {
-    padding: 0 5px; 
+    padding: 0 10px; 
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid $color__light_gray;
+    color: lighten( $color__gray, 15% );
+    border-radius: 20px;
+    display: inline-block;
         &:before {
             content: "#";
+        }
+        &:hover, &:active, &:focus {
+            background: $color__gray;
+            color: $color__white;
         }
     }
     &:after {
         font-family: "FontAwesome";
-        right: 1em;
-        left: auto;
+        right: -18px;
+        top: 3px;
+        position: absolute;
+/*        left: auto;*/
         content: '\f02c';
     }
 }
 
-.author_bio_section {
-    background: linear-gradient(to right, rgba(81, 207, 102, 1) 0%, rgba(50, 154, 240, 1) 100%);
+.author_bio_section_bg {
     margin: 0 -3rem;
-    padding: 2rem 3rem;
+    padding: 0 3rem;
+}
+
+.author_bio_section {
+    //@include gradient();
+    background: linear-gradient(to right, rgba(81, 207, 102, 1) 0%, rgba(50, 154, 240, 1) 100%);
+    margin: 4rem -3rem 0;
+    padding: 0 3rem;
     color: $color__white;
 }
 
 .author_bio_container {
     @include font-size(0.9);
-    
-    .author-avatar {
-/*        position: absolute;
-        top: -6em;
-        right: 0;*/
-float: right;
-    }
     
     .show-hide-author, 
     .entry-meta {
@@ -293,13 +314,57 @@ float: right;
         font-size: 0.875rem;
         font-weight: 300;
         color: $color__white;
+        margin-bottom: 0;
         
         a {
             color: $color__white;
         }
     }
+    .author-links {
+        /*padding-bottom: 1rem;*/
+        display: inline-block;
+        margin-top: 0;
+    }
+    .author-name {
+        font-size: 1.5em;
+        display: inline-block;
+        margin-right: 1em;
+        a {
+            color: $color__white;
+
+        }
+    }
+    .author-description {
+        font-size: 0.9em;
+        font-weight: 300;
+        margin-bottom: 3em;
+    }
     
 }
+
+.author-box {
+    /*display: none;*/
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.author-avatar {
+        margin-left: 2em;
+        margin-bottom: 2em;
+        flex: 0 0 25%;
+        /*max-width: $size__body;*/
+        /*margin: 0 auto;*/
+        img {
+/*            position: absolute;
+            top: -2em;
+            left: 0;
+            width: 100px;
+            z-index: 1;*/
+            top: 50%;
+            margin-top: -50%;
+            border-radius: 50%;
+        }
+    }
 
 .final-comment {
     border-top: 5px solid $color__light_gray;
