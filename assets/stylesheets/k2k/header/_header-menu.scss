@@ -325,6 +325,13 @@
     .site-title {
         opacity: 1!important;
     }
+    
+    .site-title {
+
+            padding-top: 1.35em!important;
+
+    }
+    
     &:hover, 
     &:active, 
     &:focus {
@@ -337,12 +344,22 @@
 .main-navigation.toggled ul,
 .home-navigation.toggled ul {
 	display: block;
+        background: $color__white;
+        margin: 0 auto;
+        line-height: 2;
+    padding: 0.5em 1em;
+    border-radius: 5px;
 }
 
 .menu-toggle:before {
 	content: "\2630";
 	display: inline-block;
 	margin-right: 5px;
+            
+}
+.site-nav-button {
+    margin: 10px 0;
+    float: right;
 }
 
 @media screen and (min-width: #{$breakpoint_tablet}) {

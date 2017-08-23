@@ -32,7 +32,10 @@
 /*                        margin-top: -15px;
                         margin-left: -10px;*/
                         border: 1px solid;
-                        max-width: 50%;
+                        max-width: 90%;
+                        @media screen and (min-width: $query__small) {
+                            max-width: 50%;
+                        }
                         margin: 0 auto;
                         
                         &:focus,
@@ -71,7 +74,10 @@
             height: 100%;
             
             .search-field {
-                width: calc(100vw - 125px);
+                width: 90%;
+                @media screen and (min-width: $query__small) {
+                    width: calc(100vw - 125px);
+                }
                 margin-top: calc( 50vh - 38px );
             }
             

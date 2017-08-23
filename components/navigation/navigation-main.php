@@ -14,7 +14,7 @@
             
         } ?>
     
-	<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'k2k' ); ?></button>
+	<button class="menu-toggle site-nav-button" aria-controls="top-menu" aria-expanded="false"><?php esc_html_e( 'Site Menu', 'k2k' ); ?></button>
 	
         <?php wp_nav_menu( 
                 array( 

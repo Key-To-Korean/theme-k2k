@@ -5,13 +5,13 @@
     @include font-size(0.7);
     font-weight: 300;
     color: $color__gray;
-    height: 42px;
+    min-height: 42px;
     ul {
         margin: 10px 5px 0 0;
         list-style: none;
         float: left;
         li {
-            display: inline;
+            display: inline-block;
             &:after {
                 content: "";
                 border-right: 1px solid $color__gray;
@@ -27,11 +27,12 @@
 
 .social-navigation {
         float: right;
-        padding-right: 13px;
+        /*padding-right: 13px;*/
 
 
         .social-links-menu {
             /*width: 120%;*/
+            margin: 0 0 5px;
 
             a {
                 color: $color__gray;

@@ -8,7 +8,10 @@
         
         .post-thumbnail-container {
             height: 140px;
-            width: 200px!important;
+            width: 100%!important;
+            @media screen and (min-width: $query__small) {
+                width: 200px!important;
+            }
             position: absolute;
             
             &:before,
@@ -21,6 +24,7 @@
             .post-thumbnail {
                 width: 200px!important;
                 height: 140px!important;
+                margin: 0 auto;
             }
         }
         
@@ -32,7 +36,15 @@
         padding-top: 10px;
         border-top: 1px solid $color__light_gray;
         &.has-thumbnail {
-            padding-left: 220px;
+            padding-top: 150px;
+            padding-bottom: 30px;
+        }
+        @media screen and (min-width: $query__small) {
+            &.has-thumbnail {
+                padding-top: 0;
+                padding-bottom: 0;
+                padding-left: 220px;
+            }
         }
     }
     
@@ -84,10 +96,13 @@
             clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
             }
         }
-        
-        .entry-header.has-thumbnail {
-            margin-left: 35px;
-            padding-left: 185px;
+        @media screen and (min-width: $query__small) {
+            .entry-header.has-thumbnail {
+                padding-top: 0;
+                padding-bottom: 0;
+                margin-left: 35px;
+                padding-left: 185px;
+            }
         }
 
     }

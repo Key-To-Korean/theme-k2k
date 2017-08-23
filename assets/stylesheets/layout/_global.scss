@@ -7,10 +7,16 @@
 }
 
 .container {
-      padding: 0 2rem;
+      padding: 0 1rem;
       width: 100%;
       height: inherit;
+      
+      @media screen and (min-width: $query__small) {
+          padding: 0 2rem;
+    }
   }
+  
+  
 
   .row::before, .row::after {
     content: ' ';
@@ -45,7 +51,7 @@
 
 .site-content {
     margin-top: 70px;
-    padding: 1em 1em 0;
+    padding: 1em 2em 0;
     
     @media screen and (min-width: $query__small) {
         padding: 3rem 3rem 0;

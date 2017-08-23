@@ -104,12 +104,16 @@
 
 .site-description {
     margin: 0;
-    @include font-size(0.9);
+    @include font-size(0.8);
     font-weight: 300;
     color: $color__body;
     
     a {
         color: #fff;
+    }
+    
+    @media screen and (min-width: $query__small) {
+        @include font-size(0.9);
     }
 }
 

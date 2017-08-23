@@ -52,15 +52,28 @@ body {
         /*padding-right: 0;*/
 
         .content-area {
-            width: 60%;
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 4em;
+            @media screen and (min-width: $query__small) {
+                width: 60%;
+                padding-right: 4em;
+                margin-bottom: 0;
+            }
             -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
             flex: 1 1 auto;
-            padding-right: 4em;
+            
         }
 
         aside#secondary {
-            width: 35%;
+            width: 100%;
+            margin-left: 0;
+            @media screen and (min-width: $query__small) {
+                width: 35%;
+                margin-left: 2em;
+            }
+            
             -webkit-box-flex: 0;
             -ms-flex: 0 0 auto;
             flex: 0 0 auto;
@@ -69,7 +82,7 @@ body {
             right: 0;
             background: $color__white;
             color: initial;
-            margin-left: 2em;
+            
             padding: 0;
             a {
 /*                color: $color__gray;

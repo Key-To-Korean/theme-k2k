@@ -152,12 +152,3 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Icons
 --------------------------------------------------------------*/
 @import "shared/icons";
-
-/*--------------------------------------------------------------
-# WPAdminBar Fix
---------------------------------------------------------------*/
-@media screen and (max-width: 600px) {
-    #wpadminbar {
-        top: -46px;
-    }
-}

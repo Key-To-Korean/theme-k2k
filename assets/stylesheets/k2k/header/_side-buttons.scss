@@ -2,13 +2,22 @@
     position: fixed;
     top: 50%;
     z-index: 3;
-    right: 0px;
+    
     width: 3em;
     background: $color__white;
     border: 1px solid gainsboro;
     border-right: none;
     transform: translateY(-50%);
     cursor: pointer;
+    right: -20px;
+    @media screen and (min-width: $query__small) {
+        right: 0px;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+        right: 0px;
+    }
     
     .site-side-button {
         color: $color__gray;

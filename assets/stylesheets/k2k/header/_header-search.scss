@@ -1,7 +1,7 @@
 .search-toggle {
-    position: absolute;
-    top: 0;
-    right: 2em;
+/*    position: absolute;
+    bottom: 0;
+    right: 2em;*/
     background: $color__white;
     width: 2em;
     height: 2em;
@@ -10,7 +10,9 @@
     text-align: center;
     /* padding-top: 9px; */
     line-height: 1.3;
-    margin-top: 11px;
+    /*margin-top: 11px;*/
+    float: right;
+    margin: 2px 0 0 2px;
     &:hover, 
     &:active, 
     &:focus {

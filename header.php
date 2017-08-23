@@ -54,6 +54,11 @@
                     </ul>
                     <?php endif; ?>
                     
+                    <div class="search-toggle">
+                        <i class="fa fa-search"></i>
+                        <a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
+                    </div>
+                    
                     <?php if ( has_nav_menu( 'social' ) ) : ?>
                         <nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">
                                 <?php
@@ -67,11 +72,6 @@
                                 ?>
                         </nav><!-- .social-navigation -->
                     <?php endif; ?>
-                        
-                    <div class="search-toggle">
-                        <i class="fa fa-search"></i>
-                        <a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
-                    </div>
                         
                 </div><!-- .header-contact -->
                 <?php // k2k_social_menu(); ?>
