@@ -2812,6 +2812,63 @@ li.archive-year > a {
 	display: block;
 }
 
+/* Infinite scroll on single posts */
+.load-previous {
+	border-top: 1px solid #878d91;
+	padding-top: 2em;
+}
+
+.load-previous .nav-subtitle {
+	margin-bottom: 2em;
+}
+
+.load-previous,
+.load-previous .nav-previous {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.load-previous a {
+	margin-top: 2em;
+	padding: 1em 2em;
+	border: 1px solid #878d91;
+}
+
+.load-previous a:focus,
+.load-previous a:hover,
+.load-previous a:active {
+	box-shadow: none;
+	border-color: #1d1f21;
+}
+
+/* AJAX spinner for slow connections */
+@-webkit-keyframes spinner {
+	to {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}
+@keyframes spinner {
+	to {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}
+
+.ajax-loader {
+	display: none;
+	margin-top: 1em;
+	text-align: center;
+	padding: 0.7em;
+}
+
+.ajax-loader img {
+	-webkit-animation: spinner .6s linear infinite;
+	        animation: spinner .6s linear infinite;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/

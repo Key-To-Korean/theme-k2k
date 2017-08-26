@@ -106,12 +106,12 @@ function k2k_fonts_url() {
 
 	/**
 	 * Translators: If there are characters in your language that are not
-	 * supported by Noto Sans and Noto Serif, translate this to 'off'. 
+	 * supported by Noto Sans and Noto Serif, translate this to 'off'.
          * Do not translate into your own language.
 	 */
 	$noto_sans = _x( 'on', 'Noto Sans font: on or off', 'k2k' );
         $noto_serif = _x( 'on', 'Noto Serif font: on or off', 'k2k' );
-        
+
         $font_families = array();
 
 	if ( 'off' !== $noto_sans ) {
@@ -120,7 +120,7 @@ function k2k_fonts_url() {
         if ( 'off' !== $noto_serif ) {
                 $font_families[] = 'Noto+Serif:400,700';
         }
-        
+
         if ( in_array( 'on', array( $noto_sans, $noto_serif ) ) ) {
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
@@ -194,7 +194,7 @@ function k2k_the_custom_logo() {
  * @param array  $size  Image size. Accepts an array of width and height
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
- * 
+ *
  * @TODO  Find responsive breakpoints and adjust these values
  */
 function k2k_content_image_sizes_attr( $sizes, $size ) {
@@ -218,7 +218,7 @@ add_filter( 'wp_calculate_image_sizes', 'k2k_content_image_sizes_attr', 10, 2 );
  * @param object $header The custom header object returned by 'get_custom_header()'.
  * @param array  $attr   Array of the attributes for the image tag.
  * @return string The filtered header image HTML.
- * 
+ *
  * @TODO  Find responsive breakpoints and adjust these values
  */
 function k2k_header_image_tag( $html, $header, $attr ) {
@@ -239,7 +239,7 @@ add_filter( 'get_header_image_tag', 'k2k_header_image_tag', 10, 3 );
  * @param int   $attachment Image attachment ID.
  * @param array $size       Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
- * 
+ *
  * @TODO  Find responsive breakpoints and adjust these values
  */
 function k2k_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
@@ -259,12 +259,12 @@ add_filter( 'wp_get_attachment_image_attributes', 'k2k_post_thumbnail_sizes_attr
 
 /**
  * Add 'odd' and 'even' post classes
- * 
+ *
  * @source http://www.goldenapplewebdesign.com/alternating-post-classes-with-odd-even-styling/
  */
 function k2k_odd_even_post_classes( $classes ) {
     global $current_class;
-    if( is_archive() || is_search() || is_home() ) : 
+    if( is_archive() || is_search() || is_home() ) :
         $classes[] = $current_class;
         $current_class = ( $current_class == 'odd' ) ? 'even' : 'odd';
     endif;
@@ -326,15 +326,15 @@ add_action( 'widgets_init', 'k2k_widgets_init' );
 function k2k_scripts() {
         // Enqueue Google Fonts: Noto Sans and Noto Serif
         wp_enqueue_style( 'k2k-fonts', k2k_fonts_url(), array(), null );
-        
+
         // Enqueue Early Access Font Noto Sans Korean
         // wp_enqueue_style( 'k2k-ea-font', 'http://fonts.googleapis.com/earlyaccess/notosanskr.css' );
         wp_enqueue_style( 'k2k-fa', get_template_directory_uri() . '/assets/fonts/font-awesome.min.css' );
         wp_enqueue_style( 'k2k-spoqa', get_template_directory_uri() . '/assets/fonts/k2k-fonts.css' );
         wp_enqueue_style( 'k2k-satisfy', 'https://fonts.googleapis.com/css?family=Satisfy|News+Cycle:700|Oswald:200,300,400,500,600,700|Yanone+Kaffeesatz:700' );
-        
+
         // Enqueue Noto Sans Mono
-        
+
 	wp_enqueue_style( 'k2k-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'k2k-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), '20170210', true );
@@ -342,13 +342,23 @@ function k2k_scripts() {
             'expand'    => __( 'Expand child menu', 'k2k' ),
             'collapse'  => __( 'Collapse child menu', 'k2k' )
         ));
-        
+
         wp_enqueue_script( 'k2k-functions', get_template_directory_uri() . '/assets/js/functions.js', array( 'jquery' ), '20170718', true );
 
 	wp_enqueue_script( 'k2k-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
+	}
+	if ( is_single() ) {
+		wp_enqueue_script( 'k2k-previous-scroll', get_template_directory_uri() . '/assets/js/previous.ajax.js', array( 'jquery' ), '20170826', true );
+		wp_localize_script( 'k2k-previous-scroll', 'postdata',
+			array(
+				'post_id'		=> get_the_ID(),
+				'theme_uri'		=> get_stylesheet_directory_uri(),
+				'rest_url'		=> rest_url( 'wp/v2/' ),
+			)
+		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'k2k_scripts' );
@@ -433,3 +443,49 @@ require get_template_directory() . '/components/features/widgets/archives.php';
 
 // Adds Links Section and Links Widget back into WordPress
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+
+/**
+ * Add fields to the REST API response
+ */
+add_action( 'rest_api_init', 'k2k_register_fields' );
+function k2k_register_fields() {
+	// Add REST field for previous post ID
+	register_rest_field( 'post',	// object
+		'previous_post_ID',			// field name
+		array(						// request
+			'get_callback'		=> 'k2k_get_previous_post_ID',
+			'update_callback'	=> null,
+			'schema'			=> null,
+		)
+	);
+	// Add REST field for previous post TITLE
+	register_rest_field( 'post',
+		'previous_post_title',
+		array(
+			'get_callback'		=> 'k2k_get_previous_post_title',
+			'update_callback'	=> null,
+			'schema'			=> null,
+		)
+	);
+	// Add REST field for previous post PERMALINK
+	register_rest_field( 'post',
+		'previous_post_link',
+		array(
+			'get_callback'		=> 'k2k_get_previous_post_link',
+			'update_callback'	=> null,
+			'schema'			=> null,
+		)
+	);
+}
+
+function k2k_get_previous_post_ID() {
+	return get_previous_post()->ID;
+}
+
+function k2k_get_previous_post_title() {
+	return get_previous_post()->post_title;
+}
+
+function k2k_get_previous_post_link() {
+	return get_permalink( get_previous_post()->ID );
+}

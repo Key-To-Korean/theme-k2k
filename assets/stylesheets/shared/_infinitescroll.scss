@@ -8,3 +8,50 @@
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/* Infinite scroll on single posts */
+.load-previous {
+	border-top: 1px solid $color__gray;
+	padding-top: 2em;
+}
+
+.load-previous .nav-subtitle {
+	margin-bottom: 2em;
+}
+
+.load-previous,
+.load-previous .nav-previous {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.load-previous a {
+	margin-top: 2em;
+	padding: 1em 2em;
+	border: 1px solid $color__gray;
+}
+
+.load-previous a:focus,
+.load-previous a:hover,
+.load-previous a:active {
+	box-shadow: none;
+	border-color: $color__black;
+}
+
+/* AJAX spinner for slow connections */
+@keyframes spinner {
+	to { transform: rotate( 360deg ); }
+}
+
+.ajax-loader {
+	display: none;
+	margin-top: 1em;
+	text-align: center;
+	padding: 0.7em;
+}
+
+.ajax-loader img {
+	animation: spinner .6s linear infinite;
+}
